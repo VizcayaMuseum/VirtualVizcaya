@@ -1,0 +1,199 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Potree Viewer</title>
+
+    <link rel="stylesheet" type="text/css" href="../build/potree/potree.css">
+    <link rel="stylesheet" type="text/css" href="../libs/jquery-ui/jquery-ui.min.css">
+    <link rel="stylesheet" type="text/css" href="../libs/perfect-scrollbar/css/perfect-scrollbar.css">
+    <link rel="stylesheet" type="text/css" href="../libs/openlayers3/ol.css">
+    <link rel="stylesheet" type="text/css" href="../libs/spectrum/spectrum.css">
+    <link rel="stylesheet" type="text/css" href="../libs/jstree/themes/mixed/style.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/vizcaya.css">
+    <style>
+        body {
+            background-color: #000;
+            color: #000;
+            max-width: 100%;
+            right: 0px;
+        }
+    </style>
+</head>
+
+<body>
+    <script src="../libs/jquery/jquery-3.1.1.min.js"></script>
+    <script src="../libs/spectrum/spectrum.js"></script>
+    <script src="../libs/perfect-scrollbar/js/perfect-scrollbar.jquery.js"></script>
+    <script src="../libs/jquery-ui/jquery-ui.min.js"></script>
+    <script src="../libs/three.js/build/three.min.js"></script>
+    <script src="../libs/other/BinaryHeap.js"></script>
+    <script src="../libs/other/OrbitControls.js"></script>
+    <script src="../libs/tween/tween.min.js"></script>
+    <script src="../libs/d3/d3.js"></script>
+    <script src="../libs/proj4/proj4.js"></script>
+    <script src="../libs/openlayers3/ol.js"></script>
+    <script src="../libs/i18next/i18next.js"></script>
+    <script src="../libs/jstree/jstree.js"></script>
+    <script src="../build/potree/potree.js"></script>
+    <script src="../libs/plasio/js/laslaz.js"></script>
+    <script src="../main.js"></script>
+    <!-- INCLUDE ADDITIONAL DEPENDENCIES HERE -->
+    <!-- INCLUDE SETTINGS HERE -->
+
+    <div class="potree_container" style="position: absolute; width: inherit; height: 100%; right: 0px; top: 0px;">
+        <div id="potree_render_area" style="width: inherit;"></div>
+        <div id="potree_sidebar_container" style="width: inherit;"> </div>
+
+        <!--Control Icons-->
+        <!--<img id="home_icon" onclick="redirectHomeFunc()" src="../images/home.svg" title="Home" />-->
+        <img id="popups_icon" onclick="herm1916Button()" src="../images/GIF/TimeWarp_1916Herm.gif" title="View Herm" />
+        <img id="question_icon" src="../images/question.svg" title="Tutorial" />
+        <img id="refresh_icon" onclick="refreshPopup()" src="../images/refresh.svg" title="Refresh Page" />
+        <img id="fullscreen_icon" onclick="toggleFullScreen()" src="../images/fullscreen.svg" title="Fullscreen" />
+        <!--<img id="control_icon" src="../images/arrows.svg" title="Access Control Panel" />-->
+        <!---->
+        <!-- Navigation Instructions -->
+        <div id="nav_panel" class="navPanel">
+            <div class="navPanel-content">
+                <div class="intrinsic-container intrinsic-container-16x9">
+                    <img class="nav_img" src="../images/navigation.png" />
+                </div>
+            </div>
+        </div>
+        <div id="finger_animation"><img src="../images/fingeranimation.svg" /></div>
+        <img id="gif_loader"src="../assets/img/Ajax_loader_gray_256.gif"/>
+        <!--    <div>
+                <img id="control_panel" src="../images/Control_Panel.png" usemap="#controlPanel" />
+                <map name="controlPanel">
+                    <area shape="circle" coords="50,55,20,10" onclick="redirectFunc()" />
+                    <area shape="circle" coords="170,55,20,10" onclick="redirectHomeFunc()" />
+                    <area shape="circle" coords="110,62,25,10" onclick="potreeMerMoveUp()" />
+                    <area shape="circle" coords="110,140,25,10" onclick="potreeMerMoveDown()" />
+                    <area shape="circle" coords="70,105,20,10" onclick="potreeMerMoveLeft()" />
+                    <area shape="circle" coords="150,105,20,10" onclick="potreeMerMoveRight()" />
+                    <area shape="circle" coords="50,160,20,10" onclick="zoomIn()" />
+                    <area shape="circle" coords="170,160,20,10" onclick="zoomOut()" />
+                </map>
+            </div>
+    -->
+    </div>
+        <script>
+
+            setup();
+            window.viewer = new Potree.Viewer(document.getElementById("potree_render_area"));
+
+            viewer.setEDLEnabled(false);
+            viewer.setFOV(60);
+            viewer.setPointBudget(1 * 100 * 1000);
+            document.title = "";
+            viewer.setEDLEnabled(false);
+
+            viewer.setBackground("black"); // ["skybox", "gradient", "black", "white"];
+            viewer.loadSettingsFromURL();
+
+            /*
+            viewer.loadGUI(() => {
+                viewer.setLanguage('en');
+                $("#menu_scene").next().show();
+                //viewer.toggleSidebar();
+            });
+            */
+
+            viewer.setDescription(``);
+
+            let sceneSG = new Potree.Scene();
+
+            viewer.setScene(sceneSG);
+
+            Potree.loadPointCloud("https://s3.amazonaws.com/vizcaya/pointclouds/herm/cloud.js", "pleasuresandperils", function (e) {
+
+                sceneSG.addPointCloud(e.pointcloud);
+                sceneSG.view.position.set(48.582, -6.237, 52.951);
+                sceneSG.view.lookAt(new THREE.Vector3(-1.311, 0.328, 41.852));
+
+
+                let material = e.pointcloud.material;
+                material.size = 1;
+                material.pointSizeType = Potree.PointSizeType.ADAPTIVE;
+
+            });
+			/*
+            var timeoutID;
+
+            function setup() {
+                this.addEventListener("mousemove", resetTimer, false);
+                this.addEventListener("touchstart", resetTimer, false);
+                this.addEventListener("mousedown", resetTimer, false);
+                this.addEventListener("mouseover", resetTimer, false);
+                this.addEventListener("mouseout", resetTimer, false);
+                this.addEventListener("keypress", resetTimer, false);
+                this.addEventListener("DOMMouseScroll", resetTimer, false);
+                this.addEventListener("mousewheel", resetTimer, false);
+                this.addEventListener("touchmove", resetTimer, false);
+                this.addEventListener("MSPointerMove", resetTimer, false);
+
+                startTimer();
+            }
+
+            function startTimer() {
+
+                timeoutID = window.setTimeout(goInactive, 300000);
+            }
+
+            function resetTimer(e) {
+                window.clearTimeout(timeoutID);
+
+                goActive();
+            }
+
+            function goInactive() {
+
+                window.top.location.href = "../index.html";
+            }
+
+            function goActive() {
+
+
+                startTimer();
+            }
+			*/
+
+            /*
+            setTimeout(function () {
+                document.getElementById("gif_loader").style.display = "flex";
+            }, 1000);
+            */
+            setTimeout(function () {
+                document.getElementById("finger_animation").style.display = "flex";
+
+                window.onclick = function (event) {
+                    $("#finger_animation").fadeOut();
+                }
+                window.ontouchstart = function (event) {
+                    $("#finger_animation").fadeOut();
+                }
+            }, 1000);
+
+            
+
+            
+            /* Navigation Controls Image
+            *****************************************************/
+            $("#question_icon").click(function () {
+                $("#nav_panel").fadeIn();
+            });
+
+            var navPanel = document.getElementById('nav_panel');
+            navPanel.addEventListener('click', function () {
+                $("#nav_panel").fadeOut();
+            });
+
+        </script>
+
+
+</body>
+</html>
