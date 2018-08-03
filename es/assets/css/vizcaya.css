@@ -255,7 +255,7 @@ h1, h2, h3, h4 {
  */
 
 #header-div {
-    word-wrap: break-word;
+    /*word-wrap: break-word;*/
 }
 
 .sidebar {
@@ -1270,16 +1270,6 @@ a {
         transform: scale(1.5);
         -webkit-transform: scale(1.5);
     }
-}
-
-.titlebarAnimation {
-    background-color: #3D9FD6;
-    border: 2px solid #3D9FD6; /*1px solid rgba(255, 255, 255, 0.7) for border thickness*/
-    padding: 6px 9px; /*5px 8px|1px 8px | 2px 13px for roundness*/
-    opacity: 1; /*1 shows icons | 0 !important could hide annotations*/
-    animation: mapAnimation 1s ease-in-out infinite alternate;
-    -webkit-animation-name: mapAnimation;
-    animation-name: mapAnimation;
 }
 /*
 *   INDEX.HTML CSS
