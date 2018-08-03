@@ -1,0 +1,739 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Potree Viewer</title>
+
+    <link rel="stylesheet" type="text/css" href="../build/potree/potree.css">
+    <link rel="stylesheet" type="text/css" href="../libs/jquery-ui/jquery-ui.min.css">
+    <link rel="stylesheet" type="text/css" href="../libs/perfect-scrollbar/css/perfect-scrollbar.css">
+    <link rel="stylesheet" type="text/css" href="../libs/openlayers3/ol.css">
+    <link rel="stylesheet" type="text/css" href="../libs/spectrum/spectrum.css">
+    <link rel="stylesheet" type="text/css" href="../libs/jstree/themes/mixed/style.css">
+    <link rel="stylesheet" type="text/css" href="../libs/font-awesome/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="../libs/font-awesome/font-awesome.css">
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" type="text/css" href="../assets/css/vizcaya.css">
+
+    <style>
+        /*Scrollbar for hotspot controls*/
+        ::-webkit-scrollbar {
+            width: 9px;
+        }
+
+        ::-webkit-scrollbar-button {
+            width: 8px;
+            height: 2px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: black;
+            border: thin solid black;
+            box-shadow: 0px 0px 3px black inset;
+            border-radius: 12px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #565656;
+            border: thin solid #565656;
+            border-radius: 12px;
+        }
+
+            ::-webkit-scrollbar-thumb:hover {
+                background: #7d7d7d;
+            }
+
+    </style>
+</head>
+
+<body>
+    <script src="../libs/jquery/jquery-3.1.1.min.js"></script>
+    <script src="../libs/spectrum/spectrum.js"></script>
+    <script src="../libs/perfect-scrollbar/js/perfect-scrollbar.jquery.js"></script>
+    <script src="../libs/jquery-ui/jquery-ui.min.js"></script>
+    <script src="../libs/three.js/build/three.min.js"></script>
+    <script src="../libs/other/BinaryHeap.js"></script>
+    <script src="../libs/tween/tween.min.js"></script>
+    <script src="../libs/d3/d3.js"></script>
+    <script src="../libs/proj4/proj4.js"></script>
+    <script src="../libs/openlayers3/ol.js"></script>
+    <script src="../libs/i18next/i18next.js"></script>
+    <script src="../libs/jstree/jstree.js"></script>
+    <script src="../build/potree/potree.js"></script>
+    <script src="../libs/plasio/js/laslaz.js"></script>
+    <script src="../libs/other/OrbitControls.js"></script>
+    <script src="../main.js"></script>
+    <!-- INCLUDE ADDITIONAL DEPENDENCIES HERE -->
+    <!-- INCLUDE SETTINGS HERE -->
+
+    <div class="potree_container" style="position: absolute; width: 100%; height: 100%; left: 0px; top: 0px; ">
+        <div id="potree_render_area"></div>
+        <div id="potree_sidebar_container"> </div>
+
+        <!--Control Icons-->
+        <!--<img id="home_icon" onclick="redirectHomeFunc()" src="../images/home.svg" title="Home" />-->
+        <img id="question_icon" src="../images/question.svg" title="Navigation" />
+        <img id="map_icon" onclick="toggleMap()" src="../images/map.svg" title="Map" />
+        <img id="refresh_icon" onclick="refreshButton()" src="../images/refresh.svg" title="Refresh Page" />
+        <img id="fullscreen_icon" onclick="toggleFullScreen()" src="../images/fullscreen.svg" title="Fullscreen" />
+        <!--<img id="control_icon" src="../images/arrows.svg" title="Access Control Panel" />-->
+        <!-- Navigation Instructions -->
+        <div id="nav_panel" class="navPanel">
+            <div class="navPanel-content">
+                <div class="intrinsic-container intrinsic-container-16x9">
+                    <img class="nav_img" src="../images/navigation.png" />
+                </div>
+            </div>
+        </div>
+        <img id="fingeranimation_grotto" src="../images/fingeranimation.svg" />
+        <!--Hotspots Dropup-->
+        <div class="controls">
+            <div class="hotspot-controls">
+                <div id="prev" data-title="Previous Annotation" data-action="prev-annotation">
+                    <div id="prevDiv"><img id="prevIcon" src="../images/caret-left.svg" /></div>
+                </div>
+                <div id="hotspots" class="hotspot-name" data-action="toggle-annotation-list">Toque para Explorar</div>
+                <div id="next" data-title="Next Annotation" data-action="next-annotation">
+                    <div id="nextDiv"><img id="nextIcon" src="../images/caret-right.svg" /></div>
+                </div>
+                <div id="lists" class="list hotspots-list visible">
+                    <!--<a href="#" data-action="toggle-visibility" class="annotations-visibility"></a>-->
+                    <!--<a href="#" data-action="toggle-autopilot" class="annotations-autopilot"></a>-->
+                    <ul class="js-scrollable">
+                        <li id="li1" class="link"><a data-hotspot-target="0" title="Amorino"><span class="index">&sccue;</span> Amorino</a></li>
+                        <li id="li2" class="link"><a data-hotspot-target="1" title="Techo Mural"><span class="index">&sccue;</span>Techo Mural</a></li>
+                        <li id="li3" class="link"><a data-hotspot-target="2" title="Esturiones"><span class="index">&sccue;</span>Esturiones</a></li>
+                        <li id="li4" class="link"><a data-hotspot-target="3" title="Fuentes"><span class="index">&sccue;</span>Fuentes</a></li>
+                        <li id="li5" class="link"><a data-hotspot-target="4" title="Piso"><span class="index">&sccue;</span>Piso</a></li>
+                        <li id="li6" class="link"><a data-hotspot-target="5" title="Caimanes"><span class="index">&sccue;</span> Lagartos</a></li>
+                        <li id="li7" class="link"><a data-hotspot-target="6" title="Octopuses"><span class="index">&sccue;</span> Pulpos</a></li>
+                        <li id="li8" class="link"><a data-hotspot-target="7" title="Lobsters"><span class="index">&sccue;</span> Langostas</a></li>
+                        <li id="li9" class="link"><a data-hotspot-target="8" title="Turtles"><span class="index">&sccue;</span> Tortugas de Mar</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Popup for Map-->
+        <div id="myMap" class="popup">
+            <div class="popup-content" style="background-color: #ffffff;">
+                <span class="close">&times;</span>
+                <div id="popup_container" class="intrinsic-container intrinsic-container-16x9" style="padding-top: 3%;">
+                    <div id="iframe3">
+                        <img id="floor_plan" src="../assets/img/full-estate_panogroup24_panogroup24.png" />
+                        <img id="grotto-location" src="../assets/img/2_user_defaultmap0.png" />
+                        <img id="map_marker" src="../assets/img/map_marker.svg" />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+        <script>
+
+            function toggleMap() {
+                $("#myMap").fadeIn();
+
+                var popup = document.getElementById('myMap');
+                var span = document.getElementsByClassName("close")[0];
+
+                //Applying opacity to parent page
+                parentWin = window.parent;
+                var sidebar = parentWin.document.getElementById('split-container');
+                sidebar.style.opacity = "0.4";
+
+                span.onclick = function () {
+                    popup.style.display = "none";
+                    //reset opacity of parent page
+                    sidebar.style.opacity = "1";
+                }
+                window.onclick = function (event) {
+                    if (event.target == popup) {
+                        popup.style.display = "none";
+                        //reset opacity of parent page
+                        sidebar.style.opacity = "1";
+                    }
+                }
+            }
+
+            function fingerAnimation() {
+
+                document.getElementById("fingeranimation_grotto").style.display = "block";
+                setTimeout(function () {
+                    document.getElementById("fingeranimation_grotto").style.display = "none";
+                }, 7500);
+
+                window.onclick = function (event) {
+                    $("#fingeranimation_grotto").fadeOut();
+                }
+                window.ontouchstart = function (event) {
+                    $("#fingeranimation_grotto").fadeOut();
+                }
+            }
+            function idleTimer() {
+                var t;
+                //window.onload = resetTimer;
+                window.onmousemove = resetTimer; // catches mouse movements
+                window.onmousedown = resetTimer; // catches mouse movements
+                window.ontouchstart = resetTimer;
+                window.ontouchmove = resetTimer;
+                window.onclick = resetTimer;     // catches mouse clicks
+                window.onscroll = resetTimer;    // catches scrolling
+                window.onkeypress = resetTimer;  //catches keyboard actions
+
+                function logout() {
+                    window.top.location.href = '../index.html';  //Adapt to actual logout script
+                }
+                function resetTimer() {
+                    clearTimeout(t);
+                    t = setTimeout(logout, 300000);  // time is in milliseconds (1000 is 1 second)/
+
+                }
+            }
+            idleTimer();
+            window.viewer = new Potree.Viewer(document.getElementById("potree_render_area"));
+
+
+            viewer.setEDLEnabled(false);
+            viewer.setFOV(60);
+
+            viewer.setPointBudget(1 * 100 * 1000);
+            document.title = "";
+            viewer.setEDLEnabled(false);
+            viewer.setBackground("gradient"); // ["skybox", "gradient", "black", "white"];
+            viewer.loadSettingsFromURL();
+            /*
+            viewer.loadGUI(() => {
+                viewer.setLanguage('en');
+                $("#menu_scene").next().show();
+                //viewer.toggleSidebar();
+            });
+            */
+            viewer.setDescription(``);
+
+            let sceneSG = new Potree.Scene();
+            viewer.setScene(sceneSG);
+
+            Potree.loadPointCloud("https://s3.amazonaws.com/vizcaya/pointclouds/grotto/cloud.js", "swimmingpoolgrotto", function (e) {
+
+                sceneSG.addPointCloud(e.pointcloud);
+                sceneSG.view.position.set(-17.926, 20.359, 1.667);
+                sceneSG.view.lookAt(new THREE.Vector3(-28.381, 1.060, -1.867));
+
+                let material = e.pointcloud.material;
+                material.size = 1;
+                material.pointSizeType = Potree.PointSizeType.ADAPTIVE;
+
+                {
+                    {
+                        /* Annotation: Opening transition
+                        *****************************************************/
+                        let elTitle = $(`<span>
+                                                    <img src="${Potree.resourcePath}/icons/eye-solid.svg"
+                                                        name="action_set_scene"
+                                                        class="annotation-action-icon"
+                                                        style="filter: invert(1);" />
+                                                </span>`);
+                        elTitle.find("img[name=action_set_scene]").click((event) => { });
+                        elTitle.toString = () => "AMORINO";
+
+                        let aAbout0 = new Potree.Annotation({
+                            position: [-17.926, 20.359, 1.667],
+                            title: elTitle,
+                            cameraPosition: [-31.261, 5.262, -2.133],
+                            cameraTarget: [-31.029, 2.591, -1.508],
+                        });
+
+                        sceneSG.annotations.add(aAbout0);
+                    }
+
+                    {
+                        /* Annotation: Amorino
+                        *****************************************************/
+                        let elTitle = $(`<span>
+                                            <img src="${Potree.resourcePath}/icons/i.png"
+                                                name="action_set_scene"
+                                                class="annotation-action-icon"
+                                                style="filter: invert(1);" />
+                                        </span>`);
+                        elTitle.find("img[name=action_set_scene]").click((event) => {});
+                        elTitle.toString = () => "AMORINO";
+
+                        let aAbout1 = new Potree.Annotation({
+                            position: [-30.790, 1.353, -2.003],
+                            title: elTitle,
+                            cameraPosition: [-30.289, 2.205, -1.767],
+                            cameraTarget: [-31.354, 1.411, -1.882],
+                            description: `AMORINO<hr>El propósito de esta escultura de plomo fundido siempre fue ser una fuente para la gruta. A pesar de que ya no cumple con su función original, la escultura ha sobrevivido las inundaciones causadas por varias tormentas. El plomo resiste la corrosión porque cuando se expone a la humedad forma una capa de pátina gris como la que se ve aquí.
+                        `});
+
+                        sceneSG.annotations.add(aAbout1);
+                    }
+
+                    {
+                        /* Annotation: Ceiling Mural
+                        *****************************************************/
+                        let elTitle = $(`<span>
+                                            <img src="${Potree.resourcePath}/icons/i.png"
+                                                name="action_set_scene"
+                                                class="annotation-action-icon"
+                                                style="filter: invert(1);" />
+                                        </span>`);
+                        elTitle.find("img[name=action_set_scene]").click((event) => {});
+                        elTitle.toString = () => "CEILING MURAL";
+
+                        let aAbout2 = new Potree.Annotation({
+                            position: [-29.892, 0.542, 0.566],
+                            title: elTitle,
+                            cameraPosition: [-27.114, 1.190, -2.820],
+                            cameraTarget: [-31.292, 2.889, 1.065],
+                            description: `TECHO MURAL<hr>El mural escultural que adorna el techo abovedado muestra una fantasía marina enmarcada por conchas y corales de yeso. Busque las tortugas de mar, los caballitos de mar, los pulpos, los lagartos y los peces. Los colores originales del techo son difíciles de identificar ya que se han desteñido.
+                        `});
+
+                        sceneSG.annotations.add(aAbout2);
+                    }
+
+                    {
+                        /* Annotation: Sturgeon
+                        *****************************************************/
+                        let elTitle = $(`<span>
+                                            <img src="${Potree.resourcePath}/icons/i.png"
+                                                name="action_set_scene"
+                                                class="annotation-action-icon"
+                                                style="filter: invert(1);" />
+                                        </span>`);
+                        elTitle.find("img[name=action_set_scene]").click((event) => {});
+                        elTitle.toString = () => "HUDSON RIVER STURGEONS";
+
+                        let aAbout3 = new Potree.Annotation({
+                            position: [-27.864, 2.535, 0.135],
+                            title: elTitle,
+                            cameraPosition: [-28.826, 1.887, -3.110],
+                            cameraTarget: [-28.826, 1.887, 0.219],
+                            description: `ESTURIONES DEL RIO HUDSON<hr>Originalmente, casi todos los peces estaban recubiertos de una pintura metálica que replicaba la iridiscencia de sus escamas brillando en el agua. El efecto contribuía a la experiencia inmersiva que Deering había preparado para sus invitados. La pintura metálica fue ocultada por las capas de pintura no-metálica aplicada por el personal de Vizcaya para tratar de conservar el mural.
+                        `});
+
+                        sceneSG.annotations.add(aAbout3);
+                    }
+
+                    {
+                        /* Annotation: Fountains
+                        *****************************************************/
+                        let elTitle = $(`<span>
+                                            <img src="${Potree.resourcePath}/icons/i.png"
+                                                name="action_set_scene"
+                                                class="annotation-action-icon"
+                                                style="filter: invert(1);" />
+                                        </span>`);
+                        elTitle.find("img[name=action_set_scene]").click((event) => {});
+                        elTitle.toString = () => "FOUNTAINS";
+
+                        let aAbout4 = new Potree.Annotation({
+                            position: [-26.413, -0.618, -1.323],
+                            title: elTitle,
+                            cameraPosition: [-27.815, 2.041, -1.450],
+                            cameraTarget: [-25.942, 0.084, -1.567],
+                            description: `FUENTES<hr>Estas fuentes de roca coralina son parecidas a las otras fuentes de Vizcaya. El personal de Vizcaya ha aprendido que la restauración de las fuentes ayuda a moderar los altos niveles de humedad en el espacio y a proteger mejor la colección de objetos en la Gruta de la Piscina.
+                        `});
+
+                        sceneSG.annotations.add(aAbout4);
+                    }
+
+                    {
+                        /* Annotation: Floor
+                        *****************************************************/
+                        let elTitle = $(`<span>
+                                            <img src="${Potree.resourcePath}/icons/i.png"
+                                                name="action_set_scene"
+                                                class="annotation-action-icon"
+                                                style="filter: invert(1);" />
+                                        </span>`);
+                        elTitle.find("img[name=action_set_scene]").click((event) => {});
+                        elTitle.toString = () => "FLOOR";
+
+                        let aAbout5 = new Potree.Annotation({
+                            position: [-29.326, -2.261, -2.682],
+                            title: elTitle,
+                            cameraPosition: [-35.020, 3.368, -1.354],
+                            cameraTarget: [-33.436, 1.582, -2.699],
+                            description: `PISO<hr>Al igual que el piso dentro de la casa, el piso de mármol está hecho de raras piedras importadas, cortadas cuidadosamente y colocadas en un intricado patrón.
+                        `});
+
+                        sceneSG.annotations.add(aAbout5);
+                    }
+
+                    {
+                        /* Annotation: Reptiles
+                        *****************************************************/
+                        let elTitle = $(`<span>
+                                                    <img src="${Potree.resourcePath}/icons/eye-solid.svg"
+                                                        name="action_set_scene"
+                                                        class="annotation-action-icon"
+                                                        style="filter: invert(1);" />
+                                                </span>`);
+                        elTitle.find("img[name=action_set_scene]").click((event) => { });
+                        elTitle.toString = () => "FLOOR";
+
+                        let aAbout6 = new Potree.Annotation({
+                            position: [-32.919, -0.397, -0.508],
+                            title: elTitle,
+                            cameraPosition: [-32.291, 0.350, -1.088],
+                            cameraTarget: [-32.757, -0.150, -0.226],
+                        });
+
+                        sceneSG.annotations.add(aAbout6);
+                    }
+
+                    {
+                        /* Annotation: Octopuses
+                        *****************************************************/
+                        let elTitle = $(`<span>
+                                                    <img src="${Potree.resourcePath}/icons/eye-solid.svg"
+                                                        name="action_set_scene"
+                                                        class="annotation-action-icon"
+                                                        style="filter: invert(1);" />
+                                                </span>`);
+                        elTitle.find("img[name=action_set_scene]").click((event) => { });
+                        elTitle.toString = () => "Octopuses";
+
+                        let aAbout7 = new Potree.Annotation({
+                            position: [-33.905, 5.502, -0.552],
+                            title: elTitle,
+                            cameraPosition: [-33.120, 4.843, -1.314],
+                            cameraTarget: [-33.912, 5.610, 0.163]
+                        });
+
+                        sceneSG.annotations.add(aAbout7);
+                    }
+
+                    {
+                        /* Annotation: Lobsters
+                        *****************************************************/
+                        let elTitle = $(`<span>
+                                                    <img src="${Potree.resourcePath}/icons/eye-solid.svg"
+                                                        name="action_set_scene"
+                                                        class="annotation-action-icon"
+                                                        style="filter: invert(1);" />
+                                                </span>`);
+                        elTitle.find("img[name=action_set_scene]").click((event) => { });
+                        elTitle.toString = () => "Lobsters";
+
+                        let aAbout8 = new Potree.Annotation({
+                            position: [-28.114, 4.648, -0.540],
+                            title: elTitle,
+                            cameraPosition: [-29.098, 3.604, -1.262],
+                            cameraTarget: [-27.790, 4.910, 0.187]
+                        });
+
+                        sceneSG.annotations.add(aAbout8);
+                    }
+
+                    {
+                        /* Annotation: Turtles
+                        *****************************************************/
+                        let elTitle = $(`<span>
+                                                    <img src="${Potree.resourcePath}/icons/eye-solid.svg"
+                                                        name="action_set_scene"
+                                                        class="annotation-action-icon"
+                                                        style="filter: invert(1);" />
+                                                </span>`);
+                        elTitle.find("img[name=action_set_scene]").click((event) => { });
+                        elTitle.toString = () => "Turtles";
+
+                        let aAbout9 = new Potree.Annotation({
+                            position: [-27.072, -1.137, -0.620],
+                            title: elTitle,
+                            cameraPosition: [-27.963, -0.408, -1.261],
+                            cameraTarget: [-27.600, -0.731, -0.654]
+                        });
+
+                        sceneSG.annotations.add(aAbout9);
+                    }
+                }
+
+                var src = document.referrer;
+                var srcSplit = src.split("?");
+                var hotSpot = parseFloat(srcSplit[1]); //0 for barge, 1 for herm, 2 for sculptures
+
+                /* Opening Transitions
+                *****************************************************/
+                //Grotto
+                if (hotSpot == 0) {
+                    setTimeout(function () {
+                        sceneSG.annotations.children[0].moveHere(sceneSG.camera);
+                    }, 2000);
+
+                    setTimeout(function () {
+                        fingerAnimation();
+                    }, 6000);
+                }
+                //Reptiles
+                else if (hotSpot == 1) {
+                    setTimeout(function () {
+                        sceneSG.annotations.children[0].moveHere(sceneSG.camera);
+                    }, 2000);
+
+                    setTimeout(function () {
+                        sceneSG.annotations.children[6].moveHere(sceneSG.camera);
+                    }, 4500);
+
+                    setTimeout(function () {
+                        $("#nav_panel").fadeIn();
+
+                        //Applying opacity to parent page
+                        parentWin = window.parent;
+                        var sidebar = parentWin.document.getElementById('split-container');
+                        sidebar.style.opacity = "0.8";
+                    }, 8500);
+                }
+            });
+
+            var timeoutID;
+
+            function setup() {
+                this.addEventListener("mousemove", resetTimer, false);
+                this.addEventListener("touchstart", resetTimer, false);
+                this.addEventListener("mousedown", resetTimer, false);
+                this.addEventListener("mouseover", resetTimer, false);
+                this.addEventListener("mouseout", resetTimer, false);
+                this.addEventListener("keypress", resetTimer, false);
+                this.addEventListener("DOMMouseScroll", resetTimer, false);
+                this.addEventListener("mousewheel", resetTimer, false);
+                this.addEventListener("touchmove", resetTimer, false);
+                this.addEventListener("MSPointerMove", resetTimer, false);
+
+                startTimer();
+            }
+
+            function startTimer() {
+
+                timeoutID = window.setTimeout(goInactive, 300000);
+            }
+
+            function resetTimer(e) {
+                window.clearTimeout(timeoutID);
+
+                goActive();
+            }
+
+            function goInactive() {
+
+                window.top.location.href = "../index.html";
+            }
+
+            function goActive() {
+
+
+                startTimer();
+            }
+
+            /* Hotspots Control Dropup
+            *****************************************************/
+            $("#hotspots").click(function () {
+                $("#lists").toggle();
+                document.getElementById("#lists").style.display = "flex";
+            });
+
+            //Functions to show and hide annotations' descriptions
+            function showDescription(annotationNum) {
+                var descriptions = document.getElementsByClassName("annotation-description");
+                var description = descriptions[annotationNum];
+                description.style.display = "block";
+            }
+
+            function hideDescription(annotationNum) {
+                var descriptions = document.getElementsByClassName("annotation-description");
+                var description = descriptions[annotationNum];
+                description.style.display = "none";
+            }
+
+            //Functions for each annotation
+            function item1() {
+                sceneSG.annotations.children[1].moveHere(sceneSG.camera);
+                showDescription(1);
+                hideDescription(2);
+                hideDescription(3);
+                hideDescription(4);
+                hideDescription(5);
+            }
+            function item2() {
+                sceneSG.annotations.children[2].moveHere(sceneSG.camera);
+                showDescription(2);
+                hideDescription(1);
+                hideDescription(3);
+                hideDescription(4);
+                hideDescription(5);
+            }
+            function item3() {
+                sceneSG.annotations.children[3].moveHere(sceneSG.camera);
+                showDescription(3);
+                hideDescription(1);
+                hideDescription(2);
+                hideDescription(4);
+                hideDescription(5);
+            }
+            function item4() {
+                sceneSG.annotations.children[4].moveHere(sceneSG.camera);
+                showDescription(4);
+                hideDescription(1);
+                hideDescription(2);
+                hideDescription(3);
+                hideDescription(5);
+            }
+            function item5() {
+                sceneSG.annotations.children[5].moveHere(sceneSG.camera);
+                showDescription(5);
+                hideDescription(1);
+                hideDescription(2);
+                hideDescription(3);
+                hideDescription(4);
+            }
+            function item6() {
+                sceneSG.annotations.children[6].moveHere(sceneSG.camera);
+                hideDescription(1);
+                hideDescription(2);
+                hideDescription(3);
+                hideDescription(4);
+                hideDescription(5);
+            }
+            function item7() {
+                sceneSG.annotations.children[7].moveHere(sceneSG.camera);
+                hideDescription(1);
+                hideDescription(2);
+                hideDescription(3);
+                hideDescription(4);
+                hideDescription(5);
+            }
+            function item8() {
+                sceneSG.annotations.children[8].moveHere(sceneSG.camera);
+                hideDescription(1);
+                hideDescription(2);
+                hideDescription(3);
+                hideDescription(4);
+                hideDescription(5);
+            }
+            function item9() {
+                sceneSG.annotations.children[9].moveHere(sceneSG.camera);
+                hideDescription(1);
+                hideDescription(2);
+                hideDescription(3);
+                hideDescription(4);
+                hideDescription(5);
+            }
+
+            //Click functions for each annotation within Hotspot Control's List
+
+            $("#li1").click(function () {
+                item1();
+            });
+            $("#li2").click(function () {
+                item2();
+            });
+            $("#li3").click(function () {
+                item3();
+            });
+            $("#li4").click(function () {
+                item4();
+            });
+            $("#li5").click(function () {
+                item5();
+            });
+            $("#li6").click(function () {
+                item6();
+            });
+            $("#li7").click(function () {
+                item7();
+            });
+            $("#li8").click(function () {
+                item8();
+            });
+            $("#li9").click(function () {
+                item9();
+            });
+
+            //Functions for continuous click on Prev and Next buttons
+            const functions = [];
+            functions.push(item1);
+            functions.push(item2);
+            functions.push(item3);
+            functions.push(item4);
+            functions.push(item5);
+            functions.push(item6);
+            functions.push(item7);
+            functions.push(item8);
+            functions.push(item9);
+
+            const length = functions.length;
+
+            const getNextIdx = (idx = 0, length, direction) => {
+                switch (direction) {
+                    case 'next': return (idx + 1) % length;
+                    case 'prev': return (idx == 0) && length - 1 || idx - 1;
+                    default: return idx;
+                }
+            }
+
+            let idx; // idx is undefined, so getNewScene will take 0 as default
+            const getNewScene = (direction) => {
+                idx = getNextIdx(idx, length, direction);
+                var sceneFunction = functions[idx];
+                return sceneFunction();
+            }
+
+            $("#prev").click(function () {
+                getNewScene('prev');
+            });
+
+            $("#next").click(function () {
+                getNewScene('next');
+            });
+
+            //Temp solution to hide list when a hotspot is selected
+            function hideList(listItem) {
+                var openLink = document.getElementById(listItem);
+                openLink.addEventListener('click', clickHandler, false);
+                function clickHandler() {
+                    var submenu = document.getElementById('lists');
+                    submenu.style.display = 'none';
+                }
+            }
+
+            hideList('li1');
+            hideList('li2');
+            hideList('li3');
+            hideList('li4');
+            hideList('li5');
+            hideList('li6');
+            hideList('li7');
+            hideList('li8');
+            hideList('li9');
+
+            /* Navigation Controls Image
+        *****************************************************/
+            $("#question_icon").click(function () {
+                $("#nav_panel").fadeIn();
+
+                //Applying opacity to parent page
+                parentWin = window.parent;
+                var sidebar = parentWin.document.getElementById('split-container');
+                sidebar.style.opacity = "0.8";
+            });
+
+            var navPanel = document.getElementById('nav_panel');
+            navPanel.addEventListener('click', function () {
+                $("#nav_panel").fadeOut();
+                //reset opacity of parent page
+                parentWin = window.parent;
+                var sidebar = parentWin.document.getElementById('split-container');
+                sidebar.style.opacity = "1";
+
+            });
+
+        </script>
+
+
+</body>
+</html>

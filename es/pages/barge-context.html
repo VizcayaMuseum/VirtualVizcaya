@@ -1,0 +1,393 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Potree Viewer</title>
+
+    <link rel="stylesheet" type="text/css" href="../build/potree/potree.css">
+    <link rel="stylesheet" type="text/css" href="../libs/jquery-ui/jquery-ui.min.css">
+    <link rel="stylesheet" type="text/css" href="../libs/perfect-scrollbar/css/perfect-scrollbar.css">
+    <link rel="stylesheet" type="text/css" href="../libs/openlayers3/ol.css">
+    <link rel="stylesheet" type="text/css" href="../libs/spectrum/spectrum.css">
+    <link rel="stylesheet" type="text/css" href="../libs/jstree/themes/mixed/style.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/vizcaya.css">
+    <style>
+        @media screen and (max-width: 800px) {
+            .nav_img {
+                -ms-flex: 30%;
+                flex: 30%;
+                max-width: 30%;
+                max-width: 30%;
+            }
+            
+        }
+        .controls .hotspot-controls .list {
+            width: 100% !important;
+            right: 1% !important;
+        }
+    </style>
+</head>
+
+<body>
+    <script src="../libs/jquery/jquery-3.1.1.min.js"></script>
+    <script src="../libs/spectrum/spectrum.js"></script>
+    <script src="../libs/perfect-scrollbar/js/perfect-scrollbar.jquery.js"></script>
+    <script src="../libs/jquery-ui/jquery-ui.min.js"></script>
+    <script src="../libs/three.js/build/three.min.js"></script>
+    <script src="../libs/other/BinaryHeap.js"></script>
+    <script src="../libs/tween/tween.min.js"></script>
+    <script src="../libs/d3/d3.js"></script>
+    <script src="../libs/proj4/proj4.js"></script>
+    <script src="../libs/openlayers3/ol.js"></script>
+    <script src="../libs/i18next/i18next.js"></script>
+    <script src="../libs/jstree/jstree.js"></script>
+    <script src="../build/potree/potree.js"></script>
+    <script src="../libs/plasio/js/laslaz.js"></script>
+    <script src="../main.js"></script>
+    <!-- INCLUDE ADDITIONAL DEPENDENCIES HERE -->
+    <!-- INCLUDE SETTINGS HERE -->
+
+    <div class="potree_container" style="position: absolute; width: 100%; height: 100%; left: 0px; top: 0px; ">
+        <div id="potree_render_area"></div>
+        <div id="potree_sidebar_container"> </div>
+    </div>
+
+    <!--Control Icons-->
+    <!--<img id="home_icon" onclick="redirectHomeFunc()" src="../images/home.svg" title="Home" />-->
+    <img id="question_icon" src="../images/question.svg" title="Navigation" />
+    <img id="refresh_icon" onclick="refreshButton()" src="../images/refresh.svg" title="Refresh" />
+    <img id="fullscreen_icon" onclick="toggleFullScreen()" src="../images/fullscreen.svg" title="Fullscreen" />
+    <!--<img id="control_icon" src="../images/arrows.svg" title="Access Control Panel" />-->
+    <!---->
+    <!-- Navigation Instructions -->
+    <div id="nav_panel" class="navPanel">
+        <div class="navPanel-content">
+            <div class="intrinsic-container intrinsic-container-16x9">
+                <img class="nav_img" src="../images/navigation.png" />
+            </div>
+        </div>
+    </div>
+
+    <!--Hotspots Dropup-->
+    <div class="controls">
+        <div class="hotspot-controls">
+            <div id="prev" data-title="Previous Annotation" data-action="prev-annotation">
+                <div id="prevDiv"><img id="prevIcon" src="../images/caret-left.svg" /></div>
+            </div>
+            <div id="hotspots" class="hotspot-name" data-action="toggle-annotation-list"><b>Toque para Explorar</b></div>
+            <div id="next" data-title="Next Annotation" data-action="next-annotation">
+                <div id="nextDiv"><img id="nextIcon" src="../images/caret-right.svg" /></div>
+            </div>
+            <div id="lists" class="list hotspots-list visible">
+                <!--<a href="#" data-action="toggle-visibility" class="annotations-visibility"></a>-->
+                <!--<a href="#" data-action="toggle-autopilot" class="annotations-autopilot"></a>-->
+                <ul class="js-scrollable">
+                    <li id="li1" class="link"><a data-hotspot-target="0" title="Front View"><span class="index">&sccue;</span> Vista frontal</a></li>
+                    <li id="li2" class="link"><a data-hotspot-target="1" title="Back View"><span class="index">&sccue;</span> Vista trasera </a></li>
+                    <li id="li3" class="link"><a data-hotspot-target="2" title="Left Side View"><span class="index">&sccue;</span> Vista del lado derecho</a></li>
+                    <li id="li4" class="link"><a data-hotspot-target="3" title="Right Side View"><span class="index">&sccue;</span> Vista del lado izquierdo</a></li>
+                    <li id="li5" class="link"><a data-hotspot-target="4" title="Escáner Láser Terrestre"><span class="index">&sccue;</span> Escáner Laser</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function idleTimer() {
+            var t;
+            //window.onload = resetTimer;
+            window.onmousemove = resetTimer; // catches mouse movements
+            window.onmousedown = resetTimer; // catches mouse movements
+            window.ontouchstart = resetTimer;
+            window.ontouchmove = resetTimer;
+            window.onclick = resetTimer;     // catches mouse clicks
+            window.onscroll = resetTimer;    // catches scrolling
+            window.onkeypress = resetTimer;  //catches keyboard actions
+
+            function logout() {
+                window.top.location.href = '../index.html';  //Adapt to actual logout script
+            }
+            function resetTimer() {
+                clearTimeout(t);
+                t = setTimeout(logout, 300000);  // time is in milliseconds (1000 is 1 second)/
+
+            }
+        }
+        idleTimer();
+        window.viewer = new Potree.Viewer(document.getElementById("potree_render_area"));
+
+        viewer.setEDLEnabled(false);
+        viewer.setFOV(60);
+        viewer.setPointBudget(1 * 100 * 1000);
+        document.title = "";
+
+        viewer.setBackground("gradient"); // ["skybox", "gradient", "black", "white"];
+        viewer.loadSettingsFromURL();
+
+        viewer.loadGUI(() => {
+            viewer.setLanguage('en');
+            //$("#menu_tools").next().show();
+            //viewer.toggleSidebar();
+        });
+
+        viewer.setDescription(``);
+
+        let sceneSG = new Potree.Scene();
+        viewer.setScene(sceneSG);
+
+        Potree.loadPointCloud("https://s3.amazonaws.com/vizcaya/pointclouds/combined/cloud.js", "barge", function (e) {
+            sceneSG.addPointCloud(e.pointcloud);
+            sceneSG.view.position.set(-135.529, 68.119, 12.095);
+            sceneSG.view.lookAt(new THREE.Vector3(-46.345, -30.284, 6.904));
+
+            let material = e.pointcloud.material;
+            material.size = .66;
+            material.pointSizeType = Potree.PointSizeType.ADAPTIVE;
+            //material.shape = Potree.PointShape.CIRCLE;
+
+            {
+                {
+                    /* Annotation: Front Opening Transition
+                    *****************************************************/
+                    let elTitle = $(`
+                                                <span>
+                                                    <img src="${Potree.resourcePath}/icons/eye-solid.svg"
+                                                        name="action_set_scene"
+                                                        class="annotation-action-icon"
+                                                        style="filter: invert(1);" />
+                                                </span>
+                                            `);
+                    elTitle.find("img[name=action_set_scene]").click((event) => {
+                    });
+                    elTitle.toString = () => "Front View";
+
+                    let aAbout0 = new Potree.Annotation({
+                        position: [3.628, -89.366, 46.414],
+                        title: elTitle,
+                        cameraPosition: [3.413, -87.771, 55.750],
+                        cameraTarget: [-49.188, -28.289, 5.456]
+                    });
+
+                    sceneSG.annotations.add(aAbout0);
+                }
+
+                {
+                    /* Annotation: Back
+                    *****************************************************/
+                    let elTitle = $(`
+                                                <span>
+                                                    <img src="${Potree.resourcePath}/icons/eye-solid.svg"
+                                                        name="action_set_scene"
+                                                        class="annotation-action-icon"
+                                                        style="filter: invert(1);" />
+                                                </span>
+                                            `);
+                    elTitle.find("img[name=action_set_scene]").click((event) => {
+                    });
+                    elTitle.toString = () => "Back View";
+
+                    let aAbout1 = new Potree.Annotation({
+                        position: [-99.343, 25.774, 10.377],
+                        title: elTitle,
+                        cameraPosition: [-99.343, 25.774, 10.377],
+                        cameraTarget: [-46.345, -30.284, 6.904]
+                    });
+
+                    sceneSG.annotations.add(aAbout1);
+                }
+
+                {
+                    /* Annotation: Right
+                    *****************************************************/
+                    let elTitle = $(`
+                                                <span>
+                                                    <img src="${Potree.resourcePath}/icons/eye-solid.svg"
+                                                        name="action_set_scene"
+                                                        class="annotation-action-icon"
+                                                        style="filter: invert(1);" />
+                                                </span>
+                                            `);
+                    elTitle.find("img[name=action_set_scene]").click((event) => {
+                    });
+                    elTitle.toString = () => "Right Side View";
+
+                    let aAbout2 = new Potree.Annotation({
+                        position: [17.578, 0.460, 9.349],
+                        title: elTitle,
+                        cameraPosition: [17.578, 0.460, 9.349],
+                        cameraTarget: [-56.350, 1.173, -0.438],
+                    });
+
+                    sceneSG.annotations.add(aAbout2);
+                }
+
+                {
+                    /* Annotation: Left
+                    *****************************************************/
+                    let elTitle = $(`
+                                                <span>
+                                                    <img src="${Potree.resourcePath}/icons/eye-solid.svg"
+                                                        name="action_set_scene"
+                                                        class="annotation-action-icon"
+                                                        style="filter: invert(1);" />
+                                                </span>
+                                            `);
+                    elTitle.find("img[name=action_set_scene]").click((event) => {
+                    });
+                    elTitle.toString = () => "Left Side View";
+
+                    let aAbout3 = new Potree.Annotation({
+                        position: [-91.149, -79.839, 10.932],
+                        title: elTitle,
+                        cameraPosition: [-62.880, -102.585, 20.891],
+                        cameraTarget: [-80.264, 10.174, -23.261],
+                    });
+
+                    sceneSG.annotations.add(aAbout3);
+                }
+
+                {
+                    /* Annotation: Terrestrial Laser Scanners
+                    *****************************************************/
+                    let elTitle = $(`
+                                            <span>
+                                                <img src="${Potree.resourcePath}/icons/eye-solid.svg"
+                                                    name="action_set_scene"
+                                                    class="annotation-action-icon"
+                                                    style="filter: invert(1);" />
+                                            </span>
+                                        `);
+                    elTitle.find("img[name=action_set_scene]").click((event) => {
+                    });
+                    elTitle.toString = () => "Terrestrial Laser Scanners";
+
+                    let aAbout4 = new Potree.Annotation({
+                        position: [-42.190, -35.949, -2.656],
+                        title: elTitle,
+                        cameraPosition: [-37.266, -41.622, 6.171],
+                        cameraTarget: [-44.730, -33.141, -7.074],                       
+
+                    });
+
+                    sceneSG.annotations.add(aAbout4);
+                }
+            }
+
+            var src = document.referrer;
+            var srcSplit = src.split("?");
+            var hotSpot = parseFloat(srcSplit[1]); //0 for barge, 1 for herm, 2 for sculptures
+
+            /* Opening Transitions
+            *****************************************************/
+            setTimeout(function () {
+                sceneSG.annotations.children[0].moveHere(sceneSG.camera);
+            }, 1000);
+
+        });
+
+        /* Hotspots Control Dropup
+            *****************************************************/
+        $("#hotspots").click(function () {
+            $("#lists").toggle();
+        });
+
+        //Functions for each annotation
+        function item1() {
+            sceneSG.annotations.children[0].moveHere(sceneSG.camera);
+        }
+        function item2() {
+            sceneSG.annotations.children[1].moveHere(sceneSG.camera);
+        }
+        function item3() {
+            sceneSG.annotations.children[2].moveHere(sceneSG.camera);
+        }
+        function item4() {
+            sceneSG.annotations.children[3].moveHere(sceneSG.camera);
+        }
+        function item5() {
+            sceneSG.annotations.children[4].moveHere(sceneSG.camera);
+        }
+
+        //Hotspot Dropup's Click Selection
+        $("#li1").click(function () {
+            item1();
+        });
+        $("#li2").click(function () {
+            item2();
+        });
+        $("#li3").click(function () {
+            item3();
+        });
+        $("#li4").click(function () {
+            item4();
+        });
+        $("#li5").click(function () {
+            item5();
+        });
+
+        //Hotspot Dropup's Prev/Next Selection
+        const functions = [];
+        functions.push(item1);
+        functions.push(item2);
+        functions.push(item3);
+        functions.push(item4);
+        functions.push(item5);
+
+        const length = functions.length;
+
+        const getNextIdx = (idx = 0, length, direction) => {
+            switch (direction) {
+                case 'next': return (idx + 1) % length;
+                case 'prev': return (idx == 0) && length - 1 || idx - 1;
+                default: return idx;
+            }
+        }
+
+        let idx; // idx is undefined, so getNewScene will take 0 as default
+        const getNewScene = (direction) => {
+            idx = getNextIdx(idx, length, direction);
+            var sceneFunction = functions[idx];
+            return sceneFunction();
+        }
+
+        $("#prev").click(function () {
+            getNewScene('prev');
+        });
+
+        $("#next").click(function () {
+            getNewScene('next');
+        });
+
+        //Temp solution to hide list when a hotspot is selected
+        function hideList(listItem) {
+            var openLink = document.getElementById(listItem);
+            openLink.addEventListener('click', clickHandler, false);
+            function clickHandler() {
+                var submenu = document.getElementById('lists');
+                submenu.style.display = 'none';
+            }
+        }
+
+        hideList('li1');
+        hideList('li2');
+        hideList('li3');
+        hideList('li4');
+        hideList('li5');
+
+        /* Navigation Controls Image
+        *****************************************************/
+        $("#question_icon").click(function () {
+            $("#nav_panel").fadeIn();
+        });
+
+        var navPanel = document.getElementById('nav_panel');
+        navPanel.addEventListener('click', function () {
+            $("#nav_panel").fadeOut();
+        });
+    </script>
+
+</body>
+</html>

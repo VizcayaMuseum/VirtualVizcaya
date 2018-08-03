@@ -1,0 +1,100 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="images/favicon.ico">
+
+    <title>1916 HERM</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="assets/css/vizcaya.css" rel="stylesheet">
+
+    <style>
+        h1, p, hr {
+            color: white;
+            border-color: dimgrey;
+        }
+
+        .bg-light {
+            background-color: black !important;
+        }
+
+        body {
+            background-color: black !important;
+        }
+
+        .footer {
+            background-color: black !important;
+        }
+
+            .footer a {
+                color: white;
+            }
+
+        .col-md-2 {
+            max-width: 25% !important;
+        }
+    </style>
+</head>
+
+<body style="touch-action: none;">
+    <script src="models/build/three.js"></script>
+    <script src="libs/other/OrbitControls.js"></script>
+    <script src="libs/loaders/GLTFLoader.js"></script>
+    <script src="libs/inflate.min.js"></script>
+
+    <div class="container-fluid">
+		     
+        <div id="container">
+
+            <div id="split-container" class="mini-container1">
+
+                <div class="row">
+                    <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+                        <div id="popups_sidebar-sticky" class="sidebar-sticky">
+
+                            <h1>Herma 1916</h1><hr />
+                            <p>Esta representación digital de un herma está basada en fotografías históricas de los archivos de Vizcaya. La comparación de esta imagen con los modelos tridimensionales producidos en el 2017 permite apreciar el gran daño causado por la erosión durante más de cien años. </p>
+                        </div>
+
+                        <!--sticky footer
+                            <footer class="footer">
+                                <div>
+                                    <p align="center">
+                                        <a href="2017herm.html">Observa la Herma del 2017</a><br>
+                                    </p>
+                                </div>
+                            </footer>
+                        -->
+                    </nav>
+                </div>
+            </div>
+
+            <div id="split-container" class="mini-container2">
+                <iframe id="iframe" src="models/1916herm.html" allowfullscreen></iframe>
+
+            </div>
+
+
+
+        </div>
+    </div>
+
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    
+    <script>window.jQuery || document.write('<script src="assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+    <script src="assets/js/vendor/popper.min.js"></script>
+    <script src="dist/js/bootstrap.min.js"></script>
+
+</body>
+</html>
