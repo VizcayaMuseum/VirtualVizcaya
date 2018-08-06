@@ -642,7 +642,7 @@ a {
     pointer-events: none;
     position: absolute;
     right: 700px;
-    bottom: 10px;
+    bottom: 5px;
     z-index: 2;
     height: 50px;
     /*width: 40% my change*/
@@ -671,10 +671,11 @@ a {
         color: #ffffff;
         background: rgba(0,0,0,0.3);		
         border-radius: 25px;
-		/*
+		
         border: solid;
         border-color: #ffffff;
-		*/
+		border-width: 1.7px;
+		
     }
 
         .controls .hotspot-controls [data-action="prev-annotation"] {
@@ -687,9 +688,9 @@ a {
         }
 
         .controls .hotspot-controls .hotspot-name {
-            padding: 0 5px;
+            padding: 0 3px;
             overflow: hidden;
-            line-height: 55px; /*modifies the height of the text*/
+            line-height: 50px; /*modifies the height of the text*/
             text-align: center;
             text-overflow: ellipsis;
             text-shadow: 0 0 10px #000000;
@@ -710,7 +711,7 @@ a {
 
         .controls .hotspot-controls .list {
             position: absolute;
-            right: 5%;
+            right: 25px;
             bottom: 55px; /*change the proximity of bar and list*/
             display: none;
             min-height: 100px;
@@ -725,7 +726,8 @@ a {
             transition-delay: initial;
             flex-direction: column;
             flex-wrap: nowrap;
-            min-width: 90%;
+            min-width: 250px;
+			width: flex;
         }
 
 #prevDiv, #nextDiv {
@@ -872,107 +874,51 @@ a {
 * CONTROLS ICONS
 */
 
-#home_icon {
-    /*display: none;*/
-    width: 110%;
-    height: 110%;
+#home_icon, #barge_icon, #popups_icon, #map_icon, #refresh_icon, #question_icon {
+	width: 100%;
+    height: 100%;
     position: fixed;
     bottom: 15px;
-    right: 238px; /*130px*/
     cursor: pointer;
-    max-height: 70px !important;
-    max-width: 70px !important;
+    max-height: 45px !important;
+    max-width: 45px !important;
     z-index: 2;
     background: rgba(0,0,0,0.3);
     border-radius: 40px;
 }
+#home_icon {
+    right: 238px; 
+}
 
-#barge_icon {
-    /*display: none;*/
-    width: 110%;
-    height: 110%;
-    position: fixed;
-    bottom: 15px;
-    right: 310px; /*left: 10px;*/
-    cursor: pointer;
-    max-height: 70px !important;
-    max-width: 70px !important;
-    z-index: 2;
-    background: rgba(0,0,0,0.3);
-    border-radius: 35px;
+#barge_icon {    
+	right: 210px; 
 }
 
 #popups_icon {
-    /*display: none;*/
-    width: 110%;
-    height: 110%;
-    position: fixed;
-    bottom: 15px;
-    right: 238px; /*left: 125px;*/
-    cursor: pointer;
-    max-height: 70px !important;
-    max-width: 70px !important;
-    z-index: 2;
-    background: rgba(0,0,0,0.3);
-    border-radius: 35px;
+    right: 210px; 
 }
 
 #map_icon {
-    /*display: none;*/
-    width: 110%;
-    height: 110%;
-    position: fixed;
-    bottom: 15px;
-    right: 235px; /*238px*/
-    cursor: pointer;
-    max-height: 70px !important;
-    max-width: 70px !important;
-    z-index: 2;
-    background: rgba(0,0,0,0.3);
-    border-radius: 35px;
+    right: 160px; 
 }
 
 #refresh_icon {
-    /*display: none;*/
-    width: 110%;
-    height: 110%;
-    position: fixed;
-    bottom: 15px;
-    right: 160px; /*130px*/
-    cursor: pointer;
-    max-height: 70px !important;
-    max-width: 70px !important;
-    z-index: 2;
-    background: rgba(0,0,0,0.3);
-    border-radius: 35px;
+    right: 110px; 
 }
 
-
 #question_icon {
-    /*display: none;*/
-    width: 110%;
-    height: 110%;
-    position: fixed;
-    bottom: 15px;
-    right: 85px; /*70px*/
-    cursor: pointer;
-    max-height: 70px !important;
-    max-width: 70px !important;
-    z-index: 2;
-    background: rgba(0,0,0,0.3);
-    border-radius: 35px;
+    right: 60px; 
 }
 
 #fullscreen_icon {
-    /*display: none;*/
-    width: 100%;
-    height: 100%;
+    width: 90%;
+    height: 90%;
     position: fixed;
     bottom: 15px;
     right: 10px;
     cursor: pointer;
-    max-height: 70px !important;
-    max-width: 70px !important;
+    max-height: 45px !important;
+    max-width: 45px !important;
     z-index: 2;
     background: rgba(0,0,0,0.3);
     border-radius: 35px;
