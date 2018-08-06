@@ -233,6 +233,7 @@ h1, h2, h3, h4 {
     top: 0;
     right: 0;
     position: relative;
+	font-weight: lighter;
 }
 
 #langdiv_index {
@@ -242,10 +243,11 @@ h1, h2, h3, h4 {
     right: 0;
     padding-top: 10%;
     position: relative;
+	font-weight: lighter;
 }
 
 #lang_selected {
-    font-weight: 900;
+    /*font-weight: 900;*/
     border-bottom: #015289 solid 5px;
 }
 
@@ -667,10 +669,12 @@ a {
         height: 60px;
         font-size: 30px; /*13px*/
         color: #ffffff;
-        background: rgba(0,0,0,0.3);
+        background: rgba(0,0,0,0.3);		
         border-radius: 25px;
+		/*
         border: solid;
         border-color: #ffffff;
+		*/
     }
 
         .controls .hotspot-controls [data-action="prev-annotation"] {
