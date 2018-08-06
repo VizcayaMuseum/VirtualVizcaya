@@ -648,7 +648,7 @@ a {
     /*width: 40% my change*/
     /*inherited*/
     font-family: 'Open Sans', sans-serif;
-    font-size: 30px;
+    font-size: 18px;
     font-weight: 900;
     /*temp*/
     transition-property: opacity;
@@ -666,8 +666,8 @@ a {
         flex-shrink: 0;
         flex-basis: 0;
         pointer-events: all;
-        height: 60px;
-        font-size: 30px; /*13px*/
+        height: 50px;
+        font-size: 18px; /*13px*/
         color: #ffffff;
         background: rgba(0,0,0,0.3);		
         border-radius: 25px;
@@ -687,7 +687,7 @@ a {
         }
 
         .controls .hotspot-controls .hotspot-name {
-            padding: 0 10px;
+            padding: 0 5px;
             overflow: hidden;
             line-height: 55px; /*modifies the height of the text*/
             text-align: center;
@@ -710,10 +710,11 @@ a {
 
         .controls .hotspot-controls .list {
             position: absolute;
-            right: 7%;
-            bottom: 70px; /*change the proximity of bar and list*/
+            right: 25px;
+            bottom: 55px; /*change the proximity of bar and list*/
             display: none;
-            min-height: 160px;
+            min-height: 100px;
+			height: flex;
             padding: 1px;
             color: #ffffff;
             background: rgba(0, 0, 0, 0.75);
@@ -724,12 +725,13 @@ a {
             transition-delay: initial;
             flex-direction: column;
             flex-wrap: nowrap;
-            min-width: 90%;
+            min-width: 250px;
+			width: flex;
         }
 
 #prevDiv, #nextDiv {
-    height: 20px;
-    width: 20px;
+    height: 10px;
+    width: 10px;
     position: center;
     position: absolute;
 }
@@ -797,9 +799,9 @@ a {
 .controls .hotspot-controls .list li a {
     display: flex;
     width: 100%;
-    height: 38px;
+    min-height: 20px;
     box-sizing: border-box;
-    padding: 0 5px;
+    padding: 0 3px;
     overflow: hidden;
     color: #ffffff; /*color: #cccccc;*/
     text-overflow: ellipsis;
@@ -871,16 +873,18 @@ a {
 * CONTROLS ICONS
 */
 
+#home_icon, #barge_icon, #popups_icon, #map_icon, #refresh_icon, #question_icon
+
 #home_icon {
     /*display: none;*/
-    width: 110%;
-    height: 110%;
+    width: 100%;
+    height: 100%;
     position: fixed;
     bottom: 15px;
     right: 238px; /*130px*/
     cursor: pointer;
-    max-height: 70px !important;
-    max-width: 70px !important;
+    max-height: 50px !important;
+    max-width: 50px !important;
     z-index: 2;
     background: rgba(0,0,0,0.3);
     border-radius: 40px;
@@ -888,14 +892,14 @@ a {
 
 #barge_icon {
     /*display: none;*/
-    width: 110%;
-    height: 110%;
+    width: 100%;
+    height: 100%;
     position: fixed;
     bottom: 15px;
     right: 310px; /*left: 10px;*/
     cursor: pointer;
-    max-height: 70px !important;
-    max-width: 70px !important;
+    max-height: 50px !important;
+    max-width: 50px !important;
     z-index: 2;
     background: rgba(0,0,0,0.3);
     border-radius: 35px;
@@ -903,14 +907,14 @@ a {
 
 #popups_icon {
     /*display: none;*/
-    width: 110%;
-    height: 110%;
+    width: 100%;
+    height: 100%;
     position: fixed;
     bottom: 15px;
     right: 238px; /*left: 125px;*/
     cursor: pointer;
-    max-height: 70px !important;
-    max-width: 70px !important;
+    max-height: 50px !important;
+    max-width: 50px !important;
     z-index: 2;
     background: rgba(0,0,0,0.3);
     border-radius: 35px;
@@ -918,14 +922,14 @@ a {
 
 #map_icon {
     /*display: none;*/
-    width: 110%;
-    height: 110%;
+    width: 100%;
+    height: 100%;
     position: fixed;
     bottom: 15px;
     right: 235px; /*238px*/
     cursor: pointer;
-    max-height: 70px !important;
-    max-width: 70px !important;
+    max-height: 50px !important;
+    max-width: 50px !important;
     z-index: 2;
     background: rgba(0,0,0,0.3);
     border-radius: 35px;
@@ -933,14 +937,14 @@ a {
 
 #refresh_icon {
     /*display: none;*/
-    width: 110%;
-    height: 110%;
+    width: 100%;
+    height: 100%;
     position: fixed;
     bottom: 15px;
     right: 160px; /*130px*/
     cursor: pointer;
-    max-height: 70px !important;
-    max-width: 70px !important;
+    max-height: 50px !important;
+    max-width: 50px !important;
     z-index: 2;
     background: rgba(0,0,0,0.3);
     border-radius: 35px;
@@ -949,14 +953,14 @@ a {
 
 #question_icon {
     /*display: none;*/
-    width: 110%;
-    height: 110%;
+    width: 100%;
+    height: 100%;
     position: fixed;
     bottom: 15px;
     right: 85px; /*70px*/
     cursor: pointer;
-    max-height: 70px !important;
-    max-width: 70px !important;
+    max-height: 50px !important;
+    max-width: 50px !important;
     z-index: 2;
     background: rgba(0,0,0,0.3);
     border-radius: 35px;
@@ -964,14 +968,14 @@ a {
 
 #fullscreen_icon {
     /*display: none;*/
-    width: 100%;
-    height: 100%;
+    width: 90%;
+    height: 90%;
     position: fixed;
     bottom: 15px;
     right: 10px;
     cursor: pointer;
-    max-height: 70px !important;
-    max-width: 70px !important;
+    max-height: 50px !important;
+    max-width: 50px !important;
     z-index: 2;
     background: rgba(0,0,0,0.3);
     border-radius: 35px;
