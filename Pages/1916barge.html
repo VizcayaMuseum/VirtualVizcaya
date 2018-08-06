@@ -1,6 +1,15 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-123463304-1"></script>
+    <script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+
+	  gtag('config', 'UA-123463304-1');
+    </script>
     <meta charset="utf-8">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -21,29 +30,34 @@
     <!-- Custom styles for this template -->
     <link rel="stylesheet" type="text/css" href="../assets/css/vizcaya.css">
 
-    <style>       
+    <style>
         /*Scrollbar for hotspot controls*/
         ::-webkit-scrollbar {
             width: 9px;
         }
+
         ::-webkit-scrollbar-button {
             width: 8px;
             height: 2px;
         }
+
         ::-webkit-scrollbar-track {
             background: black;
             border: thin solid black;
             box-shadow: 0px 0px 3px black inset;
             border-radius: 12px;
         }
+
         ::-webkit-scrollbar-thumb {
             background: #565656;
             border: thin solid #565656;
             border-radius: 12px;
         }
+
             ::-webkit-scrollbar-thumb:hover {
                 background: #7d7d7d;
             }
+
         .controls .hotspot-controls .list {
             right: 5% !important;
             width: 92%;
