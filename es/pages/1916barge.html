@@ -10,6 +10,7 @@
 
 	  gtag('config', 'UA-123463304-1');
     </script>
+
     <meta charset="utf-8">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -57,6 +58,42 @@
             ::-webkit-scrollbar-thumb:hover {
                 background: #7d7d7d;
             }
+
+		#loader {
+            position: absolute;
+            left: 45%; /*50%*/
+            top: 40%;
+            border: 16px solid #f3f3f3;
+            border-radius: 50%;
+            border-top: 16px solid #015289; /**/
+            border-bottom: 16px solid #015289; /*#76ced9*/
+            width: 100px; /*150px*/
+            height: 100px;
+            -webkit-animation: spin 2s linear infinite;
+            animation: spin 2s linear infinite;
+			z-index: 4;
+			
+        }
+
+        @-webkit-keyframes spin {
+            0% {
+                -webkit-transform: rotate(0deg);
+            }
+
+            100% {
+                -webkit-transform: rotate(360deg);
+            }
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
     </style>
 </head>
 <body>
@@ -82,18 +119,19 @@
     <!-- INCLUDE ADDITIONAL DEPENDENCIES HERE -->
     <!-- INCLUDE SETTINGS HERE -->
 
+	<div id="loader"></div>
     <div class="potree_container" style="position: absolute; width: 100%; height: 100%; left: 0px; top: 0px; ">
         <div id="potree_render_area"></div>
         <div id="potree_sidebar_container"> </div>
-
+		
         <!--Control Icons-->
-        <!--<img id="home_icon" onclick="redirectHomeFunc()" src="../images/home.svg" title="Home" />-->
+        
         <img id="barge_icon" onclick="barge2017Button()" src="../images/GIF/TunelDelTiempo_2017Barcaza.gif" title="View Barge" />
         <img id="map_icon" onclick="toggleMap()" src="../images/map.svg" title="Map" />
         <img id="question_icon" src="../images/question.svg" title="Navigation" />
         <img id="refresh_icon" onclick="refreshPopup()" src="../images/refresh.svg" title="Refresh Page" />
         <img id="fullscreen_icon" onclick="toggleFullScreen()" src="../images/fullscreen.svg" title="Fullscreen" />
-        <!--<img id="control_icon" src="../images/arrows.svg" title="Access Control Panel" />-->
+        
         <!-- Navigation Instructions -->
         <div id="nav_panel" class="navPanel">
             <div class="navPanel-content">
@@ -166,53 +204,7 @@
 
 
     <script>
-
-        function toggleMap() {
-            $("#myMap").fadeIn();
-
-            var popup = document.getElementById('myMap');
-            var span = document.getElementsByClassName("close")[2];
-
-            //Applying opacity to parent page
-            parentWin = window.parent;
-            var sidebar = parentWin.document.getElementById('split-container');
-            sidebar.style.opacity = "0.4";
-
-            span.onclick = function () {
-                $("#myMap").fadeOut();
-                //reset opacity of parent page
-                sidebar.style.opacity = "1";
-            }
-            window.onclick = function (event) {
-                if (event.target == popup) {
-                    $("#myMap").fadeOut();
-                    //reset opacity of parent page
-                    sidebar.style.opacity = "1";
-                }
-            }
-        }
-
-        function idleTimer() {
-            var t;
-            //window.onload = resetTimer;
-            window.onmousemove = resetTimer; // catches mouse movements
-            window.onmousedown = resetTimer; // catches mouse movements
-            window.ontouchstart = resetTimer;
-            window.ontouchmove = resetTimer;
-            window.onclick = resetTimer;     // catches mouse clicks
-            window.onscroll = resetTimer;    // catches scrolling
-            window.onkeypress = resetTimer;  //catches keyboard actions
-
-            function logout() {
-                /*window.top.location.href = '../index.html';*/  //Adapt to actual logout script
-            }
-            function resetTimer() {
-                clearTimeout(t);
-                t = setTimeout(logout, 300000);  // time is in milliseconds (1000 is 1 second)/
-
-            }
-        }
-        idleTimer();
+				
         window.viewer = new Potree.Viewer(document.getElementById("potree_render_area"));
 
         viewer.setEDLEnabled(false);
@@ -232,9 +224,7 @@
         viewer.setDescription(``);
 
         let sceneSG = new Potree.Scene();
-        //let sceneSG2 = new Potree.Scene();
-        //let sceneSG3 = new Potree.Scene();
-        //let sceneSG4 = new Potree.Scene();
+
         viewer.setScene(sceneSG);
 
         {
@@ -248,31 +238,20 @@
             manager.onProgress = function (item, loaded, total) {
                 console.log(item, loaded, total);
             };
-
-            //let textureLoader = new THREE.TextureLoader(manager);
-            //let texture = textureLoader.load(`${Potree.resourcePath}/models/textures/polySurface448SG1_baseColor.jpeg`);
+            
             let onProgress = function (xhr) {
                 if (xhr.lengthComputable) {
                     let percentComplete = xhr.loaded / xhr.total * 100;
-                    //console.log(Math.round(percentComplete, 2) + '% downloaded');
-                    let scene = viewer.scene;
-                    //scene.console.log(Math.round(percentComplete, 2) + '% downloaded');
+                    console.log(Math.round(percentComplete, 2) + '% downloaded');                 
                 }
+
             };
-            //texture.wrapS = THREE.RepeatWrapping;
-            //texture.wrapT = THREE.RepeatWrapping;
 
             let onError = function (xhr) { };
 
             let loader = new THREE.GLTFLoader(manager);
             loader.load('https://s3.amazonaws.com/vizcaya/3dmodels/gltf/1917barge/scene.gltf', function (gltf) {
-                /*
-                gltf.scene.traverse(function (child) {
-                    if (child instanceof THREE.Mesh) {
-                        //child.material.map = texture;
-                    }
-                });
-                */
+
                 gltf.scene.position.set(589871.587, 231528.213, 725.634);
                 gltf.scene.scale.multiplyScalar(100);
                 gltf.scene.rotation.set(Math.PI / 2, Math.PI, 0)
@@ -283,17 +262,9 @@
                     // Add entries to object list in sidebar
                     let tree = $(`#jstree_scene`);
                     let parentNode = "other";
-                    /*
-                    let bunnyID = tree.jstree('create_node', parentNode, {
-                        text: "Bunny Textured",
-                        icon: `${Potree.resourcePath}/icons/triangle.svg`,
-                        data: gltf
-                    },
-                        "last", false, false);
-                    */
+
                     tree.jstree(object.visible ? "check_node" : "uncheck_node", bunnyID);
 
-                    //tree.jstree("open_node", parentNode);
                 });
 
 
@@ -524,14 +495,19 @@
             *****************************************************/
             //Barge
             if (hotSpot == 0) {
+				
+				setTimeout(function () {                    
+					document.getElementById('loader').style.display = "none";
+                }, 19000);
 
                 setTimeout(function () {
                     sceneSG.annotations.children[0].moveHere(sceneSG.camera);
-                }, 3500);
+					document.getElementById('loader').style.display = "none";
+                }, 21000);
 
                 setTimeout(function () {
                     document.getElementById("finger_animation").style.display = "flex";
-                }, 8000);
+                }, 26000);
 
                 window.onclick = function (event) {
                     $("#finger_animation").fadeOut();
@@ -541,64 +517,68 @@
                 }
 
             }
+
             //Herm
             else if (hotSpot == 1) {
 
+				setTimeout(function () {                    
+					document.getElementById('loader').style.display = "none";
+                }, 19000);
+
                 setTimeout(function () {
                     sceneSG.annotations.children[3].moveHere(sceneSG.camera);
-                }, 3500);
+					document.getElementById('loader').style.display = "none";
+                }, 21000);
 
                 setTimeout(function () {
                     popupHerm();
-                }, 7000);
+                }, 24000);
             }
+
             //Sculptures
             else if (hotSpot == 2) {
+				
+				setTimeout(function () {                    
+					document.getElementById('loader').style.display = "none";
+                }, 19000);
 
                 setTimeout(function () {
                     sceneSG.annotations.children[4].moveHere(sceneSG.camera);
-                }, 3500);
+					document.getElementById('loader').style.display = "none";
+                }, 21000);
 
                 setTimeout(function () {
                     popupSculptures();
-                }, 7800);
+                }, 25000);
             }
         }
 
-        var timeoutID;
+		/* Vizcaya Map
+        *****************************************************/
+		function toggleMap() {
+            $("#myMap").fadeIn();
 
-        function setup() {
-            this.addEventListener("mousemove", resetTimer, false);
-            this.addEventListener("touchstart", resetTimer, false);
-            this.addEventListener("mousedown", resetTimer, false);
-            this.addEventListener("mouseover", resetTimer, false);
-            this.addEventListener("mouseout", resetTimer, false);
-            this.addEventListener("keypress", resetTimer, false);
-            this.addEventListener("DOMMouseScroll", resetTimer, false);
-            this.addEventListener("mousewheel", resetTimer, false);
-            this.addEventListener("touchmove", resetTimer, false);
-            this.addEventListener("MSPointerMove", resetTimer, false);
-            startTimer();
+            var popup = document.getElementById('myMap');
+            var span = document.getElementsByClassName("close")[2];
+
+            //Applying opacity to parent page
+            parentWin = window.parent;
+            var sidebar = parentWin.document.getElementById('split-container');
+            sidebar.style.opacity = "0.4";
+
+            span.onclick = function () {
+                $("#myMap").fadeOut();
+                //reset opacity of parent page
+                sidebar.style.opacity = "1";
+            }
+            window.onclick = function (event) {
+                if (event.target == popup) {
+                    $("#myMap").fadeOut();
+                    //reset opacity of parent page
+                    sidebar.style.opacity = "1";
+                }
+            }
         }
-
-        function startTimer() {
-            timeoutID = window.setTimeout(goInactive, 300000);
-        }
-
-        function resetTimer(e) {
-            window.clearTimeout(timeoutID);
-            goActive();
-        }
-
-        function goInactive() {
-            window.top.location.href = "../index.html";
-        }
-
-        function goActive() {
-            startTimer();
-        }
-
-
 
         /* Hotspots Control Dropup
         *****************************************************/

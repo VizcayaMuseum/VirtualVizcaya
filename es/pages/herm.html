@@ -64,13 +64,12 @@
         <div id="potree_sidebar_container"> </div>
 
         <!--Control Icons-->
-        <!--<img id="home_icon" onclick="redirectHomeFunc()" src="../images/home.svg" title="Home" />-->
-        <img id="popups_icon" onclick="herm1916Button()" src="../images/GIF/TunelDelTiempo_1916Herma.gif" title="View 1916 Herm" />
+        
+        <img id="popups_icon" onclick="herm1916Button()" src="../images/GIF/1916Herm.gif" title="View 1916 Herm" />
         <img id="question_icon" src="../images/question.svg" title="Navigation" />
         <img id="refresh_icon" onclick="refreshPopup()" src="../images/refresh.svg" title="Refresh Page" />
         <img id="fullscreen_icon" onclick="toggleFullScreen()" src="../images/fullscreen.svg" title="Fullscreen" />
-        <!--<img id="control_icon" src="../images/arrows.svg" title="Access Control Panel" />-->
-        <!---->
+
         <!-- Navigation Instructions -->
         <div id="nav_panel" class="navPanel">
             <div class="navPanel-content">
@@ -80,24 +79,11 @@
             </div>
         </div>
         <div id="finger_animation"><img src="../images/fingeranimation.svg" /></div>
-        <!--    <div>
-                <img id="control_panel" src="../images/Control_Panel.png" usemap="#controlPanel" />
-                <map name="controlPanel">
-                    <area shape="circle" coords="50,55,20,10" onclick="redirectFunc()" />
-                    <area shape="circle" coords="170,55,20,10" onclick="redirectHomeFunc()" />
-                    <area shape="circle" coords="110,62,25,10" onclick="potreeMerMoveUp()" />
-                    <area shape="circle" coords="110,140,25,10" onclick="potreeMerMoveDown()" />
-                    <area shape="circle" coords="70,105,20,10" onclick="potreeMerMoveLeft()" />
-                    <area shape="circle" coords="150,105,20,10" onclick="potreeMerMoveRight()" />
-                    <area shape="circle" coords="50,160,20,10" onclick="zoomIn()" />
-                    <area shape="circle" coords="170,160,20,10" onclick="zoomOut()" />
-                </map>
-            </div>
-    -->
+
     </div>
         <script>
 
-            setup();
+            
             window.viewer = new Potree.Viewer(document.getElementById("potree_render_area"));
 
             viewer.setEDLEnabled(false);
@@ -134,47 +120,8 @@
                 material.size = 1;
                 material.pointSizeType = Potree.PointSizeType.ADAPTIVE;
 
-            });
-			/*
-            var timeoutID;
-
-            function setup() {
-                this.addEventListener("mousemove", resetTimer, false);
-                this.addEventListener("touchstart", resetTimer, false);
-                this.addEventListener("mousedown", resetTimer, false);
-                this.addEventListener("mouseover", resetTimer, false);
-                this.addEventListener("mouseout", resetTimer, false);
-                this.addEventListener("keypress", resetTimer, false);
-                this.addEventListener("DOMMouseScroll", resetTimer, false);
-                this.addEventListener("mousewheel", resetTimer, false);
-                this.addEventListener("touchmove", resetTimer, false);
-                this.addEventListener("MSPointerMove", resetTimer, false);
-
-                startTimer();
-            }
-
-            function startTimer() {
-
-                timeoutID = window.setTimeout(goInactive, 300000);
-            }
-
-            function resetTimer(e) {
-                window.clearTimeout(timeoutID);
-
-                goActive();
-            }
-
-            function goInactive() {
-
-                window.top.location.href = "../index.html";
-            }
-
-            function goActive() {
-
-
-                startTimer();
-            }
-			*/
+            });		            
+			
             setTimeout(function () {
                 document.getElementById("finger_animation").style.display = "flex";
 
@@ -184,9 +131,7 @@
                 window.ontouchstart = function (event) {
                     $("#finger_animation").fadeOut();
                 }
-            }, 1000);
-
-            
+            }, 1000);            
 
             /* Navigation Controls Image
             *****************************************************/

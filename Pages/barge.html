@@ -1,6 +1,7 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
+
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-123463304-1"></script>
     <script>
@@ -10,11 +11,12 @@
 
 	  gtag('config', 'UA-123463304-1');
     </script>
+
     <meta charset="utf-8">
     <meta name="description" content="">
     <meta name="author" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title>Potree Viewer</title>
+    <title>Barge — Virtual Vizcaya</title>
 
     <link rel="stylesheet" type="text/css" href="../build/potree/potree.css">
     <link rel="stylesheet" type="text/css" href="../libs/jquery-ui/jquery-ui.min.css">
@@ -24,7 +26,8 @@
     <link rel="stylesheet" type="text/css" href="../libs/jstree/themes/mixed/style.css">
     <link rel="stylesheet" type="text/css" href="../libs/font-awesome/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="../libs/font-awesome/font-awesome.css">
-    <!-- Custom styles for this template -->
+    
+	<!-- Custom styles for this template -->
     <link rel="stylesheet" type="text/css" href="../assets/css/vizcaya.css">
 
     <style>
@@ -199,57 +202,11 @@
 
     <script>
 
-        function toggleMap() {
-            $("#myMap").fadeIn();
-
-            var popup = document.getElementById('myMap');
-            var span = document.getElementsByClassName("close")[2];
-
-            //Applying opacity to parent page
-            parentWin = window.parent;
-            var sidebar = parentWin.document.getElementById('split-container');
-            sidebar.style.opacity = "0.4";
-
-            span.onclick = function () {
-                popup.style.display = "none";
-                //reset opacity of parent page
-                sidebar.style.opacity = "1";
-            }
-            window.onclick = function (event) {
-                if (event.target == popup) {
-                    popup.style.display = "none";
-                    //reset opacity of parent page
-                    sidebar.style.opacity = "1";
-                }                
-            }
-        }
-
         // initialize page and Potree
         init();
 
         function init() {
-
-            function idleTimer() {
-                var t;
-                //window.onload = resetTimer;
-                window.onmousemove = resetTimer; // catches mouse movements
-                window.onmousedown = resetTimer; // catches mouse movements
-                window.ontouchstart = resetTimer;
-                window.ontouchmove = resetTimer;
-                window.onclick = resetTimer;     // catches mouse clicks
-                window.onscroll = resetTimer;    // catches scrolling
-                window.onkeypress = resetTimer;  //catches keyboard actions
-
-                function logout() {
-                    /*window.top.location.href = '../index.html';*/  //Adapt to actual logout script
-                }
-                function resetTimer() {
-                    clearTimeout(t);
-                    t = setTimeout(logout, 300000);  // time is in milliseconds (1000 is 1 second)/
-
-                }
-            }
-            idleTimer();
+            
             window.viewer = new Potree.Viewer(document.getElementById("potree_render_area"));
 
             viewer.setEDLEnabled(false);
@@ -269,9 +226,7 @@
             viewer.setDescription(``);
 
             let sceneSG = new Potree.Scene();
-            //let sceneSG2 = new Potree.Scene();
-            //let sceneSG3 = new Potree.Scene();
-            //let sceneLion = new Potree.Scene();
+
             viewer.setScene(sceneSG);
 
             Potree.loadPointCloud("https://s3.amazonaws.com/vizcaya/pointclouds/barge/cloud.js", "barge", function (e) {
@@ -399,7 +354,7 @@
                             title: elTitle,
                             cameraPosition: [-32.413, -12.729, -1.322],
                             cameraTarget: [-28.856, -27.701, -0.699],
-                            description: `GROTESQUES<hr>In architecture, a grotesque is a fantastic or mythical figure used for decorative purposes. One grotesque on the west side is almost completely lost, the other seven remain intact.
+                            description: `GROTESQUES<hr>A “grotesque” is a fantastic or mythical figure used for decorative purposes. One grotesque on the west side of the Barge is almost completely lost; the other seven remain intact. 
                                                                     `});
 
                         sceneSG.annotations.add(aAbout2);
@@ -476,7 +431,7 @@
                             title: elTitle,
                             cameraPosition: [-65.663, -55.380, -0.535],
                             cameraTarget: [-46.904, -32.558, -5.605],
-                            description: `MERMAIDS<hr>Much of the original detail of the Barge Mermaids has been lost over the past century due to storms and the subtropical environmental conditions. Depictions of aquatic life, real and imagined, are found throughout Vizcaya, including a group of “Merboy” sculptures located in the Fountain Garden.
+                            description: `MERMAIDS<hr>Much of the original detail of the Barge’s Mermaids has been lost over the past century due to natural erosion. Mermaids are imaginary sea creatures, generally shown with a woman’s head and body and a fish’s tail. 
                                                                     `});
 
                         sceneSG.annotations.add(aAbout5);
@@ -770,6 +725,31 @@
                     //reset opacity of parent page
                     sidebar.style.opacity = "1";
                 }
+            }
+        }
+
+		function toggleMap() {
+            $("#myMap").fadeIn();
+
+            var popup = document.getElementById('myMap');
+            var span = document.getElementsByClassName("close")[2];
+
+            //Applying opacity to parent page
+            parentWin = window.parent;
+            var sidebar = parentWin.document.getElementById('split-container');
+            sidebar.style.opacity = "0.4";
+
+            span.onclick = function () {
+                popup.style.display = "none";
+                //reset opacity of parent page
+                sidebar.style.opacity = "1";
+            }
+            window.onclick = function (event) {
+                if (event.target == popup) {
+                    popup.style.display = "none";
+                    //reset opacity of parent page
+                    sidebar.style.opacity = "1";
+                }                
             }
         }
     </script>

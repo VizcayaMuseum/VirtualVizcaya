@@ -14,7 +14,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title>Potree Viewer</title>
+    <title>1916 Barge — Virtual Vizcaya</title>
 
     <!-- Bootstrap core CSS -->
     <link href="libs/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -62,6 +62,42 @@
             right: 5% !important;
             width: 92%;
         }
+
+		#loader {
+            position: absolute;
+            left: 45%; /*50%*/
+            top: 40%;
+            border: 16px solid #f3f3f3;
+            border-radius: 50%;
+            border-top: 16px solid #015289; /**/
+            border-bottom: 16px solid #015289 ; /*#76ced9*/
+            width: 100px; /*150px*/
+            height: 100px;
+            -webkit-animation: spin 2s linear infinite;
+            animation: spin 2s linear infinite;
+			z-index: 4;
+			
+        }
+
+        @-webkit-keyframes spin {
+            0% {
+                -webkit-transform: rotate(0deg);
+            }
+
+            100% {
+                -webkit-transform: rotate(360deg);
+            }
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
     </style>
 </head>
 <body>
@@ -87,18 +123,19 @@
     <!-- INCLUDE ADDITIONAL DEPENDENCIES HERE -->
     <!-- INCLUDE SETTINGS HERE -->
 
+	<div id="loader"></div>
     <div class="potree_container" style="position: absolute; width: 100%; height: 100%; left: 0px; top: 0px; ">
         <div id="potree_render_area"></div>
         <div id="potree_sidebar_container"> </div>
-
+		
         <!--Control Icons-->
-        <!--<img id="home_icon" onclick="redirectHomeFunc()" src="../images/home.svg" title="Home" />-->
+        
         <img id="barge_icon" onclick="barge2017Button()" src="../images/GIF/TimeWarp_2017Barge.gif" title="View Barge" />
         <img id="map_icon" onclick="toggleMap()" src="../images/map.svg" title="Map" />
         <img id="question_icon" src="../images/question.svg" title="Navigation" />
         <img id="refresh_icon" onclick="refreshButton()" src="../images/refresh.svg" title="Refresh Page" />
         <img id="fullscreen_icon" onclick="toggleFullScreen()" src="../images/fullscreen.svg" title="Fullscreen" />
-        <!--<img id="control_icon" src="../images/arrows.svg" title="Access Control Panel" />-->
+
         <!-- Navigation Instructions -->
         <div id="nav_panel" class="navPanel">
             <div class="navPanel-content">
@@ -113,7 +150,6 @@
             <div class="hotspot-controls">
                 <div id="prev" data-title="Previous Annotation" data-action="prev-annotation">
                     <div id="prevDiv"><img id="prevIcon" src="../images/caret-left.svg" /></div>
-                    <!--<div class="icon fa fa-caret-left"></div>-->
                 </div>
                 <div id="hotspots" class="hotspot-name" data-action="toggle-annotation-list">Select to tour</div>
                 <div id="next" data-title="Next Annotation" data-action="next-annotation">
@@ -173,87 +209,7 @@
 
     <script>
 
-        function toggleMap() {
-            $("#myMap").fadeIn();
-
-            var popup = document.getElementById('myMap');
-            var span = document.getElementsByClassName("close")[2];
-
-            //Applying opacity to parent page
-            parentWin = window.parent;
-            var sidebar = parentWin.document.getElementById('split-container');
-            sidebar.style.opacity = "0.4";
-
-            span.onclick = function () {
-                $("#myMap").fadeOut();
-                //reset opacity of parent page
-                sidebar.style.opacity = "1";
-            }
-            window.onclick = function (event) {
-                if (event.target == popup) {
-                    $("#myMap").fadeOut();
-                    //reset opacity of parent page
-                    sidebar.style.opacity = "1";
-                }
-            }
-        }
-
-        function idleTimer() {
-            var t;
-            //Trouble shoot for time function for popup
-            /*
-            if (xTrue == false) {
-
-                alert("hello");
-            }
-            */
-            //window.onload = resetTimer;
-            window.onmousemove = resetTimer; // catches mouse movements
-            window.onmousedown = resetTimer; // catches mouse movements
-            window.ontouchstart = resetTimer;
-            window.ontouchmove = resetTimer;
-            window.onclick = resetTimer;     // catches mouse clicks
-            window.onscroll = resetTimer;    // catches scrolling
-            window.onkeypress = resetTimer;  //catches keyboard actions
-
-            //Trouble shoot for time function for popup
-            /*
-            popup.onmousemove = resetTimer; // catches mouse movements
-            popup.onmousedown = resetTimer; // catches mouse movements
-            popup.ontouchstart = resetTimer;
-            popup.ontouchmove = resetTimer;
-            popup.onclick = resetTimer;     // catches mouse clicks
-            popup.onscroll = resetTimer;    // catches scrolling
-            popup.onkeypress = resetTimer;  //catches keyboard actions
-            */
-
-
-            function logout() {
-
-                /*window.top.location.href = '../index.html';*/  //Adapt to actual logout script
-            }
-            function resetTimer() {
-
-                clearTimeout(t);
-                t = setTimeout(logout, 300000);  // time is in milliseconds (1000 is 1 second)/
-
-            }
-
-
-        }
-        idleTimer();
-
-
         window.viewer = new Potree.Viewer(document.getElementById("potree_render_area"));
-
-        //Trouble shoot for time function for popup
-        /*
-        popup.onclick = okayTest();
-        function okayTest() {
-
-            alert("ok");
-        }
-        */
 
         viewer.setEDLEnabled(false);
         viewer.setFOV(60);
@@ -272,9 +228,6 @@
         viewer.setDescription(``);
 
         let sceneSG = new Potree.Scene();
-        //let sceneSG2 = new Potree.Scene();
-        //let sceneSG3 = new Potree.Scene();
-        //let sceneSG4 = new Potree.Scene();
         viewer.setScene(sceneSG);
 
         {
@@ -288,31 +241,19 @@
             manager.onProgress = function (item, loaded, total) {
                 console.log(item, loaded, total);
             };
-
-            //let textureLoader = new THREE.TextureLoader(manager);
-            //let texture = textureLoader.load(`${Potree.resourcePath}/models/textures/polySurface448SG1_baseColor.jpeg`);
+            
             let onProgress = function (xhr) {
                 if (xhr.lengthComputable) {
                     let percentComplete = xhr.loaded / xhr.total * 100;
-                    //console.log(Math.round(percentComplete, 2) + '% downloaded');
-                    let scene = viewer.scene;
-                    //scene.console.log(Math.round(percentComplete, 2) + '% downloaded');
+                    console.log(Math.round(percentComplete, 2) + '% downloaded');                 
                 }
             };
-            //texture.wrapS = THREE.RepeatWrapping;
-            //texture.wrapT = THREE.RepeatWrapping;
 
             let onError = function (xhr) { };
 
             let loader = new THREE.GLTFLoader(manager);
             loader.load('https://s3.amazonaws.com/vizcaya/3dmodels/gltf/1917barge/scene.gltf', function (gltf) {
-                /*
-                gltf.scene.traverse(function (child) {
-                    if (child instanceof THREE.Mesh) {
-                        //child.material.map = texture;
-                    }
-                });
-                */
+
                 gltf.scene.position.set(589871.587, 231528.213, 725.634);
                 gltf.scene.scale.multiplyScalar(100);
                 gltf.scene.rotation.set(Math.PI / 2, Math.PI, 0)
@@ -323,22 +264,13 @@
                     // Add entries to object list in sidebar
                     let tree = $(`#jstree_scene`);
                     let parentNode = "other";
-                    /*
-                    let bunnyID = tree.jstree('create_node', parentNode, {
-                        text: "Bunny Textured",
-                        icon: `${Potree.resourcePath}/icons/triangle.svg`,
-                        data: gltf
-                    },
-                        "last", false, false);
-                    */
+
                     tree.jstree(object.visible ? "check_node" : "uncheck_node", bunnyID);
 
-                    //tree.jstree("open_node", parentNode);
                 });
 
-
             }, onProgress, onError);
-            // Herm point cloud in scene 2
+
 
             function popupHerm() {
                 $("#mypopup1").fadeIn();
@@ -446,15 +378,9 @@
                                           </span>`),
                         cameraPosition: [589607.104, 231616.701, 920.329],
                         cameraTarget: [589389.183, 231541.292, 877.626],
-                        description: `SUMMER HOUSE <hr>The Summer House, lost during the great Miami hurricane of 1926, was a wood trellis structure that provided shade for guests visiting the Barge. In addition to the Summer House the Barge was originally landscaped with many potted plants, had functioning fountains as well as electricity.
+                        description: `SUMMER HOUSE <hr>The Summer House was a wood trellis structure that provided shade for guests visiting the Barge. It was lost during the great Miami hurricane of 1926. The Barge was originally landscaped with potted plants, had functioning fountains and electricity.
                             `});
-                    /*
-                        aStatues.domElement.off("mouseenter");
-                        aStatues.domElement.off("mouseleave");
-                        aStatues.addEventListener("click", () => {
-                            aStatues.setHighlighted(!aStatues.isHighlighted);
-                        });
-                    */
+
                     sceneSG.annotations.add(aAbout2);
                 }
 
@@ -476,7 +402,7 @@
                         title: elTitle,
                         cameraPosition: [589210.869, 231208.791, 759.929],
                         cameraTarget: [589386.200, 231581.351, 810.098],
-                        description: `GROTESQUES<hr>These eight grotesques around the outside of the Barge were designed by Alexander Calder and include bearded men, youthful women, and animals.
+                        description: `GROTESQUES<hr>This digital recreation, compared to the 2017 grotesques, demonstrates how dramatically the Barge’s sculptures have changed over time.
                             `});
 
                     sceneSG.annotations.add(aAbout3);
@@ -493,9 +419,6 @@
                                             </span>`);
                     elTitle.find("img[name=action_set_scene]").click((event) => {
                         popupHerm();
-                        /*event.stopPropagation();*/
-                        /*window.top.location.href = "../1916Herm.html";*/
-                        /*viewer.setScene(sceneSG2);*/
                     });
                     elTitle.toString = () => "HERM";
 
@@ -520,9 +443,6 @@
                                             </span>`);
                     elTitle.find("img[name=action_set_scene]").click((event) => {
                         popupSculptures();
-                        /*event.stopPropagation();*/
-                        /*window.top.location.href = "../1916Mermaids.html";*/
-                        /*viewer.setScene(sceneSG4);*/
                     });
                     elTitle.toString = () => "SCULPTURES";
 
@@ -552,9 +472,9 @@
                     let aAbout6 = new Potree.Annotation({
                         position: [590571.616, 231533.355, 759.504],
                         title: elTitle,
-                        cameraPosition: [590803.366, 231533.632, 891.231], /*590710.354, 231503.486, 769.828*/ /*590753.773, 231640.128, 814.432*/
-                        cameraTarget: [589464.078, 231591.976, 420.348], /*589483.126, 231733.839, 872.968*/ /*589481.784, 231192.420, 599.128*/
-                        description: `MERMAIDS<hr>The Barge mermaids were designed by Alexander Calder. James Deering initially found the proportions of the Mermaids too provocative and Calder was asked to alter the proportion of the sculptures to a more modest size.
+                        cameraPosition: [590803.366, 231533.632, 891.231], 
+                        cameraTarget: [589464.078, 231591.976, 420.348],
+                        description: `MERMAIDS<hr>The smooth surfaces in this digital recreation are in stark contrast to the visible erosion in the 2017 mermaids.
                             `});
 
                     sceneSG.annotations.add(aAbout6);
@@ -571,13 +491,18 @@
             //Barge
             if (hotSpot == 0) {
 
+                setTimeout(function () {                    
+					document.getElementById('loader').style.display = "none";
+                }, 19000);
+
                 setTimeout(function () {
                     sceneSG.annotations.children[0].moveHere(sceneSG.camera);
-                }, 3500);
+					document.getElementById('loader').style.display = "none";
+                }, 21000);
 
                 setTimeout(function () {
                     document.getElementById("finger_animation").style.display = "flex";
-                }, 8000);
+                }, 26000);
 
                 window.onclick = function (event) {
                     $("#finger_animation").fadeOut();
@@ -590,24 +515,34 @@
             //Herm
             else if (hotSpot == 1) {
 
+                setTimeout(function () {                    
+					document.getElementById('loader').style.display = "none";
+                }, 19000);
+
                 setTimeout(function () {
                     sceneSG.annotations.children[3].moveHere(sceneSG.camera);
-                }, 3500);
+					document.getElementById('loader').style.display = "none";
+                }, 21000);
 
                 setTimeout(function () {
                     popupHerm();
-                }, 7000);
+                }, 24000);
             }
             //Sculptures
             else if (hotSpot == 2) {
 
+                setTimeout(function () {                    
+					document.getElementById('loader').style.display = "none";
+                }, 19000);
+
                 setTimeout(function () {
                     sceneSG.annotations.children[4].moveHere(sceneSG.camera);
-                }, 3500);
+					document.getElementById('loader').style.display = "none";
+                }, 21000);
 
                 setTimeout(function () {
                     popupSculptures();
-                }, 7800);
+                }, 25000);
             }
         }
 
@@ -740,66 +675,7 @@
         hideList('li4');
         hideList('li5');
         hideList('li6');
-
-        /*
-                var fbxLoader = new THREE.FBXLoader();
-                fbxLoader.load('https://s3.amazonaws.com/vizcaya/3dmodels/fbx/hermes1917_3.fbx', function (object) {
-                    scene.position.set(0,0,0);
-                    scene.scale.multiplyScalar(100);
-                    scene.rotation.set(Math.PI / 2, Math.PI, 0)
-                    // add the model into the scene
-                    viewer.scene.scene.add(object);
-
-                    //object.view.lookAt(new THREE.Vector3(-1.311, -0.328, 41.852));
-                    //object.material.pointSizeType = Potree.PointSizeType.ADAPTIVE;
-
-                    sceneSG2.addAnnotation([0,0,0], {
-                        "title": "Return to Barge",
-                        "actions": [{
-                            "icon": Potree.resourcePath + "/icons/goto-w.svg",
-                            "onclick": function () {
-                                viewer.setScene(sceneSG);
-                            }
-                        }]
-                    });
-                });
-        */
-        /*
-                var gltfLoader = new THREE.GLTFLoader();
-                gltfLoader.load('https://s3.amazonaws.com/vizcaya/3dmodels/gltf/herm1917/scene.gltf', function (gltf) {
-                    sceneSG2.scene.position.set(0,0,0);
-                    sceneSG2.scene.scale.multiplyScalar(100);
-                    sceneSG2.scene.rotation.set(Math.PI / 2, Math.PI, 0)
-
-                    viewer.scene.scene.add(gltf.scene);
-                    sceneSG2.addAnnotation([0, 0, 0], {
-                        "title": "Return to Barge",
-                        "actions": [{
-                            "icon": Potree.resourcePath + "/icons/goto-w.svg",
-                            "onclick": function () {
-                                viewer.setScene(sceneSG);
-                            }
-                        }]
-                    });
-                });
-
-                gltfLoader.load('https://s3.amazonaws.com/vizcaya/3dmodels/gltf/1916mermaid/scene.gltf', function (gltf) {
-                    sceneSG4.scene.position.set(-10,0,-3500);
-                    sceneSG4.scene.scale.multiplyScalar(100);
-                    sceneSG4.scene.rotation.set(Math.PI / 2, Math.PI, 0)
-
-                    viewer.scene.scene.add(gltf.scene);
-                    sceneSG4.addAnnotation([0,0,0], {
-                        "title": "Return",
-                        "actions": [{
-                            "icon": Potree.resourcePath + "/icons/goto-w.svg",
-                            "onclick": function () {
-                                viewer.setScene(sceneSG);
-                            }
-                        }]
-                    });
-                });
-        */
+        
         /* Navigation Controls Image
         *****************************************************/
         $("#question_icon").click(function () {
@@ -821,6 +697,30 @@
 
         });
 
+		function toggleMap() {
+            $("#myMap").fadeIn();
+
+            var popup = document.getElementById('myMap');
+            var span = document.getElementsByClassName("close")[2];
+
+            //Applying opacity to parent page
+            parentWin = window.parent;
+            var sidebar = parentWin.document.getElementById('split-container');
+            sidebar.style.opacity = "0.4";
+
+            span.onclick = function () {
+                $("#myMap").fadeOut();
+                //reset opacity of parent page
+                sidebar.style.opacity = "1";
+            }
+            window.onclick = function (event) {
+                if (event.target == popup) {
+                    $("#myMap").fadeOut();
+                    //reset opacity of parent page
+                    sidebar.style.opacity = "1";
+                }
+            }
+        }
     </script>
 
 </body>

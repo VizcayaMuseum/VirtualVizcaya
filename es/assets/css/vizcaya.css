@@ -248,7 +248,7 @@ h1, h2, h3, h4 {
 
 #lang_selected {
     /*font-weight: 900;*/
-    border-bottom: #015289 solid 5px;
+    border-bottom: #3d9fd6 solid 5px;
 }
 
 
@@ -874,57 +874,42 @@ a {
 * CONTROLS ICONS
 */
 
-#home_icon, #barge_icon, #popups_icon, #map_icon, #refresh_icon, #question_icon {
+#barge_icon, #popups_icon, #map_icon, #refresh_icon, #question_icon, #fullscreen_icon {
 	width: 100%;
     height: 100%;
     position: fixed;
-    bottom: 15px;
+    bottom: 18px;
     cursor: pointer;
-    max-height: 45px !important;
-    max-width: 45px !important;
+    max-height: 50px !important;
+    max-width: 50px !important;
     z-index: 2;
     background: rgba(0,0,0,0.3);
     border-radius: 40px;
 }
-#home_icon {
-    right: 238px; 
-}
 
 #barge_icon {    
-	right: 210px; 
+	right: 230px; 
 }
 
 #popups_icon {
-    right: 210px; 
+    right: 175px; 
 }
 
 #map_icon {
-    right: 160px; 
+    right: 175px; 
 }
 
 #refresh_icon {
-    right: 110px; 
+    right: 120px; 
 }
 
 #question_icon {
-    right: 60px; 
+    right: 65px; 
 }
 
 #fullscreen_icon {
-    width: 90%;
-    height: 90%;
-    position: fixed;
-    bottom: 15px;
     right: 10px;
-    cursor: pointer;
-    max-height: 45px !important;
-    max-width: 45px !important;
-    z-index: 2;
-    background: rgba(0,0,0,0.3);
-    border-radius: 35px;
 }
-
-
 
 /*Credits Modal*/
 @media (min-width: 768px) {
