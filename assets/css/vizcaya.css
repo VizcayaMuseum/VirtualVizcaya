@@ -1153,27 +1153,24 @@ a {
 }
 
 #map_marker {
-    max-height: 34px;
-    width: 34px;
+    max-height: 37px;
+    width: 37px;
     height: auto;
     width: auto;
     position: absolute;
-    bottom: 0;
-    right: 30%;
-    top: 55%;
+    top: 16.5%;
+	right: 23.8%;
     z-index: 100;
 }
 
 #barge-location {
-    max-height: 34px;
-    width: 34px;
+    max-height: 35px;
+    width: 35px;
     height: auto;
     width: auto;
-    position: absolute;
-    bottom: 0;
-    left: 24.2%;
-    right: 0;
-    top: 19%;
+    position: absolute;   
+	top: 60%;
+	left: 19%;
     z-index: 100;
     animation: mapAnimation 1s ease-in-out infinite alternate;
     -webkit-animation-name: mapAnimation;
