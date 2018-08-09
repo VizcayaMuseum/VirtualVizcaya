@@ -1153,27 +1153,24 @@ a {
 }
 
 #map_marker {
-    max-height: 34px;
-    width: 34px;
+    max-height: 37px;
+    width: 37px;
     height: auto;
     width: auto;
     position: absolute;
-    bottom: 0;
-    right: 30%;
-    top: 55%;
+    top: 16.5%;
+	right: 23.8%;
     z-index: 100;
 }
 
 #barge-location {
-    max-height: 34px;
-    width: 34px;
+    max-height: 35px;
+    width: 35px;
     height: auto;
     width: auto;
-    position: absolute;
-    bottom: 0;
-    left: 24.2%;
-    right: 0;
-    top: 19%;
+    position: absolute;   
+	top: 60%;
+	left: 19%;
     z-index: 100;
     animation: mapAnimation 1s ease-in-out infinite alternate;
     -webkit-animation-name: mapAnimation;
@@ -1328,4 +1325,45 @@ a {
 /*Sidebar-Sticky for Popups*/
 #popups_sidebar-sticky {
     height: 100%;
+}
+
+/*Loader animation for 1916 Herm + Sculptures*/
+#loader {
+    position: absolute;
+    left: 45%;
+    top: 40%;
+    border: 16px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 16px solid #3d9fd6;
+    border-bottom: 16px solid #3d9fd6;
+    width: 100px; /*150px*/
+    height: 100px;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+}
+
+@-webkit-keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+    }
+
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/*CSS for Popups' body: 1916 Herm + 1916 Sculptures*/
+.popups_body{
+    background-color: #000;
+    color: #000;
 }

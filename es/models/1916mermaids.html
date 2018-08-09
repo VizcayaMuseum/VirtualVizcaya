@@ -10,82 +10,23 @@
 
 	  gtag('config', 'UA-123463304-1');
     </script>
+
     <title>1917 Barge Re-imagined</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
     <link rel="stylesheet" type="text/css" href="../assets/css/vizcaya.css">
-
-    <style>
-        body {
-            font-family: Monospace;
-            background-color: #000;
-            color: #000;
-            margin: 0px;
-            overflow: hidden;
-        }
-
-        #page-loader {
-            position: absolute;
-            top: 0;
-            bottom: 0%;
-            left: 0;
-            right: 0%;
-            background-color: white;
-            z-index: 99;
-            display: none;
-            text-align: center;
-            width: 100%;
-            padding-top: 25px;
-        }
-
-        #loader {
-            position: absolute;
-            left: 45%;
-            top: 40%;
-            border: 16px solid #f3f3f3;
-            border-radius: 50%;
-            border-top: 16px solid #015289;
-            border-bottom: 16px solid #015289;
-            width: 100px; /*150px*/
-            height: 100px;
-            -webkit-animation: spin 2s linear infinite;
-            animation: spin 2s linear infinite;
-        }
-
-        @-webkit-keyframes spin {
-            0% {
-                -webkit-transform: rotate(0deg);
-            }
-
-            100% {
-                -webkit-transform: rotate(360deg);
-            }
-        }
-
-        @keyframes spin {
-            0% {
-                transform: rotate(0deg);
-            }
-
-            100% {
-                transform: rotate(360deg);
-            }
-        }
-    </style>
-
     <link rel="stylesheet" type="text/css" href="../libs/perfect-scrollbar/css/perfect-scrollbar.css">
 
     <!-- Bootstrap and Scrollbar-->
     <script src="../libs/jquery/jquery-3.1.1.min.js"></script>
     <script src="../libs/jquery-ui/jquery-ui.min.js"></script>
-
     <script src="../libs/bootstrap/js/bootstrap.min.js"></script>
     <link rel="stylesheet" type="text/css" href="../libs/jquery-ui/jquery-ui.min.css">
     <link rel="stylesheet" href="../libs/bootstrap/css/bootstrap.min.css">
 
 </head>
 
-<body>
+<body class="popups_body">
     <script src="build/three.js"></script>
     <script src="js/controls/OrbitControls.js"></script>
     <script src="js/loaders/GLTFLoader.js"></script>
@@ -94,8 +35,7 @@
     <div id="includedContent"></div>
     <div id="loader"></div>
 
-    <!--Control Icons-->
-    
+    <!--Control Icons-->  
     <img id="popups_icon" onclick="sculptures2017Button()" src="../images/GIF/TunelDelTiempo_2017Esculturas.gif" title="View 2017 Sculptures" />
     <img id="question_icon" onclick="questionpopup()" src="../images/question.svg" title="Navigation" />
     <img id="refresh_icon" onclick="refreshPopup()" src="../images/refresh.svg" title="Refresh Page" />

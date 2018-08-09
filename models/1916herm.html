@@ -16,70 +16,9 @@
     <script src="../libs/jquery/jquery-3.1.1.min.js"></script>
     <script src="../libs/jquery-ui/jquery-ui.min.js"></script>
     <link rel="stylesheet" type="text/css" href="../assets/css/vizcaya.css">
-    <style>
-        body {
-            font-family: Monospace;
-            background-color: #000;
-            color: #000;
-            margin: 0px;
-            overflow: hidden;
-        }
-
-        #page-loader {
-            position: absolute;
-            top: 0;
-            bottom: 0%;
-            left: 0;
-            right: 0%;
-            background-color: white;
-            z-index: 99;
-            display: none;
-            text-align: center;
-            width: 100%;
-            padding-top: 25px;
-        }
-
-        #loader {
-            position: absolute;
-            left: 45%; /*50%*/
-            top: 40%;
-            border: 16px solid #f3f3f3;
-            border-radius: 50%;
-            border-top: 16px solid #76ced9;
-            border-bottom: 16px solid #76ced9;
-            width: 100px; /*150px*/
-            height: 100px;
-            -webkit-animation: spin 2s linear infinite;
-            animation: spin 2s linear infinite;
-        }
-
-        @-webkit-keyframes spin {
-            0% {
-                -webkit-transform: rotate(0deg);
-            }
-
-            100% {
-                -webkit-transform: rotate(360deg);
-            }
-        }
-
-        @keyframes spin {
-            0% {
-                transform: rotate(0deg);
-            }
-
-            100% {
-                transform: rotate(360deg);
-            }
-        }
-    </style>
 </head>
 
-<body>
-    <div id="page-loader">
-        <img src="../assets/img/Ajax_loader_gray_256.gif" alt="Loading..." />
-    </div>
-
+<body class="popups_body">
     <script src="build/three.js"></script>
     <script src="js/controls/OrbitControls.js"></script>
     <script src="js/loaders/FBXLoader.js"></script>
@@ -88,13 +27,11 @@
     <div id="loader"></div>
 
     <!--Control Icons-->
-    <!--<img id="home_icon" onclick="redirectHomeFunc()" src="../images/home.svg" title="Home" />-->
     <img id="popups_icon" onclick="herm2017Button()" src="../images/GIF/TimeWarp_2017Herm.gif" title="View Herm" />
     <img id="question_icon" onclick="questionpopup()" src="../images/question.svg" title="Navigation" />
     <img id="refresh_icon" onclick="refreshPopup()" src="../images/refresh.svg" title="Refresh Page" />
     <img id="fullscreen_icon" onclick="toggleFullScreen()" src="../images/fullscreen.svg" title="Fullscreen" />
-    <!--<img id="control_icon" src="../images/arrows.svg" title="Access Control Panel" />-->
-    <!---->
+
     <!-- Navigation Instructions -->
     <div id="nav_panel" class="navPanel">
         <div class="navPanel-content">
@@ -112,7 +49,6 @@
 
         init();
         animate();
-
 
         function init() {
 
@@ -177,7 +113,6 @@
                     $("#fingeranimation_models").fadeOut();
                 }
             }
-
 
             renderer = new THREE.WebGLRenderer();
             renderer.setPixelRatio(window.devicePixelRatio);

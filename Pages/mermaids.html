@@ -25,15 +25,9 @@
     <link rel="stylesheet" type="text/css" href="../libs/spectrum/spectrum.css">
     <link rel="stylesheet" type="text/css" href="../libs/jstree/themes/mixed/style.css">
     <link rel="stylesheet" type="text/css" href="../assets/css/vizcaya.css">
-    <style>
-        body {
-            background-color: #000;
-            color: #000;
-        }
-    </style>
 </head>
 
-<body>
+<body class="popups_body">
     <script src="../libs/jquery/jquery-3.1.1.min.js"></script>
     <script src="../libs/spectrum/spectrum.js"></script>
     <script src="../libs/perfect-scrollbar/js/perfect-scrollbar.jquery.js"></script>
@@ -107,7 +101,6 @@
                 sceneSG.addPointCloud(e.pointcloud);
                 sceneSG.view.position.set(-162.305, -62.071, 52.959);
                 sceneSG.view.lookAt(new THREE.Vector3(-16.377, -11.826, 49.220));
-
 
                 let material = e.pointcloud.material;
                 material.size = 1;
