@@ -25,36 +25,9 @@
     <!-- Custom styles for this template -->
     <link href="assets/css/vizcaya.css" rel="stylesheet">
 
-    <style>
-        h1, p, hr {
-            color: white;
-            border-color: dimgrey;
-        }
-
-        .bg-light {
-            background-color: black !important;
-        }
-
-        body {
-            background-color: black !important;
-        }
-
-        .footer {
-            background-color: black !important;
-        }
-
-            .footer a {
-                color: white;
-            }
-
-        .col-md-2 {
-            max-width: 25% !important;
-        }
-    </style>
-
 </head>
 
-<body style="touch-action:none;">
+<body class="popups_bodypage">
     <script src="models/build/three.js"></script>
     <script src="libs/other/OrbitControls.js"></script>
     <script src="libs/loaders/GLTFLoader.js"></script>
@@ -65,10 +38,10 @@
 
             <div id="split-container" class="mini-container1">
                 <div class="row">
-                    <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+                    <nav id="popups_sidebarpage" class="col-md-2 d-none d-md-block bg-light sidebar">
                         <div id="popups_sidebar-sticky" class="sidebar-sticky">
-                            <h1>1916 Sculptures</h1><hr />
-                            <p>
+                            <h1 class="popups_text">1916 Sculptures</h1><hr / class="popups_text">
+                            <p class="popups_text">
                                 This digital recreation of one of the statues is based on historical photographs in Vizcaya’s archives. When compared with the 3D documentation from 2017, it reveals the extreme erosion that has occurred over the decades.
                             </p>
                         </div>                        
