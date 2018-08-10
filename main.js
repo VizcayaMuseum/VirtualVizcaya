@@ -75,3 +75,14 @@ function opacityOff() {
     var sidebar = parentWin.document.getElementById('split-container');
     sidebar.style.opacity = "1";
 }
+
+/*Link functions for Index: Credits Modal*/
+function darumatechLink(){
+	window.open('https://www.darumatech.com','_blank');
+}
+function fiuLink(){
+	window.open('http://carta.fiu.edu/innovlab','_blank');
+}
+function ufLink(){
+	window.open('https://dcp.ufl.edu/historic-preservation/envision-heritage','_blank');
+}

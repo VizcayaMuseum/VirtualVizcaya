@@ -7,7 +7,7 @@ function refreshButton() {
     window.top.location.reload();
 }
 
-function refreshPopup() {
+function refreshPopup(){
     location.reload();
 }
 
@@ -60,4 +60,29 @@ function toggleFullScreen() {
             document.webkitCancelFullScreen();
         }
     }
+}
+
+//Applying opacity to parent page
+function opacityOn() {
+    parentWin = window.parent;
+    var sidebar = parentWin.document.getElementById('split-container');
+    sidebar.style.opacity = "0.5";
+}
+
+//reset opacity of parent page
+function opacityOff() {
+    parentWin = window.parent;
+    var sidebar = parentWin.document.getElementById('split-container');
+    sidebar.style.opacity = "1";
+}
+
+/*Link functions for Index: Credits Modal*/
+function darumatechLink(){
+	window.open('https://www.darumatech.com','_blank');
+}
+function fiuLink(){
+	window.open('http://carta.fiu.edu/innovlab','_blank');
+}
+function ufLink(){
+	window.open('https://dcp.ufl.edu/historic-preservation/envision-heritage','_blank');
 }
