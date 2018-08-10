@@ -91,7 +91,7 @@
             <div id="prev" data-title="Previous Annotation" data-action="prev-annotation">
                 <div id="prevDiv"><img id="prevIcon" src="../images/caret-left.svg" /></div>
             </div>
-            <div id="hotspots" class="hotspot-name" data-action="toggle-annotation-list"><b>Select to tour</b></div>
+            <div id="hotspots" class="hotspot-name" data-action="toggle-annotation-list"><b id="hotspotName">Select to tour</b></div>
             <div id="next" data-title="Next Annotation" data-action="next-annotation">
                 <div id="nextDiv"><img id="nextIcon" src="../images/caret-right.svg" /></div>
             </div>
@@ -110,27 +110,7 @@
     </div>
 
     <script>
-        function idleTimer() {
-            var t;
-            //window.onload = resetTimer;
-            window.onmousemove = resetTimer; // catches mouse movements
-            window.onmousedown = resetTimer; // catches mouse movements
-            window.ontouchstart = resetTimer;
-            window.ontouchmove = resetTimer;
-            window.onclick = resetTimer;     // catches mouse clicks
-            window.onscroll = resetTimer;    // catches scrolling
-            window.onkeypress = resetTimer;  //catches keyboard actions
-
-            function logout() {
-                /*window.top.location.href = '../index.html';*/  //Adapt to actual logout script
-            }
-            function resetTimer() {
-                clearTimeout(t);
-                t = setTimeout(logout, 300000);  // time is in milliseconds (1000 is 1 second)/
-
-            }
-        }
-        idleTimer();
+        
         window.viewer = new Potree.Viewer(document.getElementById("potree_render_area"));
 
         viewer.setEDLEnabled(false);
@@ -175,6 +155,7 @@
                                                 </span>
                                             `);
                     elTitle.find("img[name=action_set_scene]").click((event) => {
+						changeHotspotName("Front View");
                     });
                     elTitle.toString = () => "Front View";
 
@@ -199,7 +180,8 @@
                                                         style="filter: invert(1);" />
                                                 </span>
                                             `);
-                    elTitle.find("img[name=action_set_scene]").click((event) => {
+                    elTitle.find("img[name=action_set_scene]").click((event) => {	
+						changeHotspotName("Back View");				
                     });
                     elTitle.toString = () => "Back View";
 
@@ -225,6 +207,7 @@
                                                 </span>
                                             `);
                     elTitle.find("img[name=action_set_scene]").click((event) => {
+						changeHotspotName("Right Side View");										
                     });
                     elTitle.toString = () => "Right Side View";
 
@@ -250,6 +233,7 @@
                                                 </span>
                                             `);
                     elTitle.find("img[name=action_set_scene]").click((event) => {
+						changeHotspotName("Left Side View");																
                     });
                     elTitle.toString = () => "Left Side View";
 
@@ -275,6 +259,7 @@
                                                 </span>
                                             `);
                     elTitle.find("img[name=action_set_scene]").click((event) => {
+						changeHotspotName("Terrestrial Laser Scanner");																						
                     });
                     elTitle.toString = () => "Terrestrial Laser Scanner";
 
@@ -326,18 +311,23 @@
 
         //Hotspot Dropup's Click Selection
         $("#li1").click(function () {
+			changeHotspotName("Front View");																						
             item1();
         });
         $("#li2").click(function () {
+			changeHotspotName("Back View");																						
             item2();
         });
         $("#li3").click(function () {
+			changeHotspotName("Right Side View");																						
             item3();
         });
         $("#li4").click(function () {
+			changeHotspotName("Left Side View");																						
             item4();
         });
         $("#li5").click(function () {
+			changeHotspotName("Terrestrial Laser Scanner");																									
             item5();
         });
 

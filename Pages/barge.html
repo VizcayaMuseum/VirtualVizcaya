@@ -126,7 +126,7 @@
         <div id="potree_sidebar_container"> </div>
 
         <!--Control Icons-->
-        <img id="barge_icon" onclick="barge1916Button()" src="../images/GIF/TimeWarp_1916Barge.gif" title="View Barge" />
+        <img id="barge_icon" onclick="barge1916Button()" src="../images/GIF/TimeWarp_1916Barge_Border.gif" title="View Barge" />
         <img id="map_icon" onclick="toggleMap()" src="../images/map.svg" title="Map" class="control_buttons" />
         <img id="tutorial_icon" src="../images/tutorial.svg" title="Tutorial" class="control_buttons" />
         <img id="refresh_icon" onclick="refreshButton()" src="../images/refresh.svg" title="Refresh Page" class="control_buttons" />
@@ -147,7 +147,7 @@
                 <div id="prev" data-title="Previous Annotation" data-action="prev-annotation">
                     <div id="prevDiv"><img id="prevIcon" src="../images/caret-left.svg" /></div>
                 </div>
-                <div id="hotspots" class="hotspot-name" data-action="toggle-annotation-list"><b>Select to tour</b></div>
+                <div id="hotspots" class="hotspot-name" data-action="toggle-annotation-list"><b id="hotspotName">Select to tour</b></div>
                 <div id="next" data-title="Next Annotation" data-action="next-annotation">
                     <div id="nextDiv"><img id="nextIcon" src="../images/caret-right.svg" /></div>
                 </div>
@@ -308,6 +308,7 @@
                                                         </span>
                                                     `);
                         elTitle.find("img[name=action_set_scene]").click((event) => {
+							changeHotspotName("Center of Barge");	
                         });
                         elTitle.toString = () => "CENTER OF BARGE";
 
@@ -333,6 +334,7 @@
                                                                 </span>
                                                                                 `);
                         elTitle.find("img[name=action_set_scene]").click((event) => {
+							changeHotspotName("Grotesques");
                         });
                         elTitle.toString = () => "GROTESQUES";
 
@@ -358,9 +360,8 @@
                                     </span>`);
 
                         elTitle.find("img[name=action_set_scene]").click((event) => {
-                            popupHerm();
-                            /*event.stopPropagation();*/
-                            /*viewer.setScene(sceneSG2);*/
+                            changeHotspotName("Herm");
+							popupHerm();
                         });
                         elTitle.toString = () => "HERM";
 
@@ -384,6 +385,7 @@
                                                         style="filter: invert(1);" />
                                                 </span>`);
                         elTitle.find("img[name=action_set_scene]").click((event) => {
+							changeHotspotName("Sculptures");							
                             popupSculptures();
                         });
                         elTitle.toString = () => "SCULPTURES";
@@ -410,6 +412,7 @@
                                                 </span>
                                             `);
                         elTitle.find("img[name=action_set_scene]").click((event) => {
+							changeHotspotName("Mermaids");
                         });
                         elTitle.toString = () => "MERMAIDS";
 
@@ -465,6 +468,7 @@
                 else if (hotSpot == 2) {
 
                     setTimeout(function () {
+						
                         sceneSG.annotations.children[3].moveHere(sceneSG.camera);
                     }, 2000);
 
@@ -543,21 +547,25 @@
 
             //Functions for each annotation
             function item1() {
+				changeHotspotName("Grotesques");
                 sceneSG.annotations.children[1].moveHere(sceneSG.camera);               
                 showDescription(1);
                 hideDescription(4);
             }
             function item2() {
+				changeHotspotName("Herm");
                 sceneSG.annotations.children[2].moveHere(sceneSG.camera);
                 hideDescription(1);
                 hideDescription(4);
             }
             function item3() {
+				changeHotspotName("Sculptures");
                 sceneSG.annotations.children[3].moveHere(sceneSG.camera);
                 hideDescription(1);
                 hideDescription(4);
             }
             function item4() {
+				changeHotspotName("Mermaids");
                 sceneSG.annotations.children[4].moveHere(sceneSG.camera);
                 showDescription(4);
                 hideDescription(1);
