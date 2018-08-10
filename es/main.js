@@ -86,3 +86,8 @@ function fiuLink(){
 function ufLink(){
 	window.open('https://dcp.ufl.edu/historic-preservation/envision-heritage','_blank');
 }
+
+//Function to change Touch to HotspotName
+function changeHotspotName(newName){
+	document.getElementById('hotspotName').innerHTML = newName;
+}

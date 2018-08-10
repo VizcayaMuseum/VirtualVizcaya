@@ -102,7 +102,7 @@
                 <div id="prev" data-title="Previous Annotation" data-action="prev-annotation">
                     <div id="prevDiv"><img id="prevIcon" src="../images/caret-left.svg" /></div>
                 </div>
-                <div id="hotspots" class="hotspot-name" data-action="toggle-annotation-list">Selecciona para explorar</div>
+                <div id="hotspots" class="hotspot-name" data-action="toggle-annotation-list"><b id="hotspotName">Selecciona para explorar<b></div>
                 <div id="next" data-title="Next Annotation" data-action="next-annotation">
                     <div id="nextDiv"><img id="nextIcon" src="../images/caret-right.svg" /></div>
                 </div>
@@ -244,7 +244,7 @@
                                                         style="filter: invert(1);" />
                                                 </span>`);
                         elTitle.find("img[name=action_set_scene]").click((event) => { });
-                        elTitle.toString = () => "AMORINO";
+                        elTitle.toString = () => "Swimming Pool Grotto";
 
                         let aAbout0 = new Potree.Annotation({
                             position: [-17.926, 20.359, 1.667],
@@ -265,7 +265,9 @@
                                                 class="annotation-action-icon"
                                                 style="filter: invert(1);" />
                                         </span>`);
-                        elTitle.find("img[name=action_set_scene]").click((event) => {});
+                        elTitle.find("img[name=action_set_scene]").click((event) => {
+							changeHotspotName("Amorino");							
+						});
                         elTitle.toString = () => "AMORINO";
 
                         let aAbout1 = new Potree.Annotation({
@@ -288,7 +290,9 @@
                                                 class="annotation-action-icon"
                                                 style="filter: invert(1);" />
                                         </span>`);
-                        elTitle.find("img[name=action_set_scene]").click((event) => {});
+                        elTitle.find("img[name=action_set_scene]").click((event) => {
+							changeHotspotName("Techo Mural");
+						});
                         elTitle.toString = () => "CEILING MURAL";
 
                         let aAbout2 = new Potree.Annotation({
@@ -311,7 +315,9 @@
                                                 class="annotation-action-icon"
                                                 style="filter: invert(1);" />
                                         </span>`);
-                        elTitle.find("img[name=action_set_scene]").click((event) => {});
+                        elTitle.find("img[name=action_set_scene]").click((event) => {
+							changeHotspotName("Esturiones");
+						});
                         elTitle.toString = () => "HUDSON RIVER STURGEONS";
 
                         let aAbout3 = new Potree.Annotation({
@@ -334,7 +340,9 @@
                                                 class="annotation-action-icon"
                                                 style="filter: invert(1);" />
                                         </span>`);
-                        elTitle.find("img[name=action_set_scene]").click((event) => {});
+                        elTitle.find("img[name=action_set_scene]").click((event) => {
+							changeHotspotName("Fuentes");
+						});
                         elTitle.toString = () => "FOUNTAINS";
 
                         let aAbout4 = new Potree.Annotation({
@@ -357,7 +365,9 @@
                                                 class="annotation-action-icon"
                                                 style="filter: invert(1);" />
                                         </span>`);
-                        elTitle.find("img[name=action_set_scene]").click((event) => {});
+                        elTitle.find("img[name=action_set_scene]").click((event) => {
+							changeHotspotName("Piso");
+						});
                         elTitle.toString = () => "FLOOR";
 
                         let aAbout5 = new Potree.Annotation({
@@ -380,8 +390,10 @@
                                                         class="annotation-action-icon"
                                                         style="filter: invert(1);" />
                                                 </span>`);
-                        elTitle.find("img[name=action_set_scene]").click((event) => { });
-                        elTitle.toString = () => "FLOOR";
+                        elTitle.find("img[name=action_set_scene]").click((event) => {
+							changeHotspotName("Lagartos");
+						});
+                        elTitle.toString = () => "Lagartos";
 
                         let aAbout6 = new Potree.Annotation({
                             position: [-32.919, -0.397, -0.508],
@@ -402,7 +414,9 @@
                                                         class="annotation-action-icon"
                                                         style="filter: invert(1);" />
                                                 </span>`);
-                        elTitle.find("img[name=action_set_scene]").click((event) => { });
+                        elTitle.find("img[name=action_set_scene]").click((event) => {
+							changeHotspotName("Pulpos");
+						});
                         elTitle.toString = () => "Octopuses";
 
                         let aAbout7 = new Potree.Annotation({
@@ -424,7 +438,9 @@
                                                         class="annotation-action-icon"
                                                         style="filter: invert(1);" />
                                                 </span>`);
-                        elTitle.find("img[name=action_set_scene]").click((event) => { });
+                        elTitle.find("img[name=action_set_scene]").click((event) => {
+							changeHotspotName("Langostas");
+						});
                         elTitle.toString = () => "Lobsters";
 
                         let aAbout8 = new Potree.Annotation({
@@ -446,7 +462,9 @@
                                                         class="annotation-action-icon"
                                                         style="filter: invert(1);" />
                                                 </span>`);
-                        elTitle.find("img[name=action_set_scene]").click((event) => { });
+                        elTitle.find("img[name=action_set_scene]").click((event) => {
+							changeHotspotName("Tortugas de Mar");
+						});
                         elTitle.toString = () => "Turtles";
 
                         let aAbout9 = new Potree.Annotation({
@@ -496,45 +514,6 @@
                     }, 8500);
                 }
             });
-
-            var timeoutID;
-
-            function setup() {
-                this.addEventListener("mousemove", resetTimer, false);
-                this.addEventListener("touchstart", resetTimer, false);
-                this.addEventListener("mousedown", resetTimer, false);
-                this.addEventListener("mouseover", resetTimer, false);
-                this.addEventListener("mouseout", resetTimer, false);
-                this.addEventListener("keypress", resetTimer, false);
-                this.addEventListener("DOMMouseScroll", resetTimer, false);
-                this.addEventListener("mousewheel", resetTimer, false);
-                this.addEventListener("touchmove", resetTimer, false);
-                this.addEventListener("MSPointerMove", resetTimer, false);
-
-                startTimer();
-            }
-
-            function startTimer() {
-
-                timeoutID = window.setTimeout(goInactive, 300000);
-            }
-
-            function resetTimer(e) {
-                window.clearTimeout(timeoutID);
-
-                goActive();
-            }
-
-            function goInactive() {
-
-                /*window.top.location.href = "../index.html";*/
-            }
-
-            function goActive() {
-
-
-                startTimer();
-            }
 
             /* Hotspots Control Dropup
             *****************************************************/
@@ -631,32 +610,40 @@
             }
 
             //Click functions for each annotation within Hotspot Control's List
-
-            $("#li1").click(function () {
+            $("#li1").click(function () {	
+				changeHotspotName("Amorino");
                 item1();
             });
             $("#li2").click(function () {
+				changeHotspotName("Techo Mural");
                 item2();
             });
             $("#li3").click(function () {
+				changeHotspotName("Esturiones");
                 item3();
             });
             $("#li4").click(function () {
+				changeHotspotName("Fuentes");
                 item4();
             });
             $("#li5").click(function () {
+				changeHotspotName("Piso");
                 item5();
             });
             $("#li6").click(function () {
+				changeHotspotName("Lagartos");
                 item6();
             });
             $("#li7").click(function () {
+				changeHotspotName("Pulpos");
                 item7();
             });
             $("#li8").click(function () {
+				changeHotspotName("Langostas");
                 item8();
             });
             $("#li9").click(function () {
+				changeHotspotName("Tortugas de Mar");
                 item9();
             });
 

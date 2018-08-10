@@ -100,7 +100,7 @@
                 <div id="prev" data-title="Previous Annotation" data-action="prev-annotation">
                     <div id="prevDiv"><img id="prevIcon" src="../images/caret-left.svg" /></div>
                 </div>
-                <div id="hotspots" class="hotspot-name" data-action="toggle-annotation-list">Selecciona para explorar</div>
+                <div id="hotspots" class="hotspot-name" data-action="toggle-annotation-list"><b id="hotspotName">Selecciona para explorar</b></div>
                 <div id="next" data-title="Next Annotation" data-action="next-annotation">
                     <div id="nextDiv"><img id="nextIcon" src="../images/caret-right.svg" /></div>
                 </div>
@@ -112,7 +112,8 @@
                         <li id="li2" class="link"><a data-hotspot-target="1" title="Herma"><span class="index">&sccue;</span>Herma</a></li>
                         <li id="li3" class="link"><a data-hotspot-target="2" title="Esculturas"><span class="index">&sccue;</span>Esculturas</a></li>
                         <li id="li4" class="link"><a data-hotspot-target="3" title="Sirenas"><span class="index">&sccue;</span>Sirenas</a></li>
-                    </ul>
+						<li id="li5" class="link"><a data-hotspot-target="4" title="Center of Barge"><span class="index">&sccue;</span> Centro de la Barcaza</a></li>
+					</ul>
                 </div>
             </div>
         </div>
@@ -154,52 +155,6 @@
 
     <script>
 
-        function toggleMap() {
-            $("#myMap").fadeIn();
-
-            var popup = document.getElementById('myMap');
-            var span = document.getElementsByClassName("close")[2];
-
-            //Applying opacity to parent page
-            parentWin = window.parent;
-            var sidebar = parentWin.document.getElementById('split-container');
-            sidebar.style.opacity = "0.4";
-
-            span.onclick = function () {
-                popup.style.display = "none";
-                //reset opacity of parent page
-                sidebar.style.opacity = "1";
-            }
-            window.onclick = function (event) {
-                if (event.target == popup) {
-                    popup.style.display = "none";
-                    //reset opacity of parent page
-                    sidebar.style.opacity = "1";
-                }
-            }
-        }
-
-        function idleTimer() {
-            var t;
-            //window.onload = resetTimer;
-            window.onmousemove = resetTimer; // catches mouse movements
-            window.onmousedown = resetTimer; // catches mouse movements
-            window.ontouchstart = resetTimer;
-            window.ontouchmove = resetTimer;
-            window.onclick = resetTimer;     // catches mouse clicks
-            window.onscroll = resetTimer;    // catches scrolling
-            window.onkeypress = resetTimer;  //catches keyboard actions
-
-            function logout() {
-                /*window.top.location.href = '../index.html';*/  //Adapt to actual logout script
-            }
-            function resetTimer() {
-                clearTimeout(t);
-                t = setTimeout(logout, 300000);  // time is in milliseconds (1000 is 1 second)/
-
-            }
-        }
-        idleTimer();
         window.viewer = new Potree.Viewer(document.getElementById("potree_render_area"));
 
         viewer.setEDLEnabled(false);
@@ -317,6 +272,7 @@
                                                 </span>
                                             `);
                     elTitle.find("img[name=action_set_scene]").click((event) => {
+						changeHotspotName("Centro de la Barcaza");
                     });
                     elTitle.toString = () => "CENTRO DE LA BARCAZA";
 
@@ -341,6 +297,7 @@
                                                         style="filter: invert(1);" />
                                                 </span>`);
                     elTitle.find("img[name=action_set_scene]").click((event) => {
+						changeHotspotName("Grotescos");
                     });
                     elTitle.toString = () => "GROTESQUES";
 
@@ -365,6 +322,7 @@
                                                     style="filter: invert(1);" />
                                             </span>`);
                     elTitle.find("img[name=action_set_scene]").click((event) => {
+						changeHotspotName("Herma");
                         popupHerm();
                         /*event.stopPropagation();*/
                         /*viewer.setScene(sceneSG2);*/
@@ -392,6 +350,7 @@
                                                         style="filter: invert(1);" />
                                                 </span>`);
                     elTitle.find("img[name=action_set_scene]").click((event) => {
+						changeHotspotName("Esculturas");
                         popupSculptures();
 
                     });
@@ -417,6 +376,7 @@
                                                     style="filter: invert(1);" />
                                             </span>`);
                     elTitle.find("img[name=action_set_scene]").click((event) => {
+						changeHotspotName("Sirenas");
                     });
                     elTitle.toString = () => "MERMAIDS";
 
@@ -482,40 +442,6 @@
 
         });
 
-        var timeoutID;
-
-        function setup() {
-            this.addEventListener("mousemove", resetTimer, false);
-            this.addEventListener("touchstart", resetTimer, false);
-            this.addEventListener("mousedown", resetTimer, false);
-            this.addEventListener("mouseover", resetTimer, false);
-            this.addEventListener("mouseout", resetTimer, false);
-            this.addEventListener("keypress", resetTimer, false);
-            this.addEventListener("DOMMouseScroll", resetTimer, false);
-            this.addEventListener("mousewheel", resetTimer, false);
-            this.addEventListener("touchmove", resetTimer, false);
-            this.addEventListener("MSPointerMove", resetTimer, false);
-
-            startTimer();
-        }
-
-        function startTimer() {
-            timeoutID = window.setTimeout(goInactive, 300000);
-        }
-
-        function resetTimer(e) {
-            window.clearTimeout(timeoutID);
-            goActive();
-        }
-
-        function goInactive() {
-            /*window.top.location.href = "../index.html";*/
-        }
-
-        function goActive() {
-            startTimer();
-        }
-
         /* Hotspots Control Dropup
         *****************************************************/
         $("#hotspots").click(function () {
@@ -538,11 +464,13 @@
 
         //Functions for each annotation
         function item1() {
+			changeHotspotName("Grotescos");
             sceneSG.annotations.children[1].moveHere(sceneSG.camera);
             showDescription(1);
             hideDescription(4);
         }
         function item2() {
+			changeHotspotName("Herma");
             sceneSG.annotations.children[2].moveHere(sceneSG.camera);
             hideDescription(1);
             hideDescription(4);
@@ -553,14 +481,22 @@
             */
         }
         function item3() {
+			changeHotspotName("Esculturas");
             sceneSG.annotations.children[3].moveHere(sceneSG.camera);
             hideDescription(1);
             hideDescription(4);
         }
         function item4() {
+			changeHotspotName("Sirenas");
             sceneSG.annotations.children[4].moveHere(sceneSG.camera);
             showDescription(4);
             hideDescription(1);
+        }
+		function item5() {
+			changeHotspotName("Centro de la Barcaza");
+            sceneSG.annotations.children[0].moveHere(sceneSG.camera);
+            hideDescription(1);
+            hideDescription(4);
         }
 
         //Click functions for each annotation within Hotspot Control's List
@@ -576,6 +512,9 @@
         $("#li4").click(function () {
             item4();
         });
+		$("#li5").click(function () {
+            item5();
+        });
 
         //Functions for continuous click on Prev and Next buttons
         const functions = [];
@@ -583,6 +522,7 @@
         functions.push(item2);
         functions.push(item3);
         functions.push(item4);
+		functions.push(item5);
 
         const length = functions.length;
 
@@ -623,6 +563,7 @@
         hideList('li2');
         hideList('li3');
         hideList('li4');
+		hideList('li5');
 
         /* Navigation Controls Image
         *****************************************************/
@@ -646,6 +587,31 @@
             sidebar.style.opacity = "1";
 
         });
+
+        function toggleMap() {
+            $("#myMap").fadeIn();
+
+            var popup = document.getElementById('myMap');
+            var span = document.getElementsByClassName("close")[2];
+
+            //Applying opacity to parent page
+            parentWin = window.parent;
+            var sidebar = parentWin.document.getElementById('split-container');
+            sidebar.style.opacity = "0.4";
+
+            span.onclick = function () {
+                popup.style.display = "none";
+                //reset opacity of parent page
+                sidebar.style.opacity = "1";
+            }
+            window.onclick = function (event) {
+                if (event.target == popup) {
+                    popup.style.display = "none";
+                    //reset opacity of parent page
+                    sidebar.style.opacity = "1";
+                }
+            }
+        }
 
     </script>
 

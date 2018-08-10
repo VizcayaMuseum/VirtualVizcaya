@@ -33,11 +33,6 @@
             }
         }
 
-        .controls .hotspot-controls .list {
-            width: 100% !important;
-            right: 1% !important;
-        }
-
 		.navPanel-content{
 			left: 17%;
 		}
@@ -93,7 +88,7 @@
             <div id="prev" data-title="Previous Annotation" data-action="prev-annotation">
                 <div id="prevDiv"><img id="prevIcon" src="../images/caret-left.svg" /></div>
             </div>
-            <div id="hotspots" class="hotspot-name" data-action="toggle-annotation-list"><b>Selecciona para explorar</b></div>
+            <div id="hotspots" class="hotspot-name" data-action="toggle-annotation-list"><b id="hotspotName">Selecciona para explorar</b></div>
             <div id="next" data-title="Next Annotation" data-action="next-annotation">
                 <div id="nextDiv"><img id="nextIcon" src="../images/caret-right.svg" /></div>
             </div>
@@ -101,10 +96,10 @@
                 <!--<a href="#" data-action="toggle-visibility" class="annotations-visibility"></a>-->
                 <!--<a href="#" data-action="toggle-autopilot" class="annotations-autopilot"></a>-->
                 <ul class="js-scrollable">
-                    <li id="li1" class="link"><a data-hotspot-target="0" title="Front View"><span class="index">&sccue;</span> Vista frontal</a></li>
-                    <li id="li2" class="link"><a data-hotspot-target="1" title="Back View"><span class="index">&sccue;</span> Vista trasera </a></li>
-                    <li id="li3" class="link"><a data-hotspot-target="2" title="Left Side View"><span class="index">&sccue;</span> Vista del lado derecho</a></li>
-                    <li id="li4" class="link"><a data-hotspot-target="3" title="Right Side View"><span class="index">&sccue;</span> Vista del lado izquierdo</a></li>
+                    <li id="li1" class="link"><a data-hotspot-target="0" title="Front View"><span class="index">&sccue;</span> Vista Frontal</a></li>
+                    <li id="li2" class="link"><a data-hotspot-target="1" title="Back View"><span class="index">&sccue;</span> Vista Trasera </a></li>
+                    <li id="li3" class="link"><a data-hotspot-target="2" title="Left Side View"><span class="index">&sccue;</span> Vista del Lado Derecho</a></li>
+                    <li id="li4" class="link"><a data-hotspot-target="3" title="Right Side View"><span class="index">&sccue;</span> Vista del Lado Izquierdo</a></li>
                     <li id="li5" class="link"><a data-hotspot-target="4" title="Escáner Láser Terrestre"><span class="index">&sccue;</span> Escáner Laser</a></li>
                 </ul>
             </div>
@@ -112,27 +107,7 @@
     </div>
 
     <script>
-        function idleTimer() {
-            var t;
-            //window.onload = resetTimer;
-            window.onmousemove = resetTimer; // catches mouse movements
-            window.onmousedown = resetTimer; // catches mouse movements
-            window.ontouchstart = resetTimer;
-            window.ontouchmove = resetTimer;
-            window.onclick = resetTimer;     // catches mouse clicks
-            window.onscroll = resetTimer;    // catches scrolling
-            window.onkeypress = resetTimer;  //catches keyboard actions
 
-            function logout() {
-                /*window.top.location.href = '../index.html';*/  //Adapt to actual logout script
-            }
-            function resetTimer() {
-                clearTimeout(t);
-                t = setTimeout(logout, 300000);  // time is in milliseconds (1000 is 1 second)/
-
-            }
-        }
-        idleTimer();
         window.viewer = new Potree.Viewer(document.getElementById("potree_render_area"));
 
         viewer.setEDLEnabled(false);
@@ -177,7 +152,8 @@
                                                     </span>
                                                 `);
                     elTitle.find("img[name=action_set_scene]").click((event) => {
-                    });
+						changeHotspotName("Vista Frontal");		
+					});
                     elTitle.toString = () => "Front View";
 
                     let aAbout0 = new Potree.Annotation({
@@ -202,6 +178,7 @@
                                                     </span>
                                                 `);
                     elTitle.find("img[name=action_set_scene]").click((event) => {
+						changeHotspotName("Vista Trasera");		
                     });
                     elTitle.toString = () => "Back View";
 
@@ -227,7 +204,8 @@
                                                     </span>
                                                 `);
                     elTitle.find("img[name=action_set_scene]").click((event) => {
-                    });
+						changeHotspotName("Vista del Lado Derecho");		
+					});
                     elTitle.toString = () => "Right Side View";
 
                     let aAbout2 = new Potree.Annotation({
@@ -252,6 +230,7 @@
                                                     </span>
                                                 `);
                     elTitle.find("img[name=action_set_scene]").click((event) => {
+						changeHotspotName("Vista del Lado Izquierdo");		
                     });
                     elTitle.toString = () => "Left Side View";
 
@@ -277,6 +256,7 @@
                                                 </span>
                                             `);
                     elTitle.find("img[name=action_set_scene]").click((event) => {
+						changeHotspotName("Escáner Laser");		
                     });
                     elTitle.toString = () => "Terrestrial Laser Scanners";
 
@@ -312,18 +292,23 @@
 
         //Functions for each annotation
         function item1() {
+			changeHotspotName("Vista Frontal");		
             sceneSG.annotations.children[0].moveHere(sceneSG.camera);
         }
         function item2() {
+			changeHotspotName("Vista Trasera");		
             sceneSG.annotations.children[1].moveHere(sceneSG.camera);
         }
         function item3() {
+			changeHotspotName("Vista del Lado Derecho");		
             sceneSG.annotations.children[2].moveHere(sceneSG.camera);
         }
         function item4() {
+			changeHotspotName("Vista del Lado Izquierdo");		
             sceneSG.annotations.children[3].moveHere(sceneSG.camera);
         }
         function item5() {
+			changeHotspotName("Escáner Laser");		
             sceneSG.annotations.children[4].moveHere(sceneSG.camera);
         }
 

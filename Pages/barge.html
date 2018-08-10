@@ -159,7 +159,8 @@
                         <li id="li2" class="link"><a data-hotspot-target="1" title="Herm"><span class="index">&sccue;</span>Herm </a></li>
                         <li id="li3" class="link"><a data-hotspot-target="2" title="Sculptures"><span class="index">&sccue;</span> Sculptures</a></li>
                         <li id="li4" class="link"><a data-hotspot-target="3" title="Mermaids"><span class="index">&sccue;</span> Mermaids</a></li>
-                    </ul>
+						<li id="li5" class="link"><a data-hotspot-target="4" title="Center of Barge"><span class="index">&sccue;</span> Center of Barge</a></li>
+					</ul>
                 </div>
             </div>
         </div>
@@ -479,40 +480,6 @@
 
             });
 
-            var timeoutID;
-
-            function setup() {
-                this.addEventListener("mousemove", resetTimer, false);
-                this.addEventListener("touchstart", resetTimer, false);
-                this.addEventListener("mousedown", resetTimer, false);
-                this.addEventListener("mouseover", resetTimer, false);
-                this.addEventListener("mouseout", resetTimer, false);
-                this.addEventListener("keypress", resetTimer, false);
-                this.addEventListener("DOMMouseScroll", resetTimer, false);
-                this.addEventListener("mousewheel", resetTimer, false);
-                this.addEventListener("touchmove", resetTimer, false);
-                this.addEventListener("MSPointerMove", resetTimer, false);
-
-                startTimer();
-            }
-
-            function startTimer() {
-                timeoutID = window.setTimeout(goInactive, 300000);
-            }
-
-            function resetTimer(e) {
-                window.clearTimeout(timeoutID);
-                goActive();
-            }
-
-            function goInactive() {
-                window.top.location.href = "../index.html";
-            }
-
-            function goActive() {
-                startTimer();
-            }
-
             /* Hotspots Control Dropup
             *****************************************************/
             $("#hotspots").click(function () {
@@ -570,6 +537,12 @@
                 showDescription(4);
                 hideDescription(1);
             }
+			function item5() {
+				changeHotspotName("Center of Barge");
+                sceneSG.annotations.children[0].moveHere(sceneSG.camera);
+                hideDescription(1);
+                hideDescription(4);
+            }
 
             //Hotspot Dropup's Click Selection
             $("#li1").click(function () {
@@ -584,13 +557,16 @@
             $("#li4").click(function () {
                 item4();
             });
-
+			$("#li5").click(function () {
+                item5();
+            });
             //Hotspot Dropup's Prev/Next Selection
             const functions = [];
             functions.push(item1);
             functions.push(item2);
             functions.push(item3);
             functions.push(item4);
+			functions.push(item5);
 
             const length = functions.length;
 
@@ -631,7 +607,7 @@
             hideList('li2');
             hideList('li3');
             hideList('li4');
-
+			hideList('li5');
         }
 
         /* Navigation Controls Image
