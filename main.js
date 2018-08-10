@@ -61,3 +61,17 @@ function toggleFullScreen() {
         }
     }
 }
+
+//Applying opacity to parent page
+function opacityOn() {
+    parentWin = window.parent;
+    var sidebar = parentWin.document.getElementById('split-container');
+    sidebar.style.opacity = "0.5";
+}
+
+//reset opacity of parent page
+function opacityOff() {
+    parentWin = window.parent;
+    var sidebar = parentWin.document.getElementById('split-container');
+    sidebar.style.opacity = "1";
+}

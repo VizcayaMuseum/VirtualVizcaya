@@ -215,7 +215,7 @@
 
             viewer.setBackground("gradient"); // ["skybox", "gradient", "black", "white"];
             viewer.loadSettingsFromURL();
-
+            
             viewer.loadGUI(() => {
                 viewer.setLanguage('en');
                 $("#menu_tools").next().show();
@@ -238,25 +238,21 @@
                 material.size = 1;
                 material.pointSizeType = Potree.PointSizeType.ADAPTIVE;
 
+                
 
                 function popupHerm() {
                     $("#mypopup1").fadeIn();
                     var popup = document.getElementById('mypopup1');
                     var span = document.getElementsByClassName("close")[0];
-
-                    //Applying opacity to parent page
-                    parentWin = window.parent;
-                    var sidebar = parentWin.document.getElementById('split-container');
-                    sidebar.style.opacity = "0.4";
+                    opacityOn();
 
                     span.onclick = function () {
                         $("#mypopup1").hide();
                         //Reloads the Popup
                         $('#mypopup1').attr('src', '');
                         var iframe = document.getElementById('iframe1');
-                        iframe.src = iframe.src;
-                        //reset opacity of parent page
-                        sidebar.style.opacity = "1";
+                        iframe.src = iframe.src;                    
+                        opacityOff();
                     }
                     window.onclick = function (event) {
                         if (event.target == popup) {
@@ -265,8 +261,7 @@
                             $('#mypopup1').attr('src', '');
                             var iframe = document.getElementById('iframe1');
                             iframe.src = iframe.src;
-                            //reset opacity of parent page
-                            sidebar.style.opacity = "1";
+                            opacityOff();
                         }
                     }
 
@@ -277,10 +272,7 @@
                     var popup = document.getElementById('mypopup2');
                     var span = document.getElementsByClassName("close")[1];
 
-                    //Applying opacity to parent page
-                    parentWin = window.parent;
-                    var sidebar = parentWin.document.getElementById('split-container');
-                    sidebar.style.opacity = "0.4";
+                    opacityOn();
 
                     span.onclick = function () {
                         $("#mypopup2").hide();
@@ -288,9 +280,7 @@
                         $('#mypopup2').attr('src', '');
                         var iframe = document.getElementById('iframe2');
                         iframe.src = iframe.src;
-
-                        //reset opacity of parent page
-                        sidebar.style.opacity = "1";
+                        opacityOff();
                     }
                     window.onclick = function (event) {
                         if (event.target == popup) {
@@ -299,9 +289,7 @@
                             $('#mypopup2').attr('src', '');
                             var iframe = document.getElementById('iframe2');
                             iframe.src = iframe.src;
-
-                            //reset opacity of parent page
-                            sidebar.style.opacity = "1";
+                            opacityOff();
                         }
                     }
                 }
@@ -636,39 +624,6 @@
             hideList('li3');
             hideList('li4');
 
-            /*{   //Annotation (Example)
-                   let Mermaids = new Potree.Annotation({
-                       position: [-63.358, -51.438, -1.902],
-                       title: "MERMAIDS",
-                       cameraPosition: [-65.596, -53.536, -1.081],
-                       cameraTarget: [-44.362, -35.946, -6.132],
-                       description: `Much of the original detail of the Barge Mermaids has been lost over the past century due to storms and the subtropical environmental conditions. Depictions of aquatic life, real and imagined, are found throughout Vizcaya, including a group of “Merboy” sculptures located in the Fountain Garden. `,
-                   });
-                   Mermaids.domElement.off("mouseenter");
-                   Mermaids.domElement.off("mouseleave");
-                   Mermaids.addEventListener("click", () => {
-                       Mermaids.setHighlighted(!Mermaids.isHighlighted);
-                   });
-                   sceneSG.annotations.add(Mermaids);
-               }*/
-
-            /*// Herm point cloud in scene 2 (Example)
-                    Potree.loadPointCloud("https://s3.amazonaws.com/vizcaya/pointclouds/herm/cloud.js", "herm", function (e) {
-                        sceneSG2.addPointCloud(e.pointcloud);
-                        sceneSG2.view.position.set(40.480, -28.044, 52.055);
-                        sceneSG2.view.lookAt(new THREE.Vector3(-1.311, -0.328, 41.852));
-                        e.pointcloud.material.pointSizeType = Potree.PointSizeType.ADAPTIVE;
-                        sceneSG2.addAnnotation([7.150, -0.112, 20.413], {
-                            "title": "Return to Barge",
-                            "actions": [{
-                                "icon": Potree.resourcePath + "/icons/goto-w.svg",
-                                "onclick": function () {
-                                    viewer.setScene(sceneSG);
-                                }
-                            }]
-                        });
-                    });*/
-
         }
 
         /* Navigation Controls Image
@@ -677,20 +632,13 @@
             /*$("#nav_panel").toggle();*/
             $("#nav_panel").fadeIn();
 
-            //Applying opacity to parent page
-            parentWin = window.parent;
-            var sidebar = parentWin.document.getElementById('split-container');
-            sidebar.style.opacity = "0.5";
+            opacityOn();
         });
 
         var navPanel = document.getElementById('nav_panel');
         navPanel.addEventListener('click', function () {
             $("#nav_panel").fadeOut();
-            /*navPanel.style.display = "none";*/
-            //reset opacity of parent page
-            parentWin = window.parent;
-            var sidebar = parentWin.document.getElementById('split-container');
-            sidebar.style.opacity = "1";
+            opacityOff();
 
         });
 
@@ -700,10 +648,7 @@
 
             popup.style.display = "block";
 
-            //Applying opacity to parent page
-            parentWin = window.parent;
-            var sidebar = parentWin.document.getElementById('split-container');
-            sidebar.style.opacity = "0.4";
+            opacityOn();
 
             span.onclick = function () {
                 popup.style.display = "none";
@@ -711,8 +656,7 @@
                 $('#myMap').attr('src', '');
                 var iframe = document.getElementById('iframe3');
                 iframe.src = iframe.src;
-                //reset opacity of parent page
-                sidebar.style.opacity = "1";
+                opacityOff();
             }
             window.onclick = function (event) {
                 if (event.target == popup) {
@@ -721,8 +665,7 @@
                     $('#myMap').attr('src', '');
                     var iframe = document.getElementById('iframe3');
                     iframe.src = iframe.src;
-                    //reset opacity of parent page
-                    sidebar.style.opacity = "1";
+                    opacityOff();
                 }
             }
         }
@@ -733,21 +676,16 @@
             var popup = document.getElementById('myMap');
             var span = document.getElementsByClassName("close")[2];
 
-            //Applying opacity to parent page
-            parentWin = window.parent;
-            var sidebar = parentWin.document.getElementById('split-container');
-            sidebar.style.opacity = "0.4";
+            opacityOn();
 
             span.onclick = function () {
                 popup.style.display = "none";
-                //reset opacity of parent page
-                sidebar.style.opacity = "1";
+                opacityOff();
             }
             window.onclick = function (event) {
                 if (event.target == popup) {
                     popup.style.display = "none";
-                    //reset opacity of parent page
-                    sidebar.style.opacity = "1";
+                    opacityOff();
                 }                
             }
         }
