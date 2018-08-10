@@ -860,7 +860,7 @@ a {
 * CONTROLS ICONS
 */
 
-.control_buttons, #barge_icon, #popups_icon, #map_icon, #refresh_icon, #tutorial_icon, #question_icon, #fullscreen_icon {
+.control_buttons, .control_buttons_popups, #barge_icon, #popups_icon {
     width: 100%;
     height: 100%;
     position: fixed;
@@ -871,27 +871,32 @@ a {
     z-index: 2;
     border-radius: 40px;
     background: rgba(0,0,0,0.4);
-    /*
-    
+    /*   
     border: solid;
     border-color: #ffffff;
     border-width: 1.7px;
         */
 }
 
-    .control_buttons:hover {
-        background: #000000 !important;
-    }
+.control_buttons_popups {
+    border: solid;
+    border-color: #ffffff;
+    border-width: 1.7px;
+}
+
+.control_buttons:hover {
+    background: #000000 !important;
+}
 
 #barge_icon {
     right: 230px;
 }
 
-#popups_icon {
+#map_icon {
     right: 175px;
 }
 
-#map_icon {
+#popups_icon {
     right: 175px;
 }
 
@@ -904,6 +909,23 @@ a {
 }
 
 #fullscreen_icon {
+    right: 10px;
+}
+
+/*For popups buttons/icons*/
+#popups_icon {
+    right: 190px;
+}
+
+#refresh_icon2 {
+    right: 130px;
+}
+
+#tutorial_icon2, #question_icon2 {
+    right: 70px;
+}
+
+#fullscreen_icon2 {
     right: 10px;
 }
 
@@ -1100,33 +1122,7 @@ a {
 /*
 * Context Map
 */
-/*
-#vizcaya_logo {
-    width: 280px;
-    max-width: 280px;
-    height: 108px;
-    max-height: 108px;
-    z-index: 3;
-    display:;
-}
-*/
-/*
-#map_wrapper h1{
 
-    margin:0;
-    padding:0;
-    color: #fff;
-    text-align:center;
-}
-    
-#floor_plan {
-    width: 280px;
-    max-width: 280px;
-    height: 180px;
-    /*max-height: 108px;
-    z-index: 2;
-}    
-    */
 #floor_plan {
     border-radius: 20px;
     z-index: 2;
