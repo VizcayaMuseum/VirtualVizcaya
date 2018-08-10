@@ -141,47 +141,7 @@
 
     </div>
         <script>
-
-            function toggleMap() {
-                $("#myMap").fadeIn();
-
-                var popup = document.getElementById('myMap');
-                var span = document.getElementsByClassName("close")[0];
-
-                //Applying opacity to parent page
-                parentWin = window.parent;
-                var sidebar = parentWin.document.getElementById('split-container');
-                sidebar.style.opacity = "0.4";
-
-                span.onclick = function () {
-                    popup.style.display = "none";
-                    //reset opacity of parent page
-                    sidebar.style.opacity = "1";
-                }
-                window.onclick = function (event) {
-                    if (event.target == popup) {
-                        popup.style.display = "none";
-                        //reset opacity of parent page
-                        sidebar.style.opacity = "1";
-                    }
-                }
-            }
-
-            function fingerAnimation() {
-
-                document.getElementById("fingeranimation_grotto").style.display = "block";
-                setTimeout(function () {
-                    document.getElementById("fingeranimation_grotto").style.display = "none";
-                }, 7500);
-
-                window.onclick = function (event) {
-                    $("#fingeranimation_grotto").fadeOut();
-                }
-                window.ontouchstart = function (event) {
-                    $("#fingeranimation_grotto").fadeOut();
-                }
-            }
-            
+   
             window.viewer = new Potree.Viewer(document.getElementById("potree_render_area"));
 
             viewer.setEDLEnabled(false);
@@ -192,13 +152,13 @@
             viewer.setEDLEnabled(false);
             viewer.setBackground("gradient"); // ["skybox", "gradient", "black", "white"];
             viewer.loadSettingsFromURL();
-            
+            /*
             viewer.loadGUI(() => {
                 viewer.setLanguage('en');
                 $("#menu_scene").next().show();
                 //viewer.toggleSidebar();
             });
-            
+            */
             viewer.setDescription(``);
 
             let sceneSG = new Potree.Scene();
@@ -727,6 +687,45 @@
 
             });
 
+			function toggleMap() {
+                $("#myMap").fadeIn();
+
+                var popup = document.getElementById('myMap');
+                var span = document.getElementsByClassName("close")[0];
+
+                //Applying opacity to parent page
+                parentWin = window.parent;
+                var sidebar = parentWin.document.getElementById('split-container');
+                sidebar.style.opacity = "0.4";
+
+                span.onclick = function () {
+                    popup.style.display = "none";
+                    //reset opacity of parent page
+                    sidebar.style.opacity = "1";
+                }
+                window.onclick = function (event) {
+                    if (event.target == popup) {
+                        popup.style.display = "none";
+                        //reset opacity of parent page
+                        sidebar.style.opacity = "1";
+                    }
+                }
+            }
+
+            function fingerAnimation() {
+
+                document.getElementById("fingeranimation_grotto").style.display = "block";
+                setTimeout(function () {
+                    document.getElementById("fingeranimation_grotto").style.display = "none";
+                }, 7500);
+
+                window.onclick = function (event) {
+                    $("#fingeranimation_grotto").fadeOut();
+                }
+                window.ontouchstart = function (event) {
+                    $("#fingeranimation_grotto").fadeOut();
+                }
+            }
         </script>
 
 </body>
