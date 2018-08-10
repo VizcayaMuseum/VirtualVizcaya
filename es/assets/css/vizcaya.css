@@ -233,7 +233,7 @@ h1, h2, h3, h4 {
     top: 0;
     right: 0;
     position: relative;
-	font-weight: lighter;
+    font-weight: lighter;
 }
 
 #langdiv_index {
@@ -243,7 +243,7 @@ h1, h2, h3, h4 {
     right: 0;
     padding-top: 10%;
     position: relative;
-	font-weight: lighter;
+    font-weight: lighter;
 }
 
 #lang_selected {
@@ -584,20 +584,6 @@ a {
     border-radius: 22px;
 }
 
-/*
-#control_icon {
-    max-width: 50px;
-    max-height: 50px;
-    width: 100%;
-    height: 100%;
-    position: fixed;
-    bottom: 15px;
-    right: 70px;
-    z-index: 100;
-    cursor: pointer;
-}
-*/
-
 /*Control Panel image after selecting control icon*/
 #control_panel {
     max-width: 300px;
@@ -669,13 +655,13 @@ a {
         height: 50px;
         font-size: 18px; /*13px*/
         color: #ffffff;
-        background: rgba(0,0,0,0.3);		
+        background: rgba(0,0,0,0.4);
         border-radius: 25px;
-		
+        /*
         border: solid;
         border-color: #ffffff;
 		border-width: 1.7px;
-		
+		*/
     }
 
         .controls .hotspot-controls [data-action="prev-annotation"] {
@@ -715,7 +701,7 @@ a {
             bottom: 55px; /*change the proximity of bar and list*/
             display: none;
             min-height: 100px;
-			height: flex;
+            height: flex;
             padding: 1px;
             color: #ffffff;
             background: rgba(0, 0, 0, 0.75);
@@ -727,7 +713,7 @@ a {
             flex-direction: column;
             flex-wrap: nowrap;
             min-width: 250px;
-			width: flex;
+            width: flex;
         }
 
 #prevDiv, #nextDiv {
@@ -874,37 +860,47 @@ a {
 * CONTROLS ICONS
 */
 
-#barge_icon, #popups_icon, #map_icon, #refresh_icon, #question_icon, #fullscreen_icon {
-	width: 100%;
+.control_buttons, #barge_icon, #popups_icon, #map_icon, #refresh_icon, #tutorial_icon, #question_icon, #fullscreen_icon {
+    width: 100%;
     height: 100%;
     position: fixed;
     bottom: 18px;
     cursor: pointer;
-    max-height: 50px !important;
-    max-width: 50px !important;
+    max-height: 52px !important;
+    max-width: 52px !important;
     z-index: 2;
-    background: rgba(0,0,0,0.3);
     border-radius: 40px;
+    background: rgba(0,0,0,0.4);
+    /*
+    
+    border: solid;
+    border-color: #ffffff;
+    border-width: 1.7px;
+        */
 }
 
-#barge_icon {    
-	right: 230px; 
+    .control_buttons:hover {
+        background: #000000 !important;
+    }
+
+#barge_icon {
+    right: 230px;
 }
 
 #popups_icon {
-    right: 175px; 
+    right: 175px;
 }
 
 #map_icon {
-    right: 175px; 
+    right: 175px;
 }
 
 #refresh_icon {
-    right: 120px; 
+    right: 120px;
 }
 
-#question_icon {
-    right: 65px; 
+#tutorial_icon, #question_icon {
+    right: 65px;
 }
 
 #fullscreen_icon {
@@ -1159,9 +1155,9 @@ a {
     width: auto;
     position: absolute;
     top: 55%;
-	right: 35%;
+    right: 35%;
     z-index: 100;
-	animation: mapAnimation 1s ease-in-out infinite alternate;
+    animation: mapAnimation 1s ease-in-out infinite alternate;
     -webkit-animation-name: mapAnimation;
     animation-name: mapAnimation;
 }
@@ -1173,9 +1169,9 @@ a {
     width: auto;
     position: absolute;
     top: 15%;
-	right: 23.8%;
+    right: 23.8%;
     z-index: 100;
-	animation: mapAnimation 1s ease-in-out infinite alternate;
+    animation: mapAnimation 1s ease-in-out infinite alternate;
     -webkit-animation-name: mapAnimation;
     animation-name: mapAnimation;
 }
@@ -1313,17 +1309,18 @@ a {
 #popups_sidebar-sticky {
     height: 100%;
 }
-#popups_sidebar-sticky p{
-	color: #FFFFFF;
-}
 
-#popups_sidebar-sticky h1{
-	color: #FFFFFF;
-}
+    #popups_sidebar-sticky p {
+        color: #FFFFFF;
+    }
 
-#popups_sidebar-sticky hr{
-	border-color: #696969;
-}
+    #popups_sidebar-sticky h1 {
+        color: #FFFFFF;
+    }
+
+    #popups_sidebar-sticky hr {
+        border-color: #696969;
+    }
 
 /*Loader animation for 1916 Herm + Sculptures*/
 #loader {
@@ -1361,18 +1358,18 @@ a {
 }
 
 /*CSS for Popups' body: 1916 Herm + 1916 Sculptures*/
-.popups_body{
+.popups_body {
     background-color: #000;
     color: #000;
 }
 
 /*CSS for Popups' page body: all popups*/
-.popups_bodypage{
-	background-color: #000000;
-	touch-action: none;
+.popups_bodypage {
+    background-color: #000000;
+    touch-action: none;
 }
 
-#popups_sidebarpage{
-	background-color: #000000 !important;
-	max-width: 25% !important;
+#popups_sidebarpage {
+    background-color: #000000 !important;
+    max-width: 25% !important;
 }
