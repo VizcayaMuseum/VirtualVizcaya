@@ -144,6 +144,20 @@ function hideList() {
     }
 }
 
+/* Tutorial Popup
+*****************************************************/
+function tutorialPopup() {
+
+    $("#nav_panel").fadeIn();
+    opacityOn();
+
+    var navPanel = document.getElementById('nav_panel');
+    navPanel.addEventListener('click', function () {
+        $("#nav_panel").fadeOut();
+        opacityOff();
+    });
+}
+
 /* Tutorial Popup2
 *****************************************************/
 function tutorialPopup2() {
