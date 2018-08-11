@@ -143,3 +143,14 @@ function hideList() {
         submenu.style.display = 'none';
     }
 }
+
+/* Tutorial Popup2
+*****************************************************/
+function tutorialPopup2() {
+
+    $("#nav_panel").fadeIn();
+    var navPanel = document.getElementById('nav_panel');
+    navPanel.addEventListener('click', function () {
+        navPanel.style.display = "none";
+    });
+}

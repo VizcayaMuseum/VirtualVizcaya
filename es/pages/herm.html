@@ -54,7 +54,7 @@
         <!--Control Icons-->
 
         <img id="popups_icon" onclick="herm1916Button()" src="../images/GIF/1916Herm.gif" title="View 1916 Herm" />
-        <img id="tutorial_icon2" src="../images/tutorial.svg" title="Tutorial" class="control_buttons_popups" />
+        <img id="tutorial_icon2" onclick="tutorialPopup2()" src="../images/tutorial.svg" title="Tutorial" class="control_buttons_popups" />
         <img id="refresh_icon2" onclick="refreshPopup()" src="../images/refresh.svg" title="Refresh Page" class="control_buttons_popups" />
         <img id="fullscreen_icon2" onclick="toggleFullScreen()" src="../images/fullscreen.svg" title="Fullscreen" class="control_buttons_popups" />
 
@@ -120,17 +120,6 @@
                     $("#finger_animation").fadeOut();
                 }
             }, 1000);            
-
-            /* Navigation Controls Image
-            *****************************************************/
-            $("#tutorial_icon2").click(function () {
-                $("#nav_panel").fadeIn();
-            });
-
-            var navPanel = document.getElementById('nav_panel');
-            navPanel.addEventListener('click', function () {
-                $("#nav_panel").fadeOut();
-            });
 
         </script>
 

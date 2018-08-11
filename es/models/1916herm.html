@@ -29,7 +29,7 @@
     <!--Control Icons-->
     <!--<img id="home_icon" onclick="redirectHomeFunc()" src="../images/home.svg" title="Home" />-->
     <img id="popups_icon" onclick="herm2017Button()" src="../images/GIF/2017Herm.gif" title="View 1916 Herm" />
-    <img id="tutorial_icon2" src="../images/tutorial.svg" title="Tutorial" class="control_buttons_popups" />
+    <img id="tutorial_icon2" onclick="tutorialPopup2()" src="../images/tutorial.svg" title="Tutorial" class="control_buttons_popups" />
     <img id="refresh_icon2" onclick="refreshPopup()" src="../images/refresh.svg" title="Refresh Page" class="control_buttons_popups" />
     <img id="fullscreen_icon2" onclick="toggleFullScreen()" src="../images/fullscreen.svg" title="Fullscreen" class="control_buttons_popups" />
     <!-- Navigation Instructions -->
@@ -41,20 +41,6 @@
         </div>
     </div>
     <img id="fingeranimation_models" src="../images/fingeranimation.svg" />
-    <!--    <div>
-                <img id="control_panel" src="../images/Control_Panel.png" usemap="#controlPanel" />
-                <map name="controlPanel">
-                    <area shape="circle" coords="50,55,20,10" onclick="redirectFunc()" />
-                    <area shape="circle" coords="170,55,20,10" onclick="redirectHomeFunc()" />
-                    <area shape="circle" coords="110,62,25,10" onclick="potreeMerMoveUp()" />
-                    <area shape="circle" coords="110,140,25,10" onclick="potreeMerMoveDown()" />
-                    <area shape="circle" coords="70,105,20,10" onclick="potreeMerMoveLeft()" />
-                    <area shape="circle" coords="150,105,20,10" onclick="potreeMerMoveRight()" />
-                    <area shape="circle" coords="50,160,20,10" onclick="zoomIn()" />
-                    <area shape="circle" coords="170,160,20,10" onclick="zoomOut()" />
-                </map>
-            </div>
-    -->
 
     <script>
 
@@ -155,20 +141,6 @@
             controls.update();
             renderer.render(scene, camera);
 
-        }
-
-        /* Navigation Controls Image
-        *****************************************************/
-        function questionpopup() {
-
-            $("#tutorial_icon2").click(function () {
-                $("#nav_panel").toggle();
-            });
-
-            var navPanel = document.getElementById('nav_panel');
-            navPanel.addEventListener('click', function () {
-                navPanel.style.display = "none";
-            });
         }
 
     </script>
