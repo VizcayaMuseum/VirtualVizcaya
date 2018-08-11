@@ -263,7 +263,6 @@
                             opacityOff();
                         }
                     }
-
                 }
 
                 function popupSculptures() {
@@ -293,7 +292,6 @@
                 }
 
                 {
-
                     {
                         /* Annotation: Opening Transition/Center of Barge
                         *****************************************************/
@@ -463,9 +461,7 @@
                 }
                 //Sculptures
                 else if (hotSpot == 2) {
-
-                    setTimeout(function () {
-						
+                    setTimeout(function () {						
                         sceneSG.annotations.children[3].moveHere(sceneSG.camera);
                     }, 2000);
 
@@ -473,14 +469,12 @@
                         popupSculptures();
                     }, 6100);
                 }
-
             });
 
             /* Hotspots Control Dropup
             *****************************************************/
             $("#hotspots").click(function () {
                 $("#lists").toggle();
-
             });
 
             /* Functions for each annotation
@@ -521,7 +515,8 @@
             document.getElementById("li5").onclick = function () { item5() };
             hideList();
 
-            //Hotspot Dropup's Prev/Next Selection
+            /* Hotspot Dropup's Prev/Next Selection
+            *****************************************************/
             const functions = [];
             functions.push(item1);
             functions.push(item2);
@@ -530,7 +525,6 @@
 			functions.push(item5);
 
             const length = functions.length;
-
             const getNextIdx = (idx = 0, length, direction) => {
                 switch (direction) {
                     case 'next': return (idx + 1) % length;
@@ -539,7 +533,7 @@
                 }
             }
 
-            let idx; // idx is undefined, so getNewScene will take 0 as default
+            let idx;
             const getNewScene = (direction) => {
                 idx = getNextIdx(idx, length, direction);
                 var sceneFunction = functions[idx];
@@ -553,7 +547,6 @@
             $("#next").click(function () {
                 getNewScene('next');                
             });
-
         }
 
         /* Navigation Controls Image
@@ -574,7 +567,6 @@
             var span = document.getElementsByClassName("close")[0];
 
             popup.style.display = "block";
-
             opacityOn();
 
             span.onclick = function () {
