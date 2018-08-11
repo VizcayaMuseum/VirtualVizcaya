@@ -71,7 +71,7 @@ function toggleFullScreen() {
 function opacityOn() {
     parentWin = window.parent;
     var sidebar = parentWin.document.getElementById('split-container');
-    sidebar.style.opacity = "0.5";
+    sidebar.style.opacity = "0.7";
 }
 
 function opacityOff() {

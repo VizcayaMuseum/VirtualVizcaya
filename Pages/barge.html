@@ -270,7 +270,6 @@
                     $("#mypopup2").fadeIn();
                     var popup = document.getElementById('mypopup2');
                     var span = document.getElementsByClassName("close")[1];
-
                     opacityOn();
 
                     span.onclick = function () {
@@ -484,7 +483,8 @@
 
             });
 
-            //2017 Barge: Functions for each annotation
+            /* Functions for each annotation
+            *****************************************************/
             function item1() {
 				changeHotspotName("Grotesques");
                 sceneSG.annotations.children[1].moveHere(sceneSG.camera);                        
@@ -559,9 +559,7 @@
         /* Navigation Controls Image
         *****************************************************/
         $("#tutorial_icon").click(function () {
-            /*$("#nav_panel").toggle();*/
             $("#nav_panel").fadeIn();
-
             opacityOn();
         });
 
@@ -604,7 +602,6 @@
 
             var popup = document.getElementById('myMap');
             var span = document.getElementsByClassName("close")[2];
-
             opacityOn();
 
             span.onclick = function () {
