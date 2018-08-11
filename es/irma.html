@@ -28,6 +28,8 @@
 
 <body style="overflow: auto;">
 
+    <script src="main.js"></script>
+
     <div class="container-fluid">
         
         <div id="container">
@@ -114,19 +116,6 @@
     <script src="dist/js/bootstrap.min.js"></script>
     <script type="text/javascript">
 		
-		//Function used to update videos on the main-canvas
-        function updateMainVideo(newVideo, newText) {
-            var videoContainer = document.getElementById('main-video');
-            var videoSource = document.getElementById('source_video');
-            
-            videoContainer.pause();
-            videoSource.setAttribute('src', newVideo);
-            videoContainer.load();
-            videoContainer.play();
-
-            document.getElementById('sidebar-text').innerHTML = newText;
-        }
-
 		//Flyover of the Barge
         function firstVideo() {
 

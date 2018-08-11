@@ -30,6 +30,8 @@
 
 <body style="overflow: auto;">
 
+    <script src="main.js"></script>
+
     <div class="container-fluid">
 
         <div id="container">
@@ -38,11 +40,11 @@
                     <nav class="col-md-2 d-none d-md-block bg-light sidebar">
                         <div class="sidebar-sticky">
                             <h1>Hurricane Irma</h1><hr />
-								<!--Time Lapse Video of Hurricane Irma-->
-                                <p id="sidebar-text">
-                                    This video of the Barge shows the significant damage that resulted from Hurricane Irma in 2017. The elements that are circled in red were damaged or swept into Biscayne Bay by the powerful storm surge and wind.
-									<br><br>The 3D documentation project helps staff design for resiliency. Fragments from the Barge were salvaged in 2018 and, after restoration, will return to their original locations. 
-                                </p>
+                            <!--Time Lapse Video of Hurricane Irma-->
+                            <p id="sidebar-text">
+                                This video of the Barge shows the significant damage that resulted from Hurricane Irma in 2017. The elements that are circled in red were damaged or swept into Biscayne Bay by the powerful storm surge and wind.
+                                <br><br>The 3D documentation project helps staff design for resiliency. Fragments from the Barge were salvaged in 2018 and, after restoration, will return to their original locations.
+                            </p>
                         </div>
                         <!--sticky footer-->
                         <footer class="footer">
@@ -56,55 +58,55 @@
             </div>
 
             <div id="split-container" class="mini-container2" style="overflow:auto; overflow-x: hidden;">
-               
-                    <!--Featured Content-->
-                    <div id="main-canvas" class="embed-responsive embed-responsive-16by9">
-                        <video autoplay loop class="embed-responsive-item" id="main-video">
-                            <source id="source_video" src="https://s3.amazonaws.com/vizcaya/video/Timelapse+Barge+Irma+2017.mp4" type="video/mp4">
-                        </video>
-                    </div>
 
-                    <div class="video-showcase">
-                        <div class="row no-gutters">
+                <!--Featured Content-->
+                <div id="main-canvas" class="embed-responsive embed-responsive-16by9">
+                    <video autoplay loop class="embed-responsive-item" id="main-video">
+                        <source id="source_video" src="https://s3.amazonaws.com/vizcaya/video/Timelapse+Barge+Irma+2017.mp4" type="video/mp4">
+                    </video>
+                </div>
 
-							<!--Time Lapse Video of Hurricane Irma-->
-                            <div class="col-sm-3">
-                                <div class="embed-responsive embed-responsive-16by9">
-                                    <video autoplay loop class="embed-responsive-item" onclick="thirdVideo();">
-                                        <source src="https://s3.amazonaws.com/vizcaya/video/Timelapse+Barge+Irma+2017.mp4" type="video/mp4">
-                                    </video>
-                                </div>
+                <div class="video-showcase">
+                    <div class="row no-gutters">
+
+                        <!--Time Lapse Video of Hurricane Irma-->
+                        <div class="col-sm-3">
+                            <div class="embed-responsive embed-responsive-16by9">
+                                <video autoplay loop class="embed-responsive-item" onclick="thirdVideo();">
+                                    <source src="https://s3.amazonaws.com/vizcaya/video/Timelapse+Barge+Irma+2017.mp4" type="video/mp4">
+                                </video>
                             </div>
+                        </div>
 
-                            <!--Flyover of the Barge-->
-							<div class="col-sm-3">
-                                <div class="embed-responsive embed-responsive-16by9">
-                                    <video autoplay loop class="embed-responsive-item" onclick="firstVideo();">
-                                        <source src="https://s3.amazonaws.com/vizcaya/video/barge_ghosting.mp4" type="video/mp4">
-                                    </video>
-                                </div>
-                            </div>                           						
-
-							<!--Flyover of the Boat Landing-->
-                            <div class="col-sm-3">
-                                <div align="center" class="embed-responsive embed-responsive-16by9">
-                                    <video autoplay loop class="embed-responsive-item" onclick="fourthVideo();">
-                                        <source src="https://s3.amazonaws.com/vizcaya/video/DJI_0284_2.mp4" type="video/mp4">
-                                    </video>
-                                </div>
+                        <!--Flyover of the Barge-->
+                        <div class="col-sm-3">
+                            <div class="embed-responsive embed-responsive-16by9">
+                                <video autoplay loop class="embed-responsive-item" onclick="firstVideo();">
+                                    <source src="https://s3.amazonaws.com/vizcaya/video/barge_ghosting.mp4" type="video/mp4">
+                                </video>
                             </div>
+                        </div>
 
-							<!--2018 Salvage Video-->
-							<div class="col-sm-3">
-                                <div class="embed-responsive embed-responsive-16by9">
-                                    <video autoplay loop class="embed-responsive-item" onclick="secondVideo();">
-                                        <source src="https://s3.amazonaws.com/vizcaya/video/salvage.mp4" type="video/mp4">
-                                    </video>
-                                </div>
+                        <!--Flyover of the Boat Landing-->
+                        <div class="col-sm-3">
+                            <div align="center" class="embed-responsive embed-responsive-16by9">
+                                <video autoplay loop class="embed-responsive-item" onclick="fourthVideo();">
+                                    <source src="https://s3.amazonaws.com/vizcaya/video/DJI_0284_2.mp4" type="video/mp4">
+                                </video>
+                            </div>
+                        </div>
+
+                        <!--2018 Salvage Video-->
+                        <div class="col-sm-3">
+                            <div class="embed-responsive embed-responsive-16by9">
+                                <video autoplay loop class="embed-responsive-item" onclick="secondVideo();">
+                                    <source src="https://s3.amazonaws.com/vizcaya/video/salvage.mp4" type="video/mp4">
+                                </video>
                             </div>
                         </div>
                     </div>
-                
+                </div>
+
             </div>
         </div>
     </div>
@@ -116,42 +118,29 @@
     <script src="assets/js/vendor/popper.min.js"></script>
     <script src="dist/js/bootstrap.min.js"></script>
     <script type="text/javascript">
-		
-		//Function used to update videos on the main-canvas
-        function updateMainVideo(newVideo, newText) {
-            var videoContainer = document.getElementById('main-video');
-            var videoSource = document.getElementById('source_video');
-            
-            videoContainer.pause();
-            videoSource.setAttribute('src', newVideo);
-            videoContainer.load();
-            videoContainer.play();
 
-            document.getElementById('sidebar-text').innerHTML = newText;
-        }
-
-		//Flyover of the Barge
+        //Flyover of the Barge
         function firstVideo() {
             var newVideo = 'https://s3.amazonaws.com/vizcaya/video/barge_ghosting.mp4';
             var newText = "This animated video of the Barge shows some of the damage from Hurricane Irma. These elements will eventually be restored and returned to their original locations.";
             updateMainVideo(newVideo, newText);
         }
 
-		//2018 Salvage Video
+        //2018 Salvage Video
         function secondVideo() {
             var newVideo = 'https://s3.amazonaws.com/vizcaya/video/salvage.mp4';
             var newText = "This slide show depicts the salvage operation to retrieve fragments from the Barge and Boat Landing that were swept into Biscayne Bay during Hurricane Irma.";
             updateMainVideo(newVideo, newText);
         }
 
-		//Time Lapse Video of Hurricane Irma
+        //Time Lapse Video of Hurricane Irma
         function thirdVideo() {
             var newVideo = 'https://s3.amazonaws.com/vizcaya/video/Timelapse+Barge+Irma+2017.mp4';
             var newText = "This video of the Barge shows the significant damage that resulted from Hurricane Irma in 2017. The elements that are circled in red were damaged or swept into Biscayne Bay by the powerful storm surge and wind. <br><br> The 3D documentation project helps staff design for resiliency. Fragments from the Barge were salvaged in 2018 and, after restoration, will return to their original locations.";
             updateMainVideo(newVideo, newText);
         }
-		
-		//Flyover of the Boat Landing
+
+        //Flyover of the Boat Landing
         function fourthVideo() {
             var newVideo = 'https://s3.amazonaws.com/vizcaya/video/DJI_0284_2.mp4';
             var newText = "This video of the Boat Landing shows the significant damage that resulted from Hurricane Irma in 2017.";
