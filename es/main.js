@@ -127,3 +127,19 @@ function hideDescriptions() {
         descript.style.display = "none";
     }
 }
+
+/* Solution to Hide Dropup List when an Option is Selected
+*****************************************************/
+function hideList() {
+    var openLink = document.getElementsByClassName('link');
+
+    for (i = 0; i < openLink.length; i++) {
+        var linkOpen = openLink[i];
+        linkOpen.addEventListener('click', clickHandler, false);
+    }
+
+    function clickHandler() {
+        var submenu = document.getElementById('lists');
+        submenu.style.display = 'none';
+    }
+}

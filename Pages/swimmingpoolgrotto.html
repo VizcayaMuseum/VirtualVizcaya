@@ -546,6 +546,7 @@
             document.getElementById("li7").onclick = function () { item7() };
             document.getElementById("li8").onclick = function () { item8() };
             document.getElementById("li9").onclick = function () { item9() };
+            hideList();
 
             //Hotspot Dropup's Prev/Next Selection
             const functions = [];
@@ -584,25 +585,7 @@
                 getNewScene('next');
             });
 
-            //Temp solution to hide list when a hotspot is selected
-            function hideList(listItem) {
-                var openLink = document.getElementById(listItem);
-                openLink.addEventListener('click', clickHandler, false);
-                function clickHandler() {
-                    var submenu = document.getElementById('lists');
-                    submenu.style.display = 'none';
-                }
-            }
-
-            hideList('li1');
-            hideList('li2');
-            hideList('li3');
-            hideList('li4');
-            hideList('li5');
-            hideList('li6');
-            hideList('li7');
-            hideList('li8');
-            hideList('li9');
+            
 
             /* Navigation Controls Image
             *****************************************************/
