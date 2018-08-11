@@ -610,25 +610,12 @@
             hideDescriptions();
         }
         //Click functions for each annotation within Hotspot Control's List
-
-        $("#li1").click(function () {
-            item1();
-        });
-        $("#li2").click(function () {
-            item2();
-        });
-        $("#li3").click(function () {
-            item3();
-        });
-        $("#li4").click(function () {
-            item4();
-        });
-        $("#li5").click(function () {
-            item5();
-        });
-        $("#li6").click(function () {
-            item6();
-        });
+        document.getElementById("li1").onclick = function () { item1() };
+        document.getElementById("li2").onclick = function () { item2() };
+        document.getElementById("li3").onclick = function () { item3() };
+        document.getElementById("li4").onclick = function () { item4() };
+        document.getElementById("li5").onclick = function () { item5() };
+        document.getElementById("li6").onclick = function () { item6() };
 
         //Functions for continuous click on Prev and Next buttons
         const functions = [];

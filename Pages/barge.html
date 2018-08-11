@@ -484,7 +484,7 @@
 
             });
 
-            //Functions for each annotation
+            //2017 Barge: Functions for each annotation
             function item1() {
 				changeHotspotName("Grotesques");
                 sceneSG.annotations.children[1].moveHere(sceneSG.camera);                        
@@ -513,22 +513,13 @@
                 hideDescriptions();
             }
 
-            //Hotspot Dropup's Click Selection
-            $("#li1").click(function () {
-                item1();
-            });
-            $("#li2").click(function () {
-                item2();
-            });
-            $("#li3").click(function () {
-                item3();
-            });
-            $("#li4").click(function () {
-                item4();
-            });
-			$("#li5").click(function () {
-                item5();
-            });
+            //Hotspot Dropup's Click Selection          
+            document.getElementById("li1").onclick = function () { item1() };
+            document.getElementById("li2").onclick = function () { item2() };
+            document.getElementById("li3").onclick = function () { item3() };
+            document.getElementById("li4").onclick = function () { item4() };
+            document.getElementById("li5").onclick = function () { item5() };
+            
             //Hotspot Dropup's Prev/Next Selection
             const functions = [];
             functions.push(item1);
@@ -592,7 +583,6 @@
         navPanel.addEventListener('click', function () {
             $("#nav_panel").fadeOut();
             opacityOff();
-
         });
 
         function popupMap() {

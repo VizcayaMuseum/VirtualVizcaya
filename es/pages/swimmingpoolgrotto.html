@@ -566,42 +566,15 @@
             }
 
             //Click functions for each annotation within Hotspot Control's List
-            $("#li1").click(function () {	
-				changeHotspotName("Amorino");
-                item1();
-            });
-            $("#li2").click(function () {
-				changeHotspotName("Techo Mural");
-                item2();
-            });
-            $("#li3").click(function () {
-				changeHotspotName("Esturiones");
-                item3();
-            });
-            $("#li4").click(function () {
-				changeHotspotName("Fuentes");
-                item4();
-            });
-            $("#li5").click(function () {
-				changeHotspotName("Piso");
-                item5();
-            });
-            $("#li6").click(function () {
-				changeHotspotName("Lagartos");
-                item6();
-            });
-            $("#li7").click(function () {
-				changeHotspotName("Pulpos");
-                item7();
-            });
-            $("#li8").click(function () {
-				changeHotspotName("Langostas");
-                item8();
-            });
-            $("#li9").click(function () {
-				changeHotspotName("Tortugas de Mar");
-                item9();
-            });
+            document.getElementById("li1").onclick = function () { item1() };
+            document.getElementById("li2").onclick = function () { item2() };
+            document.getElementById("li3").onclick = function () { item3() };
+            document.getElementById("li4").onclick = function () { item4() };
+            document.getElementById("li5").onclick = function () { item5() };
+            document.getElementById("li6").onclick = function () { item6() };
+            document.getElementById("li7").onclick = function () { item7() };
+            document.getElementById("li8").onclick = function () { item8() };
+            document.getElementById("li9").onclick = function () { item9() };
 
             //Functions for continuous click on Prev and Next buttons
             const functions = [];

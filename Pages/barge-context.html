@@ -294,42 +294,32 @@
 
         //Functions for each annotation
         function item1() {
+            changeHotspotName("Front View");
             sceneSG.annotations.children[0].moveHere(sceneSG.camera);
         }
         function item2() {
+            changeHotspotName("Back View");	
             sceneSG.annotations.children[1].moveHere(sceneSG.camera);
         }
         function item3() {
+            changeHotspotName("Right Side View");
             sceneSG.annotations.children[2].moveHere(sceneSG.camera);
         }
         function item4() {
+            changeHotspotName("Left Side View");
             sceneSG.annotations.children[3].moveHere(sceneSG.camera);
         }
         function item5() {
+            changeHotspotName("Laser Scanner");	
             sceneSG.annotations.children[4].moveHere(sceneSG.camera);
         }
 
         //Hotspot Dropup's Click Selection
-        $("#li1").click(function () {
-			changeHotspotName("Front View");																						
-            item1();
-        });
-        $("#li2").click(function () {
-			changeHotspotName("Back View");																						
-            item2();
-        });
-        $("#li3").click(function () {
-			changeHotspotName("Right Side View");																						
-            item3();
-        });
-        $("#li4").click(function () {
-			changeHotspotName("Left Side View");																						
-            item4();
-        });
-        $("#li5").click(function () {
-			changeHotspotName("Terrestrial Laser Scanner");																									
-            item5();
-        });
+        document.getElementById("li1").onclick = function () { item1() };
+        document.getElementById("li2").onclick = function () { item2() };
+        document.getElementById("li3").onclick = function () { item3() };
+        document.getElementById("li4").onclick = function () { item4() };
+        document.getElementById("li5").onclick = function () { item5() };
 
         //Hotspot Dropup's Prev/Next Selection
         const functions = [];
