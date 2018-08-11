@@ -233,7 +233,7 @@ h1, h2, h3, h4 {
     top: 0;
     right: 0;
     position: relative;
-	font-weight: lighter;
+    font-weight: lighter;
 }
 
 #langdiv_index {
@@ -243,7 +243,7 @@ h1, h2, h3, h4 {
     right: 0;
     padding-top: 10%;
     position: relative;
-	font-weight: lighter;
+    font-weight: lighter;
 }
 
 #lang_selected {
@@ -655,9 +655,9 @@ a {
         height: 50px;
         font-size: 18px; /*13px*/
         color: #ffffff;
-        background: rgba(0,0,0,0.4);		
+        background: rgba(0,0,0,0.4);
         border-radius: 25px;
-		/*
+        /*
         border: solid;
         border-color: #ffffff;
 		border-width: 1.7px;
@@ -701,7 +701,7 @@ a {
             bottom: 55px; /*change the proximity of bar and list*/
             display: none;
             min-height: 100px;
-			height: flex;
+            height: flex;
             padding: 1px;
             color: #ffffff;
             background: rgba(0, 0, 0, 0.75);
@@ -713,7 +713,7 @@ a {
             flex-direction: column;
             flex-wrap: nowrap;
             min-width: 250px;
-			width: flex;
+            width: flex;
         }
 
 #prevDiv, #nextDiv {
@@ -860,8 +860,8 @@ a {
 * CONTROLS ICONS
 */
 
-#barge_icon{
-	width: 100%;
+#barge_icon {
+    width: 100%;
     height: 100%;
     position: fixed;
     bottom: 18px;
@@ -872,8 +872,8 @@ a {
     border-radius: 45px;
 }
 
-#popups_icon{
-	width: 100%;
+#popups_icon {
+    width: 100%;
     height: 100%;
     position: fixed;
     bottom: 18px;
@@ -895,11 +895,9 @@ a {
     z-index: 2;
     border-radius: 40px;
     background: rgba(0,0,0,0.4);
- 
     border: solid;
     border-color: #ffffff;
     border-width: 1.9px;
-
 }
 
 .control_buttons_popups {
@@ -909,23 +907,24 @@ a {
 }
 
 .control_buttons:hover {
-    background: rgba(0,0,0,0.6); !important;
+    background: rgba(0,0,0,0.6);
+    !important;
 }
 
-#barge_icon {    
-	right: 230px; 
+#barge_icon {
+    right: 230px;
 }
 
 #map_icon {
-    right: 175px; 
+    right: 175px;
 }
 
 #refresh_icon {
-    right: 120px; 
+    right: 120px;
 }
 
-#tutorial_icon, #question_icon {
-    right: 65px; 
+#tutorial_icon {
+    right: 65px;
 }
 
 #fullscreen_icon {
@@ -941,7 +940,7 @@ a {
     right: 118px;
 }
 
-#tutorial_icon2, #question_icon2 {
+#tutorial_icon2 {
     right: 63px;
 }
 
@@ -1171,9 +1170,9 @@ a {
     width: auto;
     position: absolute;
     top: 55%;
-	right: 35%;
+    right: 35%;
     z-index: 100;
-	animation: mapAnimation 1s ease-in-out infinite alternate;
+    animation: mapAnimation 1s ease-in-out infinite alternate;
     -webkit-animation-name: mapAnimation;
     animation-name: mapAnimation;
 }
@@ -1185,9 +1184,9 @@ a {
     width: auto;
     position: absolute;
     top: 15%;
-	right: 23.8%;
+    right: 23.8%;
     z-index: 100;
-	animation: mapAnimation 1s ease-in-out infinite alternate;
+    animation: mapAnimation 1s ease-in-out infinite alternate;
     -webkit-animation-name: mapAnimation;
     animation-name: mapAnimation;
 }
@@ -1325,17 +1324,18 @@ a {
 #popups_sidebar-sticky {
     height: 100%;
 }
-#popups_sidebar-sticky p{
-	color: #FFFFFF;
-}
 
-#popups_sidebar-sticky h1{
-	color: #FFFFFF;
-}
+    #popups_sidebar-sticky p {
+        color: #FFFFFF;
+    }
 
-#popups_sidebar-sticky hr{
-	border-color: #696969;
-}
+    #popups_sidebar-sticky h1 {
+        color: #FFFFFF;
+    }
+
+    #popups_sidebar-sticky hr {
+        border-color: #696969;
+    }
 
 /*Loader animation for 1916 Herm + Sculptures*/
 #loader {
@@ -1373,18 +1373,18 @@ a {
 }
 
 /*CSS for Popups' body: 1916 Herm + 1916 Sculptures*/
-.popups_body{
+.popups_body {
     background-color: #000;
     color: #000;
 }
 
 /*CSS for Popups' page body: all popups*/
-.popups_bodypage{
-	background-color: #000000;
-	touch-action: none;
+.popups_bodypage {
+    background-color: #000000;
+    touch-action: none;
 }
 
-#popups_sidebarpage{
-	background-color: #000000 !important;
-	max-width: 25% !important;
+#popups_sidebarpage {
+    background-color: #000000 !important;
+    max-width: 25% !important;
 }
