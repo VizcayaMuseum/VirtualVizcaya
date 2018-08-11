@@ -237,9 +237,7 @@
 
                 let material = e.pointcloud.material;
                 material.size = 1;
-                material.pointSizeType = Potree.PointSizeType.ADAPTIVE;
-
-                
+                material.pointSizeType = Potree.PointSizeType.ADAPTIVE;               
 
                 function popupHerm() {
                     $("#mypopup1").fadeIn();
@@ -435,7 +433,6 @@
 
                 /* Opening Transitions
                 *****************************************************/
-
                 //Barge
                 if (hotSpot == 0) {
                     setTimeout(function () {
@@ -487,61 +484,33 @@
 
             });
 
-            //Functions to show and hide annotations' descriptions
-            function showDescription(annotationNum) {
-                var descriptions = document.getElementsByClassName("annotation-description");
-                var description = descriptions[annotationNum];
-                description.style.display = "block";
-            }
-
-            function hideDescription(annotationNum) {   
-                var descriptions = document.getElementsByClassName("annotation-description");
-                var description = descriptions[annotationNum];
-                description.style.display = "none";
-                /*
-                var descriptions = document.getElementsByClassName("annotation-description");
-                var descriptLength = descriptions.length;
-
-                var index = descriptions.indexOf(annotationNum);
-                descriptions.splice(index, 1);
-
-                for (i = 0; i < descriptions.length; i++) {
-                    var description = descriptions[i];
-                    description.style.display = "none";
-                } 
-                */
-            }
-
             //Functions for each annotation
             function item1() {
 				changeHotspotName("Grotesques");
-                sceneSG.annotations.children[1].moveHere(sceneSG.camera);               
+                sceneSG.annotations.children[1].moveHere(sceneSG.camera);                        
+                hideDescriptions();
                 showDescription(1);
-                hideDescription(4);
             }
             function item2() {
 				changeHotspotName("Herm");
                 sceneSG.annotations.children[2].moveHere(sceneSG.camera);
-                hideDescription(1);
-                hideDescription(4);
+                hideDescriptions();
             }
             function item3() {
 				changeHotspotName("Sculptures");
                 sceneSG.annotations.children[3].moveHere(sceneSG.camera);
-                hideDescription(1);
-                hideDescription(4);
+                hideDescriptions();
             }
             function item4() {
 				changeHotspotName("Mermaids");
                 sceneSG.annotations.children[4].moveHere(sceneSG.camera);
+                hideDescriptions();
                 showDescription(4);
-                hideDescription(1);
             }
 			function item5() {
 				changeHotspotName("Center of Barge");
                 sceneSG.annotations.children[0].moveHere(sceneSG.camera);
-                hideDescription(1);
-                hideDescription(4);
+                hideDescriptions();
             }
 
             //Hotspot Dropup's Click Selection

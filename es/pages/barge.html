@@ -449,54 +449,33 @@
             document.getElementById("#lists").style.display = "flex";
         });
 
-        //Functions to show and hide annotations' descriptions
-        function showDescription(annotationNum) {
-            var descriptions = document.getElementsByClassName("annotation-description");
-            var description = descriptions[annotationNum];
-            description.style.display = "block";
-        }
-
-        function hideDescription(annotationNum) {
-            var descriptions = document.getElementsByClassName("annotation-description");
-            var description = descriptions[annotationNum];
-            description.style.display = "none";
-        }
-
         //Functions for each annotation
         function item1() {
 			changeHotspotName("Grotescos");
             sceneSG.annotations.children[1].moveHere(sceneSG.camera);
+            hideDescriptions();
             showDescription(1);
-            hideDescription(4);
         }
         function item2() {
 			changeHotspotName("Herma");
             sceneSG.annotations.children[2].moveHere(sceneSG.camera);
-            hideDescription(1);
-            hideDescription(4);
-            /*
-            var titlebars = document.getElementsByClassName("annotation-titlebar");
-            var titlebar = titlebars[2];
-            titlebar.className += "titlebarAnimation";
-            */
+            hideDescriptions();
         }
         function item3() {
 			changeHotspotName("Esculturas");
             sceneSG.annotations.children[3].moveHere(sceneSG.camera);
-            hideDescription(1);
-            hideDescription(4);
+            hideDescriptions();
         }
         function item4() {
 			changeHotspotName("Sirenas");
             sceneSG.annotations.children[4].moveHere(sceneSG.camera);
+            hideDescriptions();
             showDescription(4);
-            hideDescription(1);
         }
 		function item5() {
 			changeHotspotName("Centro de la Barcaza");
             sceneSG.annotations.children[0].moveHere(sceneSG.camera);
-            hideDescription(1);
-            hideDescription(4);
+            hideDescriptions();
         }
 
         //Click functions for each annotation within Hotspot Control's List

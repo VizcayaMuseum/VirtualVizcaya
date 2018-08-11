@@ -524,61 +524,39 @@
             document.getElementById("#lists").style.display = "flex";
         });
 
-        //Functions to show and hide annotations' descriptions
-        function showDescription(annotationNum) {
-            var descriptions = document.getElementsByClassName("annotation-description");
-            var description = descriptions[annotationNum];
-            description.style.display = "block";
-        }
-
-        function hideDescription(annotationNum) {
-            var descriptions = document.getElementsByClassName("annotation-description");
-            var description = descriptions[annotationNum];
-            description.style.display = "none";
-        }
-
         //Functions for each annotation
         function item1() {
 			changeHotspotName("Summer House");
             sceneSG.annotations.children[1].moveHere(sceneSG.camera);
+            hideDescriptions();
             showDescription(1);
-            hideDescription(2);
-            hideDescription(5);
         }
         function item2() {
 			changeHotspotName("Grotesques");			
             sceneSG.annotations.children[2].moveHere(sceneSG.camera);
+            hideDescriptions();
             showDescription(2);
-            hideDescription(1);
-            hideDescription(5);
         }
         function item3() {
 			changeHotspotName("Herm");
             sceneSG.annotations.children[3].moveHere(sceneSG.camera);
-            hideDescription(1);
-            hideDescription(2);
-            hideDescription(5);           
+            hideDescriptions();           
         }
         function item4() {
 			changeHotspotName("Sculptures");
             sceneSG.annotations.children[4].moveHere(sceneSG.camera);
-            hideDescription(1);
-            hideDescription(2);
-            hideDescription(5);            
+            hideDescriptions();            
         }
         function item5() {
 			changeHotspotName("Mermaids");			
             sceneSG.annotations.children[5].moveHere(sceneSG.camera);
+            hideDescriptions();
             showDescription(5);
-            hideDescription(1);
-            hideDescription(2);
         }
         function item6() {
 			changeHotspotName("Center of Barge");
             sceneSG.annotations.children[0].moveHere(sceneSG.camera);
-            hideDescription(1);
-            hideDescription(2);
-            hideDescription(5);
+            hideDescriptions();
         }
 
         //Click functions for each annotation within Hotspot Control's List

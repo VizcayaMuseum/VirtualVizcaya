@@ -465,119 +465,75 @@
                 document.getElementById("#lists").style.display = "flex";
             });
 
-            //Functions to show and hide annotations' descriptions
-            function showDescription(annotationNum) {
-                var descriptions = document.getElementsByClassName("annotation-description");
-                var description = descriptions[annotationNum];
-                description.style.display = "block";
-            }
-
-            function hideDescription(annotationNum) {
-                var descriptions = document.getElementsByClassName("annotation-description");
-                var description = descriptions[annotationNum];
-                description.style.display = "none";
-            }
 
             /*Functions for each annotation
-			***********************************************************/
-			
+			***********************************************************/	
 			//Amorino
             function item1() {
 				changeHotspotName("Amorino");
                 sceneSG.annotations.children[1].moveHere(sceneSG.camera);
+                hideDescriptions();
                 showDescription(1);
-                hideDescription(2);
-                hideDescription(3);
-                hideDescription(4);
-                hideDescription(5);
             }
 
 			//Ceiling Mural
             function item2() {
 				changeHotspotName("Ceiling Mural");
                 sceneSG.annotations.children[2].moveHere(sceneSG.camera);
+                hideDescriptions();
                 showDescription(2);
-                hideDescription(1);
-                hideDescription(3);
-                hideDescription(4);
-                hideDescription(5);
             }
 			
 			//Sturgeons
             function item3() {
 				changeHotspotName("Sturgeons");
                 sceneSG.annotations.children[3].moveHere(sceneSG.camera);
+                hideDescriptions();
                 showDescription(3);
-                hideDescription(1);
-                hideDescription(2);
-                hideDescription(4);
-                hideDescription(5);
             }
 
 			//Fountains
             function item4() {
 				changeHotspotName("Fountains");
                 sceneSG.annotations.children[4].moveHere(sceneSG.camera);
+                hideDescriptions();
                 showDescription(4);
-                hideDescription(1);
-                hideDescription(2);
-                hideDescription(3);
-                hideDescription(5);
             }
 
 			//Floor
             function item5() {
 				changeHotspotName("Floor");
                 sceneSG.annotations.children[5].moveHere(sceneSG.camera);
+                hideDescriptions();
                 showDescription(5);
-                hideDescription(1);
-                hideDescription(2);
-                hideDescription(3);
-                hideDescription(4);
             }
 
 			//Alligators
             function item6() {
 				changeHotspotName("Alligators");
                 sceneSG.annotations.children[6].moveHere(sceneSG.camera);
-                hideDescription(1);
-                hideDescription(2);
-                hideDescription(3);
-                hideDescription(4);
-                hideDescription(5);
+                hideDescriptions();
             }
 
 			//Octopi
             function item7() {
 				changeHotspotName("Octopi");
                 sceneSG.annotations.children[7].moveHere(sceneSG.camera);
-                hideDescription(1);
-                hideDescription(2);
-                hideDescription(3);
-                hideDescription(4);
-                hideDescription(5);
+                hideDescriptions();
             }
 
 			//Lobsters
             function item8() {
 				changeHotspotName("Lobsters");
                 sceneSG.annotations.children[8].moveHere(sceneSG.camera);
-                hideDescription(1);
-                hideDescription(2);
-                hideDescription(3);
-                hideDescription(4);
-                hideDescription(5);
+                hideDescriptions();
             }
 
 			//Sea Turtles
             function item9() {
 				changeHotspotName("Sea Turtles");
                 sceneSG.annotations.children[9].moveHere(sceneSG.camera);
-                hideDescription(1);
-                hideDescription(2);
-                hideDescription(3);
-                hideDescription(4);
-                hideDescription(5);
+                hideDescriptions();
             }
 
             //Hotspot Dropup's Click Selection

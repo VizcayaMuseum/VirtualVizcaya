@@ -111,3 +111,19 @@ function updateMainVideo(newVideo, newText) {
 
     document.getElementById('sidebar-text').innerHTML = newText;
 }
+
+/* Functions to show and hide annotations' descriptions
+*****************************************************/
+function showDescription(annotationNum) {
+    const descriptions = document.getElementsByClassName("annotation-description");
+    var description = descriptions[annotationNum];
+    description.style.display = "block";
+}
+
+function hideDescriptions() {
+    var descriptions = document.getElementsByClassName("annotation-description");
+    for (i = 0; i < descriptions.length; i++) {
+        var descript = descriptions[i];
+        descript.style.display = "none";
+    }
+}
