@@ -56,10 +56,6 @@
                 background: #7d7d7d;
             }
 
-		#loader {
-			z-index: 4;			
-        }
-
     </style>
 </head>
 <body>
@@ -85,7 +81,7 @@
     <!-- INCLUDE ADDITIONAL DEPENDENCIES HERE -->
     <!-- INCLUDE SETTINGS HERE -->
 
-	<!--<div id="loader"></div>-->
+	<div id="loader"></div>
     <div class="potree_container" style="position: absolute; width: 100%; height: 100%; left: 0px; top: 0px; ">
         <div id="potree_render_area"></div>
         <div id="potree_sidebar_container"> </div>
@@ -231,7 +227,21 @@
 
                 });
 
-            }, onProgress, onError);
+            }, 
+			
+				function (xhr) {
+
+                    console.log((xhr.loaded / xhr.total * 100) + '% loaded');
+                    if ((xhr.loaded / xhr.total * 100) == 100) {
+
+                        document.getElementById('loader').style.display = "none";
+
+                    }
+
+                },
+			
+
+			onProgress, onError);
 
             function popupHerm() {
                 $("#mypopup1").fadeIn();
