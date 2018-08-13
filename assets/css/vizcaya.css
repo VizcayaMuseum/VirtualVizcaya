@@ -184,7 +184,7 @@ body p {
 
 h1, h2, h3, h4 {
     font-family: 'Marcellus';
-    font-size: 1.8em;
+    font-size: 2em;
 }
 
 @media screen and (max-width: 1000px) {
@@ -212,7 +212,7 @@ h1, h2, h3, h4 {
     /*line-height: 60px; /* Vertically center the text there */
     padding: 1px;
     background-color: #F8F9FA;
-    font-size: 20px; /*increase for home | spanish links*/
+    font-size: 1em; /*increase for home | spanish links*/
     overflow: auto;
 }
 

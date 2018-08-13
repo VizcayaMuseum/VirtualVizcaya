@@ -202,10 +202,11 @@
             manager.onProgress = function (item, loaded, total) {
                 console.log(item, loaded, total);
 				if (loaded == 10) {
-					console.log('AWS progress is completed');
 					document.getElementById('potree_render_area').style.display = "block";
 					document.getElementById('loader').style.display = "none";
 
+					/* Opening Transitions
+					*****************************************************/
 					//Barge
 					if (hotSpot == 0){
 						setTimeout(function () {
@@ -214,7 +215,14 @@
 
 						setTimeout(function () {
 							document.getElementById("finger_animation").style.display = "flex";
-						}, 6000);
+						}, 8000);
+
+							window.onclick = function (event) {
+								$("#finger_animation").fadeOut();
+							}
+							window.ontouchstart = function (event) {
+								$("#finger_animation").fadeOut();
+							}
 					}
 
 					//Herm
@@ -225,13 +233,13 @@
 
 						setTimeout(function () {
 							popupHerm();
-						}, 5000);
+						}, 6000);
 					}
+
 					//Sculptures
 					else if (hotSpot == 2) {
 						setTimeout(function () {
 							sceneSG.annotations.children[4].moveHere(sceneSG.camera);
-							document.getElementById('loader').style.display = "none";
 						}, 2000);
 
 						setTimeout(function () {
@@ -484,58 +492,6 @@
 
             }
 
-            var src = document.referrer;
-            var srcSplit = src.split("?");
-            var hotSpot = parseFloat(srcSplit[1]); //0 for barge, 1 for herm, 2 for sculptures
-
-            /* Opening Transitions
-            *****************************************************/
-            //Barge
-            if (hotSpot == 0) {
-
-                setTimeout(function () {
-                    sceneSG.annotations.children[0].moveHere(sceneSG.camera);
-                }, 21000);
-
-                setTimeout(function () {
-                    document.getElementById("finger_animation").style.display = "flex";
-                }, 26000);
-
-                window.onclick = function (event) {
-                    $("#finger_animation").fadeOut();
-                }
-                window.ontouchstart = function (event) {
-                    $("#finger_animation").fadeOut();
-                }
-
-            }
-            //Herm
-            else if (hotSpot == 1) {
-
-                setTimeout(function () {
-                    sceneSG.annotations.children[3].moveHere(sceneSG.camera);
-                }, 21000);
-
-                setTimeout(function () {
-                    popupHerm();
-                }, 24000);
-            }
-            //Sculptures
-            else if (hotSpot == 2) {
-
-                setTimeout(function () {                    
-					document.getElementById('loader').style.display = "none";
-                }, 19000);
-
-                setTimeout(function () {
-                    sceneSG.annotations.children[4].moveHere(sceneSG.camera);
-					document.getElementById('loader').style.display = "none";
-                }, 21000);
-
-                setTimeout(function () {
-                    popupSculptures();
-                }, 25000);
-            }
         }
 
 
