@@ -1328,6 +1328,70 @@ a {
     background-color: #3D9FD6;
 }
 
+/*
+* Map markers
+*/
+
+#grotto_marker_div {
+    height: 38px;
+    width: 38px;
+    position: absolute;
+    z-index: 4;
+    top: 49%;
+	left: 12.7%;
+}
+
+#grotto_marker_a {
+    height: 35px;
+    width: 35px;
+    position: absolute;
+    z-index: 4;
+    top: 49%;
+	left: 12.7%;
+}
+
+#grotto_marker_img {
+    height: 35px;
+    width: 35px;
+    position: absolute;
+    z-index: 4;
+	top: 49%;
+	left: 12.7%;
+	animation: mapAnimation 1s ease-in-out infinite alternate;
+    -webkit-animation-name: mapAnimation;
+    animation-name: mapAnimation;
+}
+
+#barge_marker_div {
+    height: 38px;
+    width: 38px;
+    position: absolute;
+    z-index: 4;
+    top: 14%;
+	left: 21%;
+}
+
+#barge_marker_a {
+    height: 35px;
+    width: 35px;
+    position: absolute;
+    z-index: 4;
+    top: 14%;
+	left: 21%;
+}
+
+#barge_marker_img {
+    height: 35px;
+    width: 35px;
+    position: absolute;
+    z-index: 4;
+	top: 14%;
+	left: 21%;
+	animation: mapAnimation 1s ease-in-out infinite alternate;
+    -webkit-animation-name: mapAnimation;
+    animation-name: mapAnimation;
+}
+
 /*3D Doc modal*/
 .modal-content {
     width: 115%;
