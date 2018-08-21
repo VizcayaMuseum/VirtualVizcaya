@@ -1269,10 +1269,10 @@ a {
 */
 
 #main-canvas {
-    /*width: 100% !important;*/
 	width: auto;
-	height: auto;
-    /*flex: 1 0 0;*/
+    /*width: 100% !important;*/
+	height: 79%;
+    
 }
 
 .main-container {
