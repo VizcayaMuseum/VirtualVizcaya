@@ -178,14 +178,15 @@ iframe {
 }
 
 body p {
-    font-size: 0.98em;
+    font-size: 0.85em;
     font-family: 'Open Sans';
 }
 
 h1, h2, h3, h4 {
     font-family: 'Marcellus';
-    font-size: 1.7em;
+    font-size: 1.5em;
 	word-wrap: break-word;
+	white-space: normal;
 }
 
 @media screen and (max-width: 1000px) {
@@ -260,7 +261,8 @@ h1, h2, h3, h4 {
 #header-div {
     /*word-wrap: break-word;*/
 	position: sticky;
-    font-size: 2em; /*3em*/ /*60px*/   
+    font-size: 2.5em;
+	white-space: pre-line;
 }
 
 .sidebar {
