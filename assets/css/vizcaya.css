@@ -178,13 +178,14 @@ iframe {
 }
 
 body p {
-    font-size: 1em;
+    font-size: 0.98em;
     font-family: 'Open Sans';
 }
 
 h1, h2, h3, h4 {
     font-family: 'Marcellus';
-    font-size: 2em;
+    font-size: 1.7em;
+	word-wrap: break-word;
 }
 
 @media screen and (max-width: 1000px) {
@@ -1268,8 +1269,10 @@ a {
 */
 
 #main-canvas {
-    width: 100% !important;
-    flex: 1 0 0;
+	width: auto;
+    /*width: 100% !important;*/
+	height: 80%;
+    
 }
 
 .main-container {
