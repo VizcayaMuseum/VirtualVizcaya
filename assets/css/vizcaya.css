@@ -288,7 +288,7 @@ h1, h2, h3, h4 {
     overflow-x: hidden;
     overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
     padding: 5%;
-    line-height: 30px;
+    line-height: 27px;
 }
 
 /*@supports ((position: -webkit-sticky) or (position: sticky)) {
@@ -1471,4 +1471,23 @@ a {
 #popups_sidebarpage{
 	background-color: #000000 !important;
 	max-width: 25% !important;
+}
+
+.lead{
+	font-size: 0.8rem;
+	font-weight: lighter;
+}
+
+.headers{
+	font-size: 1.1em;
+}
+
+#kf_logo{
+	height: 58% !important;
+	width: 69% !important;
+}
+
+#intro{
+	font-weight: bold;
+	font-size: 0.67em;
 }
