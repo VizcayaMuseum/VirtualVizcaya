@@ -501,12 +501,7 @@
                     }, 4500);
 
                     setTimeout(function () {
-                        $("#nav_panel").fadeIn();
-
-                        //Applying opacity to parent page
-                        parentWin = window.parent;
-                        var sidebar = parentWin.document.getElementById('split-container');
-                        sidebar.style.opacity = "0.8";
+                        tutorialPopup()
                     }, 8500);
                 }
             });
