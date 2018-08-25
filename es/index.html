@@ -2,13 +2,13 @@
 <html lang="en">
 <head>
     <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-123463304-1"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-41885816-8"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
 
-        gtag('config', 'UA-123463304-1');
+        gtag('config', 'UA-41885816-8');
     </script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -78,7 +78,17 @@
                 </footer>
             </nav>
         </div>
-        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4" id="main">
+            <div id="IE_alert" class="alert alert-primary" role="alert" style="display:none; color: #000000; background-color: #7ED6FF; font-size: 0.90em;" >
+                    <b><u>MEJORA TU EXPERIENCIA</u></b>
+                    <br>Para disfrutar al máximo nuestra pagina web, utilice las última version de navegador web de <i><b>Chrome</b></i>, <i><b>Firefox</b></i>, <i><b>Microsoft Edge</b></i> o <i><b>Safari</b></i>.
+                 
+                <!--
+                <a href="https://www.google.com/chrome/" class="alert-link">Chrome</a>,
+                <a href="https://www.mozilla.org/en-US/firefox/new/" class="alert-link">Firefox</a> or
+                <a href="https://www.microsoft.com/en-us/download/details.aspx?id=48126" class="alert-link">Microsoft Edge</a>.
+                -->
+            </div>
 
             <!-- Photo Grid -->
             <div class="row">
@@ -213,6 +223,50 @@
     <script>window.jQuery || document.write('<script src="assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
     <script src="assets/js/vendor/popper.min.js"></script>
     <script src="dist/js/bootstrap.min.js"></script>
+
+    <script>
+    
+    /**
+     * detect IE
+     * returns version of IE or false, if browser is not Internet Explorer
+     */
+    
+        function detectIE() {
+        var ua = window.navigator.userAgent;
+
+        var msie = ua.indexOf('MSIE ');
+        if (msie > 0) {
+            // IE 10 or older => return version number
+            return parseInt(ua.substring(msie + 5, ua.indexOf('.', msie)), 10);
+        }
+
+        var trident = ua.indexOf('Trident/');
+        if (trident > 0) {
+            // IE 11 => return version number
+            var rv = ua.indexOf('rv:');
+            //return rv
+            return parseInt(ua.substring(rv + 3, ua.indexOf('.', rv)), 10);
+        }
+        /*
+        var edge = ua.indexOf('Edge/');
+        if (edge > 0) {
+            // Edge (IE 12+) => return version number
+            return parseInt(ua.substring(edge + 5, ua.indexOf('.', edge)), 10);
+        }
+
+        other browser
+        return false;
+        */
+    }
+
+    var version = detectIE();
+
+    if (version <= 11){
+        //alert('IE ' + detectIE());
+        document.getElementById('IE_alert').style.display = "block";
+    }  
+
+    </script>
 
 </body>
 </html>
