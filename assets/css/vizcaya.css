@@ -628,13 +628,13 @@ a {
 .controls {
     display: flex; /*none to hide*/
     /*min-width: 0;*/
-    padding: 20px;
+    padding: 0px;
     pointer-events: none;
     position: absolute;
-    right: 700px;
-    bottom: 5px;
-    z-index: 2;
-    height: 50px;
+    right: 0px;
+    bottom: 0px;
+    z-index: 1;
+    height: 70px;
     /*width: 40% my change*/
     /*inherited*/
     font-family: 'Open Sans', sans-serif;
@@ -645,27 +645,39 @@ a {
     transition-duration: 250ms;
     transition-timing-function: ease-in-out;
     transition-delay: initial;
-    width: 300px; /*changed*/
+    width: 100%; /*changed*/
+    
+    align-content: center;
+    /*align-items: center;*/
+    box-align: center;
+    -moz-box-align: center;
+    align-self: center;
 }
 
     .controls .hotspot-controls {
         display: flex;
-        width: 400px;
+        max-width: 350px;
         position: relative;
+        
         flex-grow: 1;
         flex-shrink: 0;
         flex-basis: 0;
+        
         pointer-events: all;
         height: 50px;
         font-size: 18px; /*13px*/
         color: #ffffff;
         background: rgba(0,0,0,0.4);		
         border-radius: 25px;
+        bottom: 0px;
+        right: 25%;
+        left: 35%;
 		/*
         border: solid;
         border-color: #ffffff;
 		border-width: 1.7px;
-		*/
+        */
+        
     }
 
         .controls .hotspot-controls [data-action="prev-annotation"] {
@@ -701,7 +713,7 @@ a {
 
         .controls .hotspot-controls .list {
             position: absolute;
-            right: 25px;
+            left: 28px;
             bottom: 55px; /*change the proximity of bar and list*/
             display: none;
             min-height: 100px;
@@ -716,8 +728,9 @@ a {
             transition-delay: initial;
             flex-direction: column;
             flex-wrap: nowrap;
-            min-width: 250px;
-			width: flex;
+            max-width: 290px;
+            width: flex;
+            right: 4.5%;
         }
 
 #prevDiv, #nextDiv {

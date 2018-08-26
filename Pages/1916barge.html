@@ -54,7 +54,13 @@
             ::-webkit-scrollbar-thumb:hover {
                 background: #7d7d7d;
             }
-		
+        
+        .controls{
+            display: none;
+        }
+        #barge_icon, #map_icon, #tutorial_icon, #refresh_icon, #fullscreen_icon{
+            display: none;
+        }
     </style>
 </head>
 <body>
@@ -103,7 +109,7 @@
         </div>
 
         <!--Hotspot Dropup-->
-        <div class="controls">
+        <div class="controls" id="controls">
             <div class="hotspot-controls">
                 <div id="prev" data-title="Previous Annotation" data-action="prev-annotation">
                     <div id="prevDiv"><img id="prevIcon" src="../images/caret-left.svg" /></div>
@@ -208,6 +214,13 @@
 				if (loaded == 10) {
 					document.getElementById('potree_render_area').style.display = "block";
 					document.getElementById('loader').style.display = "none";
+                    
+                    document.getElementById('barge_icon').style.display = "block";
+                    document.getElementById('map_icon').style.display = "block";
+                    document.getElementById('tutorial_icon').style.display = "block";
+                    document.getElementById('refresh_icon').style.display = "block";
+                    document.getElementById('fullscreen_icon').style.display = "block";
+                    document.getElementById('controls').style.display = "flex";
 
 					/* Opening Transitions
 					*****************************************************/
