@@ -460,7 +460,7 @@ a {
 
 .annotation-description {
     border-radius: 10px; /*4px*/
-    max-width: 270px; /*500px*/
+    max-width: 250px; /*500px*/
     font-family: 'Open Sans', sans-serif; /*new*/
 }
 
@@ -468,6 +468,7 @@ a {
 }
 
 .annotation-description-content {
+    font-size: 0.85em;
 }
 
 .annotation-icon {
