@@ -60,62 +60,52 @@
 
               <div id="split-container" class="mini-container2" style="overflow:auto; overflow-x: hidden;">
                   <div class="main-container d-flex flex-column">
-                      <!--Featured Content-->
-                      <div id="main-canvas" class="embed-responsive embed-responsive-16by9">
-						  <div id="infoDiv2">
-							<a id="ainfoDiv" data-toggle="modal" href="#pointcloudModal">
-								<img id="info_img" src="build/potree/resources/icons/i.png" />
-							</a>
-						  </div>
-                          <iframe src="pages/barge-context.html" allowfullscreen></iframe>
-                      </div>
+                        <!--Featured Content-->
+                        <div id="main-canvas" class="embed-responsive embed-responsive-16by9">
+                            <div id="infoDiv2">
+                                <a id="ainfoDiv" data-toggle="modal" href="#pointcloudModal">
+                                    <img id="info_img" src="build/potree/resources/icons/i.png" />
+                                </a>
+                            </div>
+                            <iframe src="pages/barge-context.html" allowfullscreen></iframe>
+                        </div>
 
-                      <div class="video-showcase">
-                          <div class="row no-gutters">
-                              <div class="col-sm-4 col-xs-12">
+                        <div class="video-showcase">
+                            <div class="row no-gutters">
+                                <!-- Laser Video -->
+                                <div class="col-sm-4 col-xs-12">                                  
+                                    <div style="padding:56.25% 0 0 0;position:relative;">
+                                        <a id="ainfoDiv" data-toggle="modal" href="#photogrammetryModal">
+                                                <img id="info_img" src="build/potree/resources/icons/i.png" />
+                                            </a>
+                                        <iframe src="https://player.vimeo.com/video/287108665?autoplay=1&loop=1&title=0&byline=0&portrait=0&muted=1&background=1" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen>
+                                        </iframe>
+                                    </div>
+                                </div>
 
-                                  <div class="embed-responsive embed-responsive-16by9">
-                                      <div id="infoDiv">
-                                          <a id="ainfoDiv" data-toggle="modal" href="#photogrammetryModal">
-                                              <img id="info_img" src="build/potree/resources/icons/i.png" />
-                                          </a>
-                                      </div>
-                                      <video autoplay loop class="embed-responsive-item">
-                                          <source src="https://s3.amazonaws.com/vizcaya/video/photogrammetry1.mp4" type="video/mp4">
-                                      </video>
-                                  </div>
+                                <!-- Photogrammetry Video -->
+                                <div class="col-sm-4 col-xs-12">
+                                    <div style="padding:56.25% 0 0 0;position:relative;">
+                                        <a id="ainfoDiv" data-toggle="modal" href="#laserModal">
+                                                <img id="info_img" src="build/potree/resources/icons/i.png" />
+                                            </a>
+                                        <iframe src="https://player.vimeo.com/video/287108043?autoplay=1&loop=1&title=0&byline=0&portrait=0&muted=1&background=1" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen>
+                                        </iframe>
+                                    </div>
+                                </div>
 
-                              </div>
-                              <div class="col-sm-4 col-xs-12">
-
-                                  <div class="embed-responsive embed-responsive-16by9">
-                                      <div id="infoDiv">
-                                          <a id="ainfoDiv" data-toggle="modal" href="#laserModal">
-                                              <img id="info_img" src="build/potree/resources/icons/i.png" />
-                                          </a>
-                                      </div>
-                                      <video autoplay loop class="embed-responsive-item">
-                                          <source src="https://s3.amazonaws.com/vizcaya/video/FARO2.mp4" type="video/mp4">
-                                      </video>
-                                  </div>
-
-                              </div>
-                              <div class="col-sm-4 col-xs-12">
-
-                                  <div class="embed-responsive embed-responsive-16by9">
-                                      <div id="infoDiv">
-                                          <a id="ainfoDiv" data-toggle="modal" href="#documentationModal">
-                                              <img id="info_img" src="build/potree/resources/icons/i.png" />
-                                          </a>
-                                      </div>
-                                      <video id="mySlideshow" autoplay loop class="embed-responsive-item">
-                                          <source src="https://s3.amazonaws.com/vizcaya/video/slideshow.mp4" type="video/mp4">
-                                      </video>
-                                  </div>
-
-                              </div>
-                          </div>
-                      </div>
+                                <!-- Documentation/Slide Show Video -->
+                                <div class="col-sm-4 col-xs-12">
+                                    <div style="padding:56.25% 0 0 0;position:relative;">
+                                        <a id="ainfoDiv" data-toggle="modal" href="#documentationModal">
+                                            <img id="info_img" src="build/potree/resources/icons/i.png" />
+                                        </a>
+                                        <iframe src="https://player.vimeo.com/video/287103850?autoplay=1&loop=1&title=0&byline=0&portrait=0&muted=1&background=1" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen>
+                                        </iframe>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                   </div>
               </div>
 

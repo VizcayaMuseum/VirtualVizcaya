@@ -1305,17 +1305,6 @@ a {
 * 3D Doc info buttons on videos
 */
 
-#infoDiv {
-    height: 38px;
-    width: 38px;
-    position: absolute;
-    z-index: 4;
-    top: 4%;
-    right: 4%;
-    border-radius: 25px;
-    background-color: #3D9FD6;
-}
-
 #ainfoDiv {
     height: 35px;
     width: 35px;
@@ -1324,6 +1313,7 @@ a {
     top: 4%;
     right: 4%;
     border-radius: 25px;
+    background-color: #3D9FD6;
 }
 
 #info_img {
