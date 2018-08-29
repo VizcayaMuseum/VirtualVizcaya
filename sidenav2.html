@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="images/favicon.ico">
+    
+    <title>Virtual Vizcaya</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="assets/css/vizcaya.css" rel="stylesheet">
+
+    <!--Import Google Icon Font-->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!--Import materialize.css-->
+      <link type="text/css" rel="stylesheet" href="libs/materialize/css/materialize.min.css"  media="screen,projection"/>
+
+</head>
+
+<body class="bodyIndex">
+
+    <div class="pos-f-t" style="display: none;">
+        <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+    </div>
+
+    <div id="slide-out" class="sidenav" style="display: block;">
+        <div class="sidebar-sticky">
+            <h1 id="header-div">Virtual<br>Vizcaya</h1> <hr />
+            <p>
+                This interactive provides virtual access to Vizcaya’s Barge and Swimming Pool Grotto—two special spaces that cannot be physically entered. It also shows how we are using scanning and 3D modeling to study and preserve Vizcaya. These technologies are especially helpful in understanding and protecting the Barge and Swimming Pool Grotto, which are vulnerable to tropical storms and rising seas.
+                <br /><br />This project was made possible by the John S. and James L. Knight Foundation.
+                <br><br><b>Select any tile to begin your virtual experience.</b>
+            </p>
+        </div>
+        <!--sticky footer-->
+        <footer class="footer">
+            <div align="center">
+                <div id="langdiv_index" style="font-weight: lighter;"><a id="lang_selected"><b>English</b></a> | <a href="es/index.html">Español</a></div>
+            </div>
+        </footer>
+    </div>
+    
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script>window.jQuery || document.write('<script src="assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+    <script src="assets/js/vendor/popper.min.js"></script>
+    <script src="dist/js/bootstrap.min.js"></script>
+
+    <script type="text/javascript" src="libs/materialize/js/materialize.min.js"></script>
+
+    <script>
+
+        document.addEventListener('DOMContentLoaded', function() {
+            var elems = document.querySelectorAll('.sidenav');
+            var instances = M.Sidenav.init(elems, options);
+        });
+
+        // Initialize collapsible (uncomment the lines below if you use the dropdown variation)
+        // var collapsibleElem = document.querySelector('.collapsible');
+        // var collapsibleInstance = M.Collapsible.init(collapsibleElem, options);
+
+        // Or with jQuery
+
+        $(document).ready(function(){
+            $('.sidenav').sidenav();
+        });
+
+    </script>
+</body>
+
+</html>

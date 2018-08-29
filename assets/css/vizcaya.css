@@ -1,9 +1,11 @@
 /*RESPONSIVENESS
 *****************************************************/
 @media screen and (max-width: 1000px) {
+    /*
     h1 {
         font-size: 1em;
     }
+    */
 }
 
 /*Credits Modal*/
@@ -65,15 +67,126 @@
 }
 
 
-/*iPad in landscape
+/*iPad in landscape (1-4G)
 *****************************************************/
 @media only screen 
     and (min-device-width : 768px) 
     and (max-device-width : 1024px) 
     and (orientation : landscape) {
+        #header-div {
+            font-size: 2.3em !important;
+        }
 
+        #sidebar-row{
+            display: none;
+        }
+
+        [role="main"] {
+            min-width: 100% important;
+            padding-top: 0px !important; /* Space for fixed navbar */
+        }
+
+    
+
+        #navbar-header{
+            font-size: 2.1em;
+            padding: 5px;
+        }
+
+        #navbar-langdiv{
+            display: none !important;
+            font-size: 1.1em;
+            padding: 5px;
+            font-family: 'Marcellus';
+        }
+
+        #photo-grid{
+            height: 100% !important;
+            width: 100% !important;
+        }
     }
 
+/*iPad in portrait (1-4G)
+*****************************************************/
+@media only screen 
+    and (min-device-width : 768px) 
+    and (max-device-width : 1024px) 
+    and (orientation : portrait) {
+        #sidebar-row{
+            display: none;
+        }
+
+        .column {
+            -ms-flex: 50% !important;
+            flex: 50% !important;
+            max-width: 50% !important;
+        }
+
+        [role="main"] {
+            min-width: 100% important;
+            padding-top: 0px !important; /* Space for fixed navbar */
+        }
+
+        .pos-f-t{
+            display: block !important;
+        }
+
+        #navbar-header{
+            font-size: 2.1em;
+            padding: 5px;
+        }
+
+        #navbar-langdiv{
+            display: block !important;
+            font-size: 1.1em;
+            padding: 5px;
+            font-family: 'Marcellus';
+        }
+        
+    }
+
+    /*iPhone X in portrait & landscape
+    *****************************************************/
+    @media only screen 
+    and (min-device-width : 375px) 
+    and (max-device-width : 812px)
+    and (-webkit-device-pixel-ratio : 3) {
+        #sidebar-row{
+            display: none;
+        }
+
+        .column {
+            -ms-flex: 50% !important;
+            flex: 50% !important;
+            max-width: 50% !important;
+        }
+
+        [role="main"] {
+            min-width: 100% important;
+            padding-top: 0px !important; /* Space for fixed navbar */
+        }
+
+        .pos-f-t{
+            display: block !important;
+        }
+
+        #navbar-header{
+            font-size: 0.9em;
+            padding-top: 5px;
+        }
+
+        #navbar-langdiv{
+            display: block !important;
+            font-size: 0.7em;
+            padding: 5px;
+            font-family: 'Marcellus';
+        }
+        
+    }
+
+##navbar-langdiv{
+    display: none;
+}
 /*MARCELLUS FONT
 *****************************************************/
 /* latin-ext */
@@ -164,7 +277,7 @@ body {
     background-color: black !important;
 }
 
-.bodyIndex{
+.bodyIndex {
     background-color: #ffffff !important;
 }
 
