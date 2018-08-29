@@ -77,33 +77,13 @@
             font-size: 2.3em !important;
         }
 
-        #sidebar-row{
-            display: none;
+        .column {
+        -ms-flex: 100%;
+        flex: 100%;
+        max-width: 100%;
         }
 
-        [role="main"] {
-            min-width: 100% important;
-            padding-top: 0px !important; /* Space for fixed navbar */
-        }
-
-    
-
-        #navbar-header{
-            font-size: 2.1em;
-            padding: 5px;
-        }
-
-        #navbar-langdiv{
-            display: none !important;
-            font-size: 1.1em;
-            padding: 5px;
-            font-family: 'Marcellus';
-        }
-
-        #photo-grid{
-            height: 100% !important;
-            width: 100% !important;
-        }
+        
     }
 
 /*iPad in portrait (1-4G)
@@ -137,7 +117,6 @@
         }
 
         #navbar-langdiv{
-            display: block !important;
             font-size: 1.1em;
             padding: 5px;
             font-family: 'Marcellus';
@@ -176,7 +155,6 @@
         }
 
         #navbar-langdiv{
-            display: block !important;
             font-size: 0.7em;
             padding: 5px;
             font-family: 'Marcellus';
@@ -184,9 +162,6 @@
         
     }
 
-##navbar-langdiv{
-    display: none;
-}
 /*MARCELLUS FONT
 *****************************************************/
 /* latin-ext */
