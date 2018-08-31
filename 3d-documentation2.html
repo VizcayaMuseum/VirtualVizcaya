@@ -1,0 +1,289 @@
+<!doctype html>
+<!--
+  Material Design Lite
+  Copyright 2015 Google Inc. All rights reserved.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      https://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="A front-end template that helps you build fast, modern mobile web apps.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <title>Virtual Vizcaya</title>
+
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="icon" sizes="192x192" href="images/android-desktop.png">
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Material Design Lite">
+    <link rel="apple-touch-icon-precomposed" href="images/ios-desktop.png">
+
+    <!-- Tile icon for Win8 (144x144 + tile color) -->
+    <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
+    <meta name="msapplication-TileColor" content="#3372DF">
+
+    <link rel="icon" href="images/favicon.ico">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.cyan-light_blue.min.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+
+    <!-- Bootstrap core CSS -->
+    <link href="dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="assets/css/vizcaya.css" rel="stylesheet">
+
+    <style>
+    #view-source {
+      position: fixed;
+      display: block;
+      right: 0;
+      bottom: 0;
+      margin-right: 40px;
+      margin-bottom: 40px;
+      z-index: 900;
+    }
+        .mdl-button{
+          font-family: 'Marcellus' !important;
+          font-size: 18px;
+          padding
+        }
+        #home_title{
+          text-decoration: none !important;
+        }
+
+    </style>
+  </head>
+  <body>
+    <div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+      <header class="demo-header mdl-layout__header mdl-color--grey-50">
+        <div class="mdl-layout__header-row">
+        <!--
+          <div class="mdl-layout-title">
+            <a id="home_title" href="index.html">Virtual Vizcaya</a>
+          </div>
+          -->
+          <a href="index.html">
+            <button class="mdl-button mdl-js-button" href="index.html">Virtual Vizcaya
+            </button>
+          </a>
+         
+          <div class="mdl-layout-spacer"></div>
+          <!--
+          <div id="langdiv_navbar"><a id="lang_selected"><b>English</b></a> | <a href="es/index.html">Español</a></div>
+          -->
+        </div>
+      </header>
+      <div class="demo-drawer mdl-layout__drawer">       
+        <nav class="demo-navigation mdl-navigation mdl-color--grey-50">
+          <div class="sidebar-sticky2" >
+            <h1>What Is 3D Documentation? </h1><hr>
+                <p>
+                    3D documentation refers to the process of gathering precise measurements and visual data of objects and spaces. This data can be used to create highly detailed images, 3D models and prints, and virtual experiences. Ongoing 3D documentation also enables us to record erosion and loss over time, helping us make informed conservation decisions.                                 
+                    <br /><br />
+                    <b>Select any information button to learn about the methods of 3D documentation.</b>                              
+                </p>
+          </div>
+          <!--
+            <p align="center">
+            <a id="lang_selected"><b>English</b></a> | <a href="es/index.html">Español</a>
+            </p>
+            -->
+          <!--sticky footer-->
+          <footer class="footer2">
+              <div align="center">
+                  <div class="home_div"><a href="index.html"><img id="homeicon" src="images/home-solid.svg" title="Home" /></a></div>
+                  <div id="langdiv_index"><a id="lang_selected"><b>English</b></a> | <a href="es/index.html">Español</a></div>
+              </div>
+          </footer>
+        </nav>
+      </div>
+      <main class="mdl-layout__content">
+
+        <div class="main-container d-flex flex-column">
+            <!--Featured Content-->
+            <div id="main-canvas" class="embed-responsive embed-responsive-21by9">
+                <div id="infoDiv2">
+                    <a id="ainfoDiv" data-toggle="modal" href="#pointcloudModal">
+                        <img id="info_img" src="build/potree/resources/icons/i.png" />
+                    </a>
+                </div>
+                <iframe src="pages/barge-context.html" allowfullscreen></iframe>
+            </div>
+
+            <div class="video-showcase">
+                <div class="row no-gutters">
+                    <!-- Laser Video -->
+                    <div class="col-sm-4 col-xs-12">                                  
+                        <div style="padding:56.25% 0 0 0;position:relative;">
+                            <a id="ainfoDiv" data-toggle="modal" href="#photogrammetryModal">
+                                    <img id="info_img" src="build/potree/resources/icons/i.png" />
+                                </a>
+                            <iframe src="https://player.vimeo.com/video/287108665?autoplay=1&loop=1&title=0&byline=0&portrait=0&muted=1&background=1" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen>
+                            </iframe>
+                        </div>
+                    </div>
+
+                    <!-- Photogrammetry Video -->
+                    <div class="col-sm-4 col-xs-12">
+                        <div style="padding:56.25% 0 0 0;position:relative;">
+                            <a id="ainfoDiv" data-toggle="modal" href="#laserModal">
+                                    <img id="info_img" src="build/potree/resources/icons/i.png" />
+                                </a>
+                            <iframe src="https://player.vimeo.com/video/287108043?autoplay=1&loop=1&title=0&byline=0&portrait=0&muted=1&background=1" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen>
+                            </iframe>
+                        </div>
+                    </div>
+
+                    <!-- Documentation/Slide Show Video -->
+                    <div class="col-sm-4 col-xs-12">
+                        <div >
+                            <div style="padding:56.25% 0 0 0;position:relative;">
+                                <a id="ainfoDiv" data-toggle="modal" href="#documentationModal">
+                                    <img id="info_img" src="build/potree/resources/icons/i.png" />
+                                </a>
+                                <iframe src="https://player.vimeo.com/video/287103850?autoplay=1&loop=1&title=0&byline=0&portrait=0&muted=1&background=1" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen>
+                                </iframe>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+          <!-- Point Cloud Model Modal -->
+          <div class="modal fade" id="pointcloudModal">
+              <div class="modal-dialog modal-dialog-centered">
+                  <div class="modal-content">
+
+                      <!-- Modal Header -->
+                      <div class="modal-header">
+                          <h4 class="modal-title">Point Cloud Model</h4>
+                          <button type="button" class="close" data-dismiss="modal">&times;</button>
+                      </div>
+
+                      <!-- Modal body -->
+                      <div class="modal-body">
+                          <p>
+                              Laser scanners and digital cameras gather measurements from the surface of Vizcaya’s East Facade and surrounding landscape to create a series, or “cloud,” of points. This is then used to construct a virtual 3D representation of those spaces as seen in this digital rendering.
+                          </p>
+                      </div>
+
+                      <!-- Modal footer -->
+                      <div class="modal-footer">
+                          <button type="button" class="btn" data-dismiss="modal">Close</button>
+                      </div>
+
+                  </div>
+              </div>
+
+          </div>
+    
+          <!-- Photogrammetry Modal -->
+          <div class="modal fade" id="photogrammetryModal">
+              <div class="modal-dialog modal-dialog-centered">
+                  <div class="modal-content ">
+
+                      <!-- Modal Header -->
+                      <div class="modal-header">
+                          <h4 class="modal-title">Photogrammetry</h4>
+                          <button type="button" class="close" data-dismiss="modal">&times;</button>
+                      </div>
+
+                      <!-- Modal body -->
+                      <div class="modal-body">
+                          <p>
+                              Photogrammetry relies on photographs taken from many different points to gather measurements. This image depicts the points where the Barge was photographed by a drone. The photographs are then input into software that compiles the information and creates 3D digital models. 
+                          </p>
+                      </div>
+
+                      <!-- Modal footer -->
+                      <div class="modal-footer">
+                          <button type="button" class="btn" data-dismiss="modal">Close</button>
+                      </div>
+                  </div>
+              </div>
+          </div>
+    
+          <!-- Laser Modal -->
+          <div class="modal fade" id="laserModal">
+              <div class="modal-dialog modal-dialog-centered">
+                  <div class="modal-content ">
+
+                      <!-- Modal Header -->
+                      <div class="modal-header">
+                          <h4 class="modal-title">Laser Scanning</h4>
+                          <button type="button" class="close" data-dismiss="modal">&times;</button>
+                      </div>
+
+                      <!-- Modal body -->
+                      <div class="modal-body">
+                          <p>
+                              This image depicts a type of laser scanner that captures digital information about the shape of an object using laser or light to measure the distance between the scanner and an object from many different perspectives. 
+                          </p>
+                      </div>
+
+                      <!-- Modal footer -->
+                      <div class="modal-footer">
+                          <button type="button" class="btn" data-dismiss="modal">Close</button>
+                      </div>
+
+                  </div>
+              </div>
+          </div>             
+
+          <!-- Documentation Modal -->
+          <div class="modal fade" id="documentationModal">
+              <div class="modal-dialog modal-dialog-centered">
+                  <div class="modal-content ">
+
+                      <!-- Modal Header -->
+                      <div class="modal-header">
+                          <h4 class="modal-title">Documentation In Progress</h4>
+                          <button type="button" class="close" data-dismiss="modal">&times;</button>
+                      </div>
+
+                      <!-- Modal body -->
+                      <div class="modal-body">
+                          <p>
+                              These images show how the University of Florida captures point clouds of the Barge and Swimming Pool Grotto using laser scanning and photogrammetry. 
+                          </p>
+                      </div>
+
+                      <!-- Modal footer -->
+                      <div class="modal-footer">
+                          <button type="button" class="btn" data-dismiss="modal">Close</button>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </main>
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+      <!-- Placed at the end of the document so the pages load faster -->
+      <script>window.jQuery || document.write('<script src="assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+      <script src="assets/js/vendor/popper.min.js"></script>
+      <script src="dist/js/bootstrap.min.js"></script>
+      <script src="main.js"></script>
+      <script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+  </body>
+</html>
