@@ -215,7 +215,7 @@
 
             viewer.setEDLEnabled(false);
             viewer.setFOV(60);
-            viewer.setPointBudget(1 * 1000 * 1000);
+            viewer.setPointBudget(2 * 1000 * 1000);
             document.title = "";
 
             viewer.setBackground("gradient"); // ["skybox", "gradient", "black", "white"];
@@ -241,7 +241,8 @@
 
                 let material = e.pointcloud.material;
                 material.size = 1;
-                material.pointSizeType = Potree.PointSizeType.ADAPTIVE;               
+                material.pointSizeType = Potree.PointSizeType.ADAPTIVE;
+                material.shape = Potree.PointShape.CIRCLE;               
 
                 function popupHerm() {
                     $("#mypopup1").fadeIn();

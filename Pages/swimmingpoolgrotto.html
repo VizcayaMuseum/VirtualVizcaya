@@ -152,18 +152,19 @@
             viewer.setEDLEnabled(false);
             viewer.setFOV(60);
 
-            viewer.setPointBudget(1 * 1000 * 1000);
+            viewer.setPointBudget(2 * 1000 * 1000);
             document.title = "";
             viewer.setEDLEnabled(false);
             viewer.setBackground("gradient"); // ["skybox", "gradient", "black", "white"];
             viewer.loadSettingsFromURL();
-            /*
+			
+            
             viewer.loadGUI(() => {
                 viewer.setLanguage('en');
                 $("#menu_scene").next().show();
                 //viewer.toggleSidebar();
             });
-            */
+            
             viewer.setDescription(``);
 
             let sceneSG = new Potree.Scene();
@@ -178,6 +179,7 @@
                 let material = e.pointcloud.material;
                 material.size = 1;
                 material.pointSizeType = Potree.PointSizeType.ADAPTIVE;
+				material.shape = Potree.PointShape.CIRCLE;
 
                 {
                     {
