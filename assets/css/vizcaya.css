@@ -1,81 +1,7 @@
-/*RESPONSIVENESS
-*****************************************************/
-@media screen and (max-width: 1000px) {
-    h1 {
-        font-size: 1em;
-    }
-}
+/*@import url("../../webfonts/OpenSans_Regular/stylesheet.css");
+@import url("../../webfonts/Marcellus_Regular/stylesheet.css");*/
 
-/*Credits Modal*/
-/*Enlarge modal according to available pixel*/
-@media (min-width: 2000px) {
-    .modal-size {
-        width: 110%;
-        max-width: 1200px;
-    }
-}
-
-/* Responsive layout - makes a two column-layout instead of four columns */
-@media screen and (max-width: 800px) {
-    .column {
-        -ms-flex: 50%;
-        flex: 50%;
-        max-width: 50%;
-    }
-}
-
-/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
-@media screen and (max-width: 600px) {
-    .column {
-        -ms-flex: 100%;
-        flex: 100%;
-        max-width: 100%;
-    }
-}
-
-/*REPOSIVENESS FOR SITES OUTSIDE OF INDEX.HTML*/
-@media screen and (max-width: 800px) {
-    .mini-container1 {
-        display: none;
-    }
-
-    .mini-container2 {
-        -ms-flex: 100% !important;
-        flex: 100% !important;
-        width: 100% !important;
-    }
-
-    .potree_container {
-        -ms-flex: 100%;
-        flex: 100%;
-        width: 100%;
-    }
-}
-
-@media screen and (max-width: 575px) {
-    #main-canvas {
-        flex: 0 0 56.25%;
-    }
-
-    .column {
-        -ms-flex: 50%;
-        flex: 50%;
-        max-width: 50%;
-    }
-}
-
-
-/*iPad in landscape
-*****************************************************/
-@media only screen 
-    and (min-device-width : 768px) 
-    and (max-device-width : 1024px) 
-    and (orientation : landscape) {
-
-    }
-
-/*MARCELLUS FONT
-*****************************************************/
+/*MARCELLUS FONT*/
 /* latin-ext */
 @font-face {
     font-family: 'Marcellus';
@@ -93,8 +19,7 @@
     unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
-/*OPENSANS FONT
-*****************************************************/
+/*OPENSANS FONT*/
 /* cyrillic-ext */
 @font-face {
     font-family: 'Open Sans';
@@ -164,10 +89,6 @@ body {
     background-color: black !important;
 }
 
-.bodyIndex{
-    background-color: #ffffff !important;
-}
-
 #container {
     width: 100%;
     height: 100%;
@@ -193,6 +114,8 @@ body {
     /*background-color: brown;*/
     width: 83.5%;
 }
+
+
 
 #house-image {
     width: 100%;
@@ -264,6 +187,12 @@ h1, h2, h3, h4 {
     font-size: 1.5em;
 	word-wrap: break-word;
 	white-space: normal;
+}
+
+@media screen and (max-width: 1000px) {
+    h1 {
+        font-size: 1em;
+    }
 }
 
 .feather {
@@ -998,7 +927,7 @@ a {
 }
 
 .control_buttons:hover {
-    background: rgba(0,0,0,0.6) !important;
+    background: rgba(0,0,0,0.6); !important;
 }
 
 #barge_icon {    
@@ -1036,6 +965,14 @@ a {
 
 #fullscreen_icon2 {
     right: 10px;
+}
+
+/*Credits Modal*/
+@media (min-width: 768px) {
+    .modal-xl {
+        width: 90%;
+        max-width: 1200px;
+    }
 }
 
 /*Animation for Finger Instructions*/
@@ -1302,8 +1239,45 @@ a {
         vertical-align: middle;
     }
 
-.tile a img{
-    width: 100%;
+/* Responsive layout - makes a two column-layout instead of four columns */
+@media screen and (max-width: 800px) {
+    .column {
+        -ms-flex: 50%;
+        flex: 50%;
+        max-width: 50%;
+    }
+}
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+    .column {
+        -ms-flex: 100%;
+        flex: 100%;
+        max-width: 100%;
+    }
+}
+
+/*
+*   REPOSIVENESS FOR SITES OUTSIDE OF INDEX.HTML
+*/
+
+
+@media screen and (max-width: 800px) {
+    .mini-container1 {
+        display: none;
+    }
+
+    .mini-container2 {
+        -ms-flex: 100% !important;
+        flex: 100% !important;
+        width: 100% !important;
+    }
+
+    .potree_container {
+        -ms-flex: 100%;
+        flex: 100%;
+        width: 100%;
+    }
 }
 
 /*
@@ -1319,6 +1293,12 @@ a {
 
 .main-container {
     height: 100vh;
+}
+
+@media screen and (max-width: 575px) {
+    #main-canvas {
+        flex: 0 0 56.25%;
+    }
 }
 
 /*
@@ -1504,6 +1484,11 @@ a {
 
 .headers{
 	font-size: 1.1em;
+}
+
+#kf_logo{
+	height: 58% !important;
+	width: 69% !important;
 }
 
 #intro{
