@@ -20,6 +20,11 @@
 
     <!-- Bootstrap core CSS -->
     <link href="dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="dist/css/bootstrap.css" rel="stylesheet">
+    <link href="dist/css/bootstrap-grid.css" rel="stylesheet">
+    <link href="dist/css/bootstrap-grid.min.css" rel="stylesheet">
+    <link href="dist/css/bootstrap-reboot.css" rel="stylesheet">
+    <link href="dist/css/bootstrap-reboot.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
     <link href="assets/css/vizcaya.css" rel="stylesheet">
@@ -50,32 +55,7 @@
 	<script src="main.js"></script>
 
     <div class="container-fluid">
-
-        <div class="pos-f-t" style="display:none;">
-            <div class="collapse" id="navbarToggleExternalContent" style="padding: 0.5px;">
-                <div class="p-4">
-                
-                <h1 id="navbar-header">Virtual Vizcaya</h1> <hr />
-                <p>
-                    Este programa interactivo proporciona acceso virtual a la Barcaza y la Gruta de la Piscina, dos espacios especiales a los que no se permite la entrada físicamente. El programa también muestra cómo los modelos tridimensionales creados con escáneres 3D nos ayudan a estudiar y conservar Vizcaya. Estas tecnologías son especialmente útiles para el estudio y conservación de la Barcaza y la Gruta de la Piscina, ya que se encuentran expuestas a las tormentas tropicales y la subida del nivel del mar.
-                    <br /><br />Este proyecto se realizó con el apoyo de John S. and James L. Knight Foundation.
-                    <!--<br><br><b>Seleccione cualquier cuadro para comenzar su experiencia virtual.</b>-->
-                </p>
-                </div>
-            </div>
-            <nav class="navbar navbar-light">
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon" style="padding-left: 0px;"></span>
-                </button>
-                <div id="navbar-header">
-                    <h1>Virtual Vizcaya</h1>
-                </div>
-                <div id="navbar-langdiv"><a href="../index.html"> English </a> | <a id="lang_selected"><b>Español</b></a></div>
-                
-            </nav>
-        </div>
-
-        <div class="row" id="sidebar-row">
+        <div class="row">
             <nav class="col-md-2 d-none d-md-block bg-light sidebar">
                 <div class="sidebar-sticky">
                     <h1 id="header-div">Virtual<br>Vizcaya</h1> <hr />
@@ -94,8 +74,8 @@
                 </footer>
             </nav>
         </div>
-        <main role="main" class="col-md-12 ml-sm-auto col-lg-10 px-4" id="main">
-            <div id="IE_alert" class="alert" role="alert" style="display:none; color: #000000; background-color: #7ED6FF; font-size: 0.90em;" >
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4" id="main">
+            <div id="IE_alert" class="alert alert-primary" role="alert" style="display:none; color: #000000; background-color: #7ED6FF; font-size: 0.90em;" >
                     <b><u>MEJORA TU EXPERIENCIA</u></b>
                     <br>Para disfrutar al máximo nuestra pagina web, utilice las última version de navegador web de <i><b>Chrome</b></i>, <i><b>Firefox</b></i>, <i><b>Microsoft Edge</b></i> o <i><b>Safari</b></i>.                 
                 <!--
@@ -135,7 +115,7 @@
 
     <!--Credits Modal-->
     <div class="modal fade" id="creditsModal">
-        <div class="modal-dialog">
+        <div class="modal-dialog modal-lg">
             <div class="modal-content">
 
                 <!-- Modal body -->
@@ -209,7 +189,7 @@
     
     <!-- Modal for Video-->
     <div class="modal fade" id="myVideo">
-        <div class="modal-dialog">
+        <div class="modal-dialog modal-lg">
             <div class="modal-content">
 
                 <!-- Modal Header -->
@@ -219,16 +199,9 @@
 
                 <!-- Modal body -->
                 <div class="modal-body">
-                    <div style="padding:52.73% 0 0 0;position:relative;">
-                    <iframe src="https://player.vimeo.com/video/286195150?autoplay=1&loop=1&title=0&byline=0&portrait=0&muted=1&background=1" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen>
-                    </iframe>
+                    <div class="embed-responsive embed-responsive-16by9">
+                        <iframe src="http://player.vimeo.com/video/286195150?autoplay=1&loop=1&title=0&byline=0&portrait=0&muted=1&background=1" width="640" height="338" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
                     </div>
-                <!--
-                    <div class="embed-responsive embed-responsive-16by9">                     
-						<!--<iframe src="https://player.vimeo.com/video/286195150?autoplay=1&loop=1" width="640" height="337" frameborder="0" allowfullscreen></iframe>
-						<iframe src="http://player.vimeo.com/video/286195150?autoplay=1&loop=1&title=0&byline=0&portrait=0&muted=1&background=1" width="640" height="338" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-                    </div>
-                -->
                 </div>
 
                 <!-- Modal footer -->
