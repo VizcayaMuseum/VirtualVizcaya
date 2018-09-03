@@ -25,7 +25,7 @@
 
     <!-- Add to homescreen for Chrome on Android -->
     <meta name="mobile-web-app-capable" content="yes">
-    <link rel="icon" sizes="192x192" href="images/android-desktop.png">
+    <link rel="icon" sizes="192x192" href="#">
 
     <!-- Add to homescreen for Safari on iOS -->
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -148,12 +148,12 @@
           <!-- Photo Grid -->
             <div class="row">
                 <div class="column">
-                    <div class="tile"><a href="3d-documentation.html"><img id="tile1" src="images/works/3DDocumentation_English_Optimized_400.jpg" style="width:100%"></a></div>
+                    <div class="tile"><a href="3d-documentation2.html"><img id="tile1" src="images/works/3DDocumentation_English_Optimized_400.jpg" style="width:100%"></a></div>
                     <div class="tile"><a href="swimmingpoolgrotto.html?1"><img id="tile2" src="images/works/Alligator03_400.gif" style="width:100%"></a></div>
                     <div class="tile"><a href="barge.html?2"><img id="tile3" src="images/works/Mermaids01_optimized_400.jpg" style="width:100%"></a></div>
                 </div>
                 <div class="column">
-                    <div class="tile"><a href="irma.html"><img id="tile4" src="images/works/irma_optimized_400.gif" style="width:100%"></a></div>
+                    <div class="tile"><a href="irma2.html"><img id="tile4" src="images/works/irma_optimized_400.gif" style="width:100%"></a></div>
                     <div class="tile"><a href="swimmingpoolgrotto.html?0"><img id="tile5" src="images/works/Grotto_English_Optimized_400.jpg" style="width:100%"></a></div>
                     <div class="tile"><a href="1916barge.html?1"><img id="tile6" src="images/works/Herm1916_Optimized_400.jpg" style="width:100%"></a></div>
                 </div>
@@ -172,6 +172,162 @@
 
       </main>
     </div>
+
+     <!--Credits Modal-->
+    <div class="modal fade" id="creditsModal">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <div class="container-fluid">
+
+                        <div class="row featurette" style="padding-top: 1%;">
+                            <div class="col-md-9 order-md-2">
+                                <img class="featurette-image img-fluid mx-auto" src="images/KF_logo-stacked.png" alt="Generic placeholder image">
+                                <p class="lead">
+                                    <br />
+                                    This project was made possible through support from the John S. and James L. Knight Foundation.
+                                    <p id="intro">Our project partners are:</p>
+                                </p>
+                            </div>
+                        </div>
+
+                        <hr class="featurette-divider" />
+
+                        <div class="row featurette">
+                            <div class="col-md-3 order-md-1" style="padding-top:2%;">
+                                <img class="featurette-image img-fluid mx-auto" onclick="darumatechLink()" src="images/daruma_logo.png" alt="Generic placeholder image" style="cursor:pointer;">
+              </div>
+                            <div class="col-md-9 order-md-2" style="padding-top:1%;">
+                                <h4 class="headers">Daruma Tech</h4>
+                                <p class="lead">
+                                    Daruma Tech is a full-service technology company specializing in interactive multiscreen solutions including web, interactive kiosks and mobile app development. Daruma Tech’s contribution to the Virtual Vizcaya project included drone photography, photogrammetry, 3D modelling, video editing, Virtual Reality app development. Daruma Tech designed and developed the interactive kiosk integrating the materials provided by project partners to create the experience you are looking at today.
+                                    <a onclick="darumatechLink()" style="cursor:pointer;"><u>Learn more</u></a>
+                                </p>
+                
+                            </div>
+                        </div>
+
+                        <hr class="featurette-divider" />
+
+                        <div class="row featurette">
+                            <div class="col-md-3 order-md-1" style="padding-top:2%;">
+                <img class="featurette-image img-fluid mx-auto" onclick="fiuLink()" src="images/fiu_logo.png" alt="Generic placeholder image" style="cursor:pointer;"/>
+              </div>
+                            <div class="col-md-9 order-md-2" style="padding-top:1%;">
+                                <h4 class="headers">Florida International University – Miami Beach Urban Studios</h4>
+                                <p class="lead">The Miami Beach Urban Studios (MBUS) is a unique 16,000sf facility in the 420 Lincoln Road Building that hosts an interdisciplinary array of innovative exhibitions, classes, research laboratories, and events for the College of Communication, Architecture + The Arts (aka “CARTA,” which is comprised of the following departments: Architecture, Landscape Architecture, Interior Architecture, Music, Art/Art History, Theatre, Journalism + Media and Communication).  It also houses affiliated institutions (Sea Level Solution Center, Amernet String Quartet, ARC+, and temporarily, the Miami Urban Future Initiative, and the Ratcliffe Art + Design Incubator). MBUS houses the 3,500sf Knight-sponsored CARTA Innovation Lab, which with over 33 3D printers is one of the largest 3D printing laboratories of its kind in the United States. The lab is proud to have been selected to be a participant in the HP/EDUCAUSE Building the Campus of the Future Project.
+                  <a onclick="fiuLink()" style="cursor:pointer;"><u>Learn more</u></a>
+                </p>
+                            </div>
+                        </div>
+
+                        <hr class="featurette-divider" />
+
+                        <div class="row featurette">
+                            <div class="col-md-3 order-md-1" style="padding-top:2%;">
+                                <img class="featurette-image img-fluid mx-auto" onclick="ufLink()" src="images/uf_logo.png" alt="Generic placeholder image" style="cursor:pointer;">
+              </div>
+                            <div class="col-md-9 order-md-2" style="padding-top:1%;">
+                                <h4 class="headers">The University of Florida, College of Design, Construction & Planning, Envision Heritage Program</h4>
+                                <p class="lead">Launched by the Historic Preservation Program in 2012, the University of Florida’s Envision Heritage explores how new and emerging digital technologies can be used to document, preserve, and interpret heritage sites. The research projects utilize laser scanning, photogrammetry and imaging from drones, among other technologies.
+                  <a onclick="ufLink()" style="cursor:pointer;"><u>Learn more</u></a>
+                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for Video-->
+    <div class="modal fade" id="myVideo">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <div class="embed-responsive embed-responsive-16by9">                     
+            <!--<iframe src="https://player.vimeo.com/video/286195150?autoplay=1&loop=1" width="640" height="337" frameborder="0" allowfullscreen></iframe>-->
+            <iframe src="http://player.vimeo.com/video/286195150?autoplay=1&loop=1&title=0&byline=0&portrait=0&muted=1&background=1" width="640" height="338" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                    </div>
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script>window.jQuery || document.write('<script src="assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+    <script src="assets/js/vendor/popper.min.js"></script>
+    <script src="dist/js/bootstrap.min.js"></script>
+
     <script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    
+    <script>
+    
+    /**
+     * detect IE
+     * returns version of IE or false, if browser is not Internet Explorer
+     */
+    
+     function detectIE() {
+        var ua = window.navigator.userAgent;
+
+        var msie = ua.indexOf('MSIE ');
+        if (msie > 0) {
+            // IE 10 or older => return version number
+            return parseInt(ua.substring(msie + 5, ua.indexOf('.', msie)), 10);
+        }
+
+        var trident = ua.indexOf('Trident/');
+        if (trident > 0) {
+            // IE 11 => return version number
+            var rv = ua.indexOf('rv:');
+            //return rv
+            return parseInt(ua.substring(rv + 3, ua.indexOf('.', rv)), 10);
+        }
+        /*
+        var edge = ua.indexOf('Edge/');
+        if (edge > 0) {
+            // Edge (IE 12+) => return version number
+            return parseInt(ua.substring(edge + 5, ua.indexOf('.', edge)), 10);
+        }
+
+        other browser
+        return false;
+        */
+    }
+
+    var version = detectIE();
+
+    if (version <= 11){
+        //alert('IE ' + detectIE());
+        document.getElementById('IE_alert').style.display = "block";
+    }  
+
+    </script>
+
   </body>
 </html>

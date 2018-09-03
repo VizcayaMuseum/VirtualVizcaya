@@ -25,7 +25,7 @@
 
     <!-- Add to homescreen for Chrome on Android -->
     <meta name="mobile-web-app-capable" content="yes">
-    <link rel="icon" sizes="192x192" href="images/android-desktop.png">
+    <link rel="icon" sizes="192x192" href="#">
 
     <!-- Add to homescreen for Safari on iOS -->
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -60,28 +60,26 @@
       margin-bottom: 40px;
       z-index: 900;
     }
-        .mdl-button{
+        .mdl-button {
           font-family: 'Marcellus' !important;
           font-size: 18px;
-          padding
+          
         }
-        #home_title{
-          text-decoration: none !important;
+        
+        .modal-backdrop {
+        z-index: 0 !important;
         }
-
+        
+        
     </style>
   </head>
   <body>
     <div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
       <header class="demo-header mdl-layout__header mdl-color--grey-50">
         <div class="mdl-layout__header-row">
-        <!--
-          <div class="mdl-layout-title">
-            <a id="home_title" href="index.html">Virtual Vizcaya</a>
-          </div>
-          -->
-          <a href="index.html">
-            <button class="mdl-button mdl-js-button" href="index.html">Virtual Vizcaya
+
+          <a href="index2.html">
+            <button class="mdl-button mdl-js-button">Virtual Vizcaya
             </button>
           </a>
          
@@ -101,11 +99,7 @@
                     <b>Select any information button to learn about the methods of 3D documentation.</b>                              
                 </p>
           </div>
-          <!--
-            <p align="center">
-            <a id="lang_selected"><b>English</b></a> | <a href="es/index.html">Español</a>
-            </p>
-            -->
+
           <!--sticky footer-->
           <footer class="footer2">
               <div align="center">
@@ -168,112 +162,114 @@
                 </div>
             </div>
         </div>
-          <!-- Point Cloud Model Modal -->
-          <div class="modal fade" id="pointcloudModal">
-              <div class="modal-dialog modal-dialog-centered">
-                  <div class="modal-content">
 
-                      <!-- Modal Header -->
-                      <div class="modal-header">
-                          <h4 class="modal-title">Point Cloud Model</h4>
-                          <button type="button" class="close" data-dismiss="modal">&times;</button>
-                      </div>
+        <!-- Point Cloud Model Modal -->
+        <div class="modal fade" id="pointcloudModal">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content ">
 
-                      <!-- Modal body -->
-                      <div class="modal-body">
-                          <p>
-                              Laser scanners and digital cameras gather measurements from the surface of Vizcaya’s East Facade and surrounding landscape to create a series, or “cloud,” of points. This is then used to construct a virtual 3D representation of those spaces as seen in this digital rendering.
-                          </p>
-                      </div>
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                        <h4 class="modal-title">Point Cloud Model</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
 
-                      <!-- Modal footer -->
-                      <div class="modal-footer">
-                          <button type="button" class="btn" data-dismiss="modal">Close</button>
-                      </div>
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                        <p>
+                            Laser scanners and digital cameras gather measurements from the surface of Vizcaya’s East Facade and surrounding landscape to create a series, or “cloud,” of points. This is then used to construct a virtual 3D representation of those spaces as seen in this digital rendering.
+                        </p>
+                    </div>
 
-                  </div>
-              </div>
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                        <button type="button" class="btn" data-dismiss="modal">Close</button>
+                    </div>
 
-          </div>
-    
-          <!-- Photogrammetry Modal -->
-          <div class="modal fade" id="photogrammetryModal">
-              <div class="modal-dialog modal-dialog-centered">
-                  <div class="modal-content ">
+                </div>
+            </div>
 
-                      <!-- Modal Header -->
-                      <div class="modal-header">
-                          <h4 class="modal-title">Photogrammetry</h4>
-                          <button type="button" class="close" data-dismiss="modal">&times;</button>
-                      </div>
+        </div>
+        
+        <!-- Photogrammetry Modal -->
+        <div class="modal fade" id="photogrammetryModal">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content ">
 
-                      <!-- Modal body -->
-                      <div class="modal-body">
-                          <p>
-                              Photogrammetry relies on photographs taken from many different points to gather measurements. This image depicts the points where the Barge was photographed by a drone. The photographs are then input into software that compiles the information and creates 3D digital models. 
-                          </p>
-                      </div>
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                        <h4 class="modal-title">Photogrammetry</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
 
-                      <!-- Modal footer -->
-                      <div class="modal-footer">
-                          <button type="button" class="btn" data-dismiss="modal">Close</button>
-                      </div>
-                  </div>
-              </div>
-          </div>
-    
-          <!-- Laser Modal -->
-          <div class="modal fade" id="laserModal">
-              <div class="modal-dialog modal-dialog-centered">
-                  <div class="modal-content ">
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                        <p>
+                            Photogrammetry relies on photographs taken from many different points to gather measurements. This image depicts the points where the Barge was photographed by a drone. The photographs are then input into software that compiles the information and creates 3D digital models. 
+                        </p>
+                    </div>
 
-                      <!-- Modal Header -->
-                      <div class="modal-header">
-                          <h4 class="modal-title">Laser Scanning</h4>
-                          <button type="button" class="close" data-dismiss="modal">&times;</button>
-                      </div>
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                        <button type="button" class="btn" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Laser Modal -->
+        <div class="modal fade" id="laserModal">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content ">
 
-                      <!-- Modal body -->
-                      <div class="modal-body">
-                          <p>
-                              This image depicts a type of laser scanner that captures digital information about the shape of an object using laser or light to measure the distance between the scanner and an object from many different perspectives. 
-                          </p>
-                      </div>
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                        <h4 class="modal-title">Laser Scanning</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
 
-                      <!-- Modal footer -->
-                      <div class="modal-footer">
-                          <button type="button" class="btn" data-dismiss="modal">Close</button>
-                      </div>
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                        <p>
+                            This image depicts a type of laser scanner that captures digital information about the shape of an object using laser or light to measure the distance between the scanner and an object from many different perspectives. 
+                        </p>
+                    </div>
 
-                  </div>
-              </div>
-          </div>             
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                        <button type="button" class="btn" data-dismiss="modal">Close</button>
+                    </div>
 
-          <!-- Documentation Modal -->
-          <div class="modal fade" id="documentationModal">
-              <div class="modal-dialog modal-dialog-centered">
-                  <div class="modal-content ">
+                </div>
+            </div>
+        </div>             
 
-                      <!-- Modal Header -->
-                      <div class="modal-header">
-                          <h4 class="modal-title">Documentation In Progress</h4>
-                          <button type="button" class="close" data-dismiss="modal">&times;</button>
-                      </div>
+        <!-- Documentation Modal -->
+        <div class="modal fade" id="documentationModal">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content ">
 
-                      <!-- Modal body -->
-                      <div class="modal-body">
-                          <p>
-                              These images show how the University of Florida captures point clouds of the Barge and Swimming Pool Grotto using laser scanning and photogrammetry. 
-                          </p>
-                      </div>
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                        <h4 class="modal-title">Documentation In Progress</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
 
-                      <!-- Modal footer -->
-                      <div class="modal-footer">
-                          <button type="button" class="btn" data-dismiss="modal">Close</button>
-                      </div>
-                  </div>
-              </div>
-          </div>
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                        <p>
+                            These images show how the University of Florida captures point clouds of the Barge and Swimming Pool Grotto using laser scanning and photogrammetry. 
+                        </p>
+                    </div>
+
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                        <button type="button" class="btn" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
       </main>
     </div>
 
@@ -284,6 +280,8 @@
       <script src="assets/js/vendor/popper.min.js"></script>
       <script src="dist/js/bootstrap.min.js"></script>
       <script src="main.js"></script>
+      
       <script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+
   </body>
 </html>
