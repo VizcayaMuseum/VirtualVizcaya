@@ -69,8 +69,7 @@
         .modal-backdrop {
         z-index: 0 !important;
         }
-        
-        
+
     </style>
   </head>
   <body>
@@ -84,29 +83,30 @@
           </a>
          
           <div class="mdl-layout-spacer"></div>
-          <!--
-          <div id="langdiv_navbar"><a id="lang_selected"><b>English</b></a> | <a href="es/index.html">Español</a></div>
-          -->
+        
+          <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
+            <i class="material-icons">more_vert</i>
+          </button>
+          <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
+            <a href="index2.html"><li class="mdl-menu__item">Home</li></a>
+            <a href="index2.html"><li class="mdl-menu__item">English</li></a>
+            <a href="es/index.html"><li class="mdl-menu__item">Spanish</li></a>
+          </ul>
         </div>
       </header>
       <div class="demo-drawer mdl-layout__drawer">       
         <nav class="demo-navigation mdl-navigation mdl-color--grey-50">
-          <div class="sidebar-sticky2" >
-            <h1>What Is 3D Documentation? </h1><hr>
+            
+            <div class="drawer-content" >
+                <h1>What Is 3D Documentation? </h1>
+                <hr>
                 <p>
-                    3D documentation refers to the process of gathering precise measurements and visual data of objects and spaces. This data can be used to create highly detailed images, 3D models and prints, and virtual experiences. Ongoing 3D documentation also enables us to record erosion and loss over time, helping us make informed conservation decisions.                                 
-                    <br /><br />
-                    <b>Select any information button to learn about the methods of 3D documentation.</b>                              
-                </p>
-          </div>
+                This interactive provides virtual access to Vizcaya’s Barge and Swimming Pool Grotto—two special spaces that cannot be physically entered. It also shows how we are using scanning and 3D modeling to study and preserve Vizcaya. These technologies are especially helpful in understanding and protecting the Barge and Swimming Pool Grotto, which are vulnerable to tropical storms and rising seas.
+                <br /><br />This project was made possible by the John S. and James L. Knight Foundation.
+                <br><br><b>Select any tile to begin your virtual experience.</b>
+                </p>                
+            </div>
 
-          <!--sticky footer-->
-          <footer class="footer2">
-              <div align="center">
-                  <div class="home_div"><a href="index.html"><img id="homeicon" src="images/home-solid.svg" title="Home" /></a></div>
-                  <div id="langdiv_index"><a id="lang_selected"><b>English</b></a> | <a href="es/index.html">Español</a></div>
-              </div>
-          </footer>
         </nav>
       </div>
       <main class="mdl-layout__content">

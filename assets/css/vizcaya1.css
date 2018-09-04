@@ -45,9 +45,6 @@
             flex: 50%;
             max-width: 50%;
     }
-    .modal-lg{
-        width: 82% !important;
-    }
 }
 
 
@@ -101,11 +98,11 @@
 	height: 79%;
     
 }
-
+/*
 .main-container {
     height: 100vh;
 }
-
+*/
 @media screen and (max-width: 575px) {
     #main-canvas {
         flex: 0 0 56.25%;
@@ -401,20 +398,20 @@ h1, h2, h3, h4 {
     font-size: 2.5em;
     white-space: pre-line;
 }
-
+/*
 .sidebar {
     position: fixed;
     top: 0;
     bottom: 0;
     left: 0;
-    z-index: 100; /* Behind the navbar */
+    z-index: 100; /* Behind the navbar 
     padding-top: 10px;
     padding-right: 10px;
     padding-left: 10px;
-    padding-bottom: 10px; /* Height of navbar */
+    padding-bottom: 10px; /* Height of navbar 
     box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
 }
-
+*/
 .sidebar-sticky {
     position: relative;
     top: 0;
@@ -441,18 +438,6 @@ h1, h2, h3, h4 {
     line-height: 27px;
 }
 
-.sidebar-sticky3 {
-    position: relative;
-    top: 0;
-    /*padding-bottom: 0px;*/
-    height: calc(100% - 8px);
-    height: 85%;
-    padding-top: .5rem;
-    overflow-x: none !important;
-    overflow-y: none !important; /*Scrollable contents if viewport is shorter than content. */
-    padding: 5%;
-    line-height: 27px;
-}
 /*@supports ((position: -webkit-sticky) or (position: sticky)) {
   .sidebar-sticky {
     position: -webkit-sticky;
@@ -483,11 +468,6 @@ h1, h2, h3, h4 {
 .sidebar-heading {
     font-size: .75rem;
     text-transform: uppercase;
-}
-
-.drawer-content{
-    padding: 0 8% 8% 8%;
-    overflow-y: auto !important;
 }
 
 /*
