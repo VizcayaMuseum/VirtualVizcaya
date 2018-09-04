@@ -593,16 +593,18 @@
                 var popup = document.getElementById('myMap');
                 var span = document.getElementsByClassName("close")[0];
 
-                opacityOn();
+                /*opacityOn();*/
 
                 span.onclick = function () {
-                    popup.style.display = "none";
-                    opacityOff();
+                    /*popup.style.display = "none";*/
+                    $("#myMap").fadeOut();
+                    /*opacityOff();*/
                 }
                 window.onclick = function (event) {
                     if (event.target == popup) {
-                        popup.style.display = "none";
-                        opacityOff();
+                        $("#myMap").fadeOut();
+                        /*popup.style.display = "none";*/
+                        /*opacityOff();*/
                     }
                 }
             }

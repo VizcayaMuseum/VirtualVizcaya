@@ -52,72 +52,14 @@
     <!-- Custom styles for this template -->
     <link href="assets/css/vizcaya.css" rel="stylesheet">
 
-    <style>
-      dialog {
-  position: absolute;
-  left: 0; right: 0;
-  width: -moz-fit-content;
-  width: -webkit-fit-content;
-  width: fit-content;
-  height: -moz-fit-content;
-  height: -webkit-fit-content;
-  height: fit-content;
-  margin: auto;
-  border: solid;
-  padding: 1em;
-  background: white;
-  color: black;
-  display: block;
-}
-
-dialog:not([open]) {
-  display: none;
-}
-
-dialog + .backdrop {
-  position: fixed;
-  top: 0; right: 0; bottom: 0; left: 0;
-  background: rgba(0,0,0,0.1);
-}
-
-._dialog_overlay {
-  position: fixed;
-  top: 0; right: 0; bottom: 0; left: 0;
-}
-
-dialog.fixed {
-  position: fixed;
-  top: 50%;
-  transform: translate(0, -50%);
-}
-    #view-source {
-      position: fixed;
-      display: block;
-      right: 0;
-      bottom: 0;
-      margin-right: 40px;
-      margin-bottom: 40px;
-      z-index: 900;
-    }
-
-        .mdl-button{
-          font-family: 'Marcellus' !important;
-          font-size: 18px;
-          padding
-        }
-
-        .modal-backdrop {
-        z-index: 0 !important;
-        }
-    </style>
   </head>
   <body>
     <div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
       <header class="demo-header mdl-layout__header mdl-color--grey-50">
         <div class="mdl-layout__header-row">
 
-          <a href="index2.html"></a>
-            <button class="mdl-button mdl-js-button" href="index2.html">Virtual Vizcaya
+          <a href="index2.html">
+            <button class="mdl-button mdl-js-button">Virtual Vizcaya
             </button>
           </a>
          
@@ -148,14 +90,15 @@ dialog.fixed {
       <main class="mdl-layout__content">
 
         <!--Featured Content-->				
-        <div id="main-irma-video" class="embed-responsive embed-responsive-16by9">
-          <!--
-            <video autoplay muted loop class="embed-responsive-item" id="main-video">
-                <source id="source_video" src="https://player.vimeo.com/external/287112633.hd.mp4?s=a457f7debe5bf909682280d85ae2fba00d55291e&profile_id=174" type="video/mp4">
-            </video>
-          -->
+        <div id="main-irma-video" class="embed-responsive embed-responsive-21by9">
           
+            <video autoplay muted loop class="embed-responsive-item" id="main-video">
+                <source id="source_video" src="https://s3.amazonaws.com/vizcaya/video/Timelapse+Barge+Irma+2017.mp4" type="video/mp4">
+            </video>
+          
+          <!--
           <iframe src="https://player.vimeo.com/video/287112633?autoplay=1&loop=1&title=0&byline=0&portrait=0&muted=1&background=1" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+            -->
         </div>
 
         <div class="video-showcase">
@@ -164,15 +107,17 @@ dialog.fixed {
                 <!--Time Lapse Video of Hurricane Irma-->
                 <div class="col-sm-3">
                     <div class="embed-responsive embed-responsive-16by9">
-                      <!--
-                        <video autoplay muted loop class="embed-responsive-item" onclick="timelapse();">
-                            <source src="https://player.vimeo.com/external/287112633.hd.mp4?s=a457f7debe5bf909682280d85ae2fba00d55291e&profile_id=174" type="video/mp4">
+                      
+                        <video class="embed-responsive-item" onclick="timelapse();">
+                            <source src="https://s3.amazonaws.com/vizcaya/video/Timelapse+Barge+Irma+2017.mp4" type="video/mp4">
                         </video>
-                      -->
+                      
                       <a class="ainfoDiv" id="ainfoDiv" data-toggle="modal" href="#timelapseModal">
                           <img id="info_img" src="build/potree/resources/icons/i.png" />
                       </a>
+                      <!--
                       <iframe src="https://player.vimeo.com/video/287112633?autoplay=1&loop=1&title=0&byline=0&portrait=0&muted=1&background=1" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                        -->
                     </div>
                 </div>
 
@@ -182,12 +127,13 @@ dialog.fixed {
                         <a id="ainfoDiv" data-toggle="modal" href="#bargeflyoverModal">
                             <img id="info_img" src="build/potree/resources/icons/i.png" />
                         </a>
+                        <!--
                         <iframe src="https://player.vimeo.com/video/287114431?autoplay=1&loop=1&title=0&byline=0&portrait=0&muted=1&background=1" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-                      <!--
-                        <video autoplay muted loop class="embed-responsive-item" onclick="bargeflyover();">
-                            <source src="https://player.vimeo.com/external/287114431.hd.mp4?s=2abd18841a79cea31df0d33d447fa799161d0b5f&profile_id=174" type="video/mp4">
-                        </video>
                       -->
+                        <video class="embed-responsive-item" onclick="bargeflyover();">
+                            <source src="https://s3.amazonaws.com/vizcaya/video/barge_ghosting.mp4" type="video/mp4">
+                        </video>
+                      
                     </div>
                 </div>
                 
@@ -197,12 +143,13 @@ dialog.fixed {
                         <a id="ainfoDiv" data-toggle="modal" href="#boatflyoverModal">
                             <img id="info_img" src="build/potree/resources/icons/i.png" />
                         </a>
-                        <iframe src="https://player.vimeo.com/video/287114490?autoplay=1&loop=1&title=0&byline=0&portrait=0&muted=1&background=1" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
                         <!--
-                        <video loop class="embed-responsive-item" onclick="boatflyover();">
-                            <source src="https://player.vimeo.com/external/287114490.hd.mp4?s=360875cdaa74bae61df63a26cf6adec6e5ecd6d9&profile_id=174" type="video/mp4">
+                        <iframe src="https://player.vimeo.com/video/287114490?autoplay=1&loop=1&title=0&byline=0&portrait=0&muted=1&background=1" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                        -->
+                        <video class="embed-responsive-item" onclick="boatflyover();">
+                            <source src="https://s3.amazonaws.com/vizcaya/video/DJI_0284_2.mp4" type="video/mp4">
                         </video>
-                      -->
+                      
                     </div>
                 </div>
 
@@ -212,12 +159,13 @@ dialog.fixed {
                         <a id="ainfoDiv" data-toggle="modal" href="#salvageModal">
                             <img id="info_img" src="build/potree/resources/icons/i.png" />
                         </a>
+                        <!--
                         <iframe src="https://player.vimeo.com/video/287110529?autoplay=1&loop=1&title=0&byline=0&portrait=0&muted=1&background=1" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-                      <!--
-                        <video loop class="embed-responsive-item" onclick="salvage();">
-                            <source src="https://player.vimeo.com/external/287110529.hd.mp4?s=093f1fbc7b052b7177038820f634454b3e56a688&profile_id=174" type="video/mp4">
-                        </video>
                       -->
+                        <video class="embed-responsive-item" onclick="salvage();">
+                            <source src="https://s3.amazonaws.com/vizcaya/video/salvage.mp4" type="video/mp4">
+                        </video>
+                      
                     </div>
                 </div>
             </div>
@@ -226,7 +174,7 @@ dialog.fixed {
         <!--Time Lapse Video Modal-->
         <div class="modal fade" id="timelapseModal">
             <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content modal-sm">
+                <div class="modal-content">
 
                     <!-- Modal Header -->
                     <div class="modal-header">
@@ -254,7 +202,7 @@ dialog.fixed {
         <!-- Flyover of the Barge Modal -->
         <div class="modal fade" id="bargeflyoverModal">
             <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content modal-sm">
+                <div class="modal-content">
 
                     <!-- Modal Header -->
                     <div class="modal-header">
@@ -282,7 +230,7 @@ dialog.fixed {
         <!--Flyover of the Boat Landing Modal -->
         <div class="modal fade" id="boatflyoverModal">
             <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content ">
+                <div class="modal-content">
 
                     <!-- Modal Header -->
                     <div class="modal-header">
@@ -308,7 +256,7 @@ dialog.fixed {
         <!-- 2018 Salvage Video Modal -->
         <div class="modal fade" id="salvageModal">
             <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content ">
+                <div class="modal-content">
 
                     <!-- Modal Header -->
                     <div class="modal-header">
@@ -347,11 +295,6 @@ dialog.fixed {
     <script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
 
     <script type="text/javascript">
-
-        document.getElementsByClassName("ainfoDiv").addEventListener("click", function() {
-          var element = document.getElementById("myDIV");
-        element.classList.remove("mystyle");
-        });
 
         //Time Lapse Video of Hurricane Irma
         function timelapse() {

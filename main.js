@@ -68,6 +68,7 @@ function toggleFullScreen() {
 
 /* Applying Opacity to Parent's Split Container
 *****************************************************/
+/*
 function opacityOn() {
     parentWin = window.parent;
     var sidebar = parentWin.document.getElementById('split-container');
@@ -79,6 +80,7 @@ function opacityOff() {
     var sidebar = parentWin.document.getElementById('split-container');
     sidebar.style.opacity = "1";
 }
+*/
 
 /* Link functions for Index: Credits Modal
 *****************************************************/
@@ -149,12 +151,12 @@ function hideList() {
 function tutorialPopup() {
 
     $("#nav_panel").fadeIn();
-    opacityOn();
+    /*opacityOn();*/
 
     var navPanel = document.getElementById('nav_panel');
     navPanel.addEventListener('click', function () {
         $("#nav_panel").fadeOut();
-        opacityOff();
+        /*opacityOff();*/
     });
 }
 

@@ -6,19 +6,9 @@
     }
 }
 
-
-/*Credits Modal*/
-@media (min-width: 768px) {
-    .modal-xl {
-        width: 90%;
-        max-width: 1200px;
-    }
-}
-
 /*
 *   INDEX.HTML CSS
 */
-
 
 /* Create four equal columns that sits next to each other */
 .column {
@@ -309,6 +299,19 @@ h1, h2, h3, h4 {
     vertical-align: text-bottom;
 }
 
+.mdl-menu a{
+    text-decoration: none !important;
+}
+
+.modal-backdrop {
+    z-index: 0 !important;
+    }
+
+.mdl-button {
+    font-family: 'Marcellus' !important;
+    font-size: 18px;
+    
+    }
 /*sticky-footer*/
 
 .footer {
@@ -486,10 +489,15 @@ h1, h2, h3, h4 {
 }
 
 .drawer-content{
-    padding: 0 8% 8% 8%;
+    padding: 5% 8% 8% 8%;
     overflow-y: auto !important;
 }
 
+.potree-iframes{
+    position: absolute; 
+    height: 100%; 
+    width: 100%;
+}
 /*
  * Content
  */
@@ -556,14 +564,14 @@ a {
 
 /*
  * Scrollbar
- */
+*/
 
 ::-webkit-scrollbar {
-    width: 9px;
+    width: 7px;
 }
 
 ::-webkit-scrollbar-button {
-    width: 8px;
+    width: 6px;
     height: 2px;
 }
 
@@ -583,6 +591,7 @@ a {
     ::-webkit-scrollbar-thumb:hover {
         background: #7d7d7d;
     }
+
 
 /* 
 *POTREE ANNOTATIONS

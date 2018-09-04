@@ -536,7 +536,7 @@ a {
 
 /*
  * Scrollbar
- */
+*/
 
 ::-webkit-scrollbar {
     width: 9px;
@@ -563,7 +563,8 @@ a {
     ::-webkit-scrollbar-thumb:hover {
         background: #7d7d7d;
     }
-
+ 
+ 
 /* 
 *POTREE ANNOTATIONS
 */
