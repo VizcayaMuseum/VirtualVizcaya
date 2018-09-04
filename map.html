@@ -17,9 +17,24 @@
   <link href="libs/material-design-bootstrap/css/material-dashboard.css?v=2.1.0" rel="stylesheet" />
   <!-- CSS Just for demo purpose, don't include it in your project -->
   <link href="libs/material-design-bootstrap/demo/demo.css" rel="stylesheet" />
+
+  <!-- Custom styles for this template -->
+  <link href="assets/css/vizcaya.css" rel="stylesheet">
+
+  <style>
+    @media screen and (max-width: 600px) {
+      .main-container{
+        overflow-y: auto !important;
+      }
+      
+    }
+/*requires changes on vizcaya.css file, sidebar and main-canvas vh height needs 
+to be commented out*/
+
+  </style>
 </head>
 
-<body class="">
+<body>
   <div class="wrapper ">
     <div class="sidebar" data-color="purple" data-background-color="white" data-image="../assets/img/sidebar-1.jpg">
       <!--
@@ -86,8 +101,9 @@
       </div>
     </div>
     <div class="main-panel">
+
       <!-- Navbar -->
-      <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
+      <nav class="navbar navbar-expand-lg navbar-absolute fixed-top ">
         <div class="container-fluid">
           <div class="navbar-wrapper">
             <a class="navbar-brand" href="#pablo">Map</a>
@@ -145,54 +161,169 @@
           </div>
         </div>
       </nav>
+
       <!-- End Navbar -->
-      <!--Featured Content-->				
-      <div id="main-canvas" class="embed-responsive embed-responsive-16by9">
-          <video autoplay loop class="embed-responsive-item" id="main-video">
-              <source id="source_video" src="https://player.vimeo.com/external/287112633.hd.mp4?s=a457f7debe5bf909682280d85ae2fba00d55291e&profile_id=174" type="video/mp4">
-          </video>
-      </div>
+      
+      <main class="main-container d-flex flex-column" style="padding-top: 70px; overflow-y: auto">
+        <!--Featured Content-->
+        <div id="main-canvas-3d" class="embed-responsive embed-responsive-16by9">
+            <div id="infoDiv2">
+                <a id="ainfoDiv" data-toggle="modal" href="#pointcloudModal">
+                    <img id="info_img" src="build/potree/resources/icons/i.png" />
+                </a>
+            </div>
+            <iframe src="pages/barge-context.html" allowfullscreen></iframe>
+        </div>
 
-      <div class="video-showcase">
-          <div class="row no-gutters">
+        <div class="video-showcase">
+            <div class="row no-gutters">
+                <!-- Laser Video -->
+                <div class="col-sm-4 col-xs-12">                                  
+                    <div style="padding:56.25% 0 0 0;position:relative;">
+                        <a id="ainfoDiv" data-toggle="modal" href="#photogrammetryModal">
+                                <img id="info_img" src="build/potree/resources/icons/i.png" />
+                            </a>
+                        <iframe src="https://player.vimeo.com/video/287108665?autoplay=1&loop=1&title=0&byline=0&portrait=0&muted=1&background=1" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen>
+                        </iframe>
+                    </div>
+                </div>
 
-              <!--Time Lapse Video of Hurricane Irma-->
-              <div class="col-sm-3">
-                  <div class="embed-responsive embed-responsive-16by9">
-                      <video autoplay loop class="embed-responsive-item" onclick="timelapse();">
-                          <source src="https://s3.amazonaws.com/vizcaya/video/Timelapse+Barge+Irma+2017.mp4" type="video/mp4">
-                      </video>
-                  </div>
-              </div>
+                <!-- Photogrammetry Video -->
+                <div class="col-sm-4 col-xs-12">
+                    <div style="padding:56.25% 0 0 0;position:relative;">
+                        <a id="ainfoDiv" data-toggle="modal" href="#laserModal">
+                                <img id="info_img" src="build/potree/resources/icons/i.png" />
+                            </a>
+                        <iframe src="https://player.vimeo.com/video/287108043?autoplay=1&loop=1&title=0&byline=0&portrait=0&muted=1&background=1" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen>
+                        </iframe>
+                    </div>
+                </div>
 
-              <!--Flyover of the Barge-->
-              <div class="col-sm-3">
-                  <div class="embed-responsive embed-responsive-16by9">
-                      <video autoplay loop class="embed-responsive-item" onclick="bargeflyover();">
-                          <source src="https://s3.amazonaws.com/vizcaya/video/barge_ghosting.mp4" type="video/mp4">
-                      </video>
-                  </div>
-              </div>
-              
-              <!--Flyover of the Boat Landing-->
-              <div class="col-sm-3">
-                  <div align="center" class="embed-responsive embed-responsive-16by9">
-                      <video autoplay loop class="embed-responsive-item" onclick="boatflyover();">
-                          <source src="https://s3.amazonaws.com/vizcaya/video/DJI_0284_2.mp4" type="video/mp4">
-                      </video>
-                  </div>
-              </div>
+                <!-- Documentation/Slide Show Video -->
+                <div class="col-sm-4 col-xs-12">
+                    <div >
+                        <div style="padding:56.25% 0 0 0;position:relative;">
+                            <a id="ainfoDiv" data-toggle="modal" href="#documentationModal">
+                                <img id="info_img" src="build/potree/resources/icons/i.png" />
+                            </a>
+                            <iframe src="https://player.vimeo.com/video/287103850?autoplay=1&loop=1&title=0&byline=0&portrait=0&muted=1&background=1" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen>
+                            </iframe>
+                        </div>
+                    </div>
+                </div>
 
-              <!--2018 Salvage Video-->
-              <div class="col-sm-3">
-                  <div class="embed-responsive embed-responsive-16by9">
-                      <video autoplay loop class="embed-responsive-item" onclick="salvage();">
-                          <source src="https://player.vimeo.com/external/287110529.sd.mp4?s=5fabfe286af9004c37b8029463674688cfc0248b&profile_id=165" type="video/mp4">
-                      </video>
-                  </div>
-              </div>
-          </div>
-      </div>
+            </div>
+        </div>
+      </main>
+
+    <!-- Point Cloud Model Modal -->
+    <div class="modal fade" id="pointcloudModal">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content ">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Point Cloud Model</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <p>
+                        Laser scanners and digital cameras gather measurements from the surface of Vizcaya’s East Facade and surrounding landscape to create a series, or “cloud,” of points. This is then used to construct a virtual 3D representation of those spaces as seen in this digital rendering.
+                    </p>
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn" data-dismiss="modal">Close</button>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+    
+    <!-- Photogrammetry Modal -->
+    <div class="modal fade" id="photogrammetryModal">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content ">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Photogrammetry</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <p>
+                        Photogrammetry relies on photographs taken from many different points to gather measurements. This image depicts the points where the Barge was photographed by a drone. The photographs are then input into software that compiles the information and creates 3D digital models. 
+                    </p>
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Laser Modal -->
+    <div class="modal fade" id="laserModal">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content ">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Laser Scanning</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <p>
+                        This image depicts a type of laser scanner that captures digital information about the shape of an object using laser or light to measure the distance between the scanner and an object from many different perspectives. 
+                    </p>
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn" data-dismiss="modal">Close</button>
+                </div>
+
+            </div>
+        </div>
+    </div>             
+
+    <!-- Documentation Modal -->
+    <div class="modal fade" id="documentationModal">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content ">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Documentation In Progress</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <p>
+                        These images show how the University of Florida captures point clouds of the Barge and Swimming Pool Grotto using laser scanning and photogrammetry. 
+                    </p>
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+      
     </div>
   </div>
   <!--   Core JS Files   -->
@@ -204,12 +335,6 @@
   <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
   <script src="libs/material-design-bootstrap/js/material-dashboard.min.js?v=2.1.0" type="text/javascript"></script>
 
-  <script>
-    $(document).ready(function() {
-      // Javascript method's body can be found in assets/js/demos.js
-      demo.initGoogleMaps();
-    });
-  </script>
 </body>
 
 </html>
