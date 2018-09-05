@@ -1,22 +1,61 @@
-﻿<!doctype html>
-<html lang="en">
-<head>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-41885816-8"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
+<!doctype html>
+<!--
+  Material Design Lite
+  Copyright 2015 Google Inc. All rights reserved.
 
-        gtag('config', 'UA-41885816-8');
-    </script>
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      https://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License
+-->
+<html lang="en" class="mdl-js">
+  <head>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-41885816-8"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+
+	  gtag('config', 'UA-41885816-8');
+	</script>
+    
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="A front-end template that helps you build fast, modern mobile web apps.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <title>Huracán Irma — Vizcaya Virtual</title>
+
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="icon" sizes="192x192" href="#">
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Material Design Lite">
+    <link rel="apple-touch-icon-precomposed" href="images/ios-desktop.png">
+
+    <!-- Tile icon for Win8 (144x144 + tile color) -->
+    <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
+    <meta name="msapplication-TileColor" content="#3372DF">
+
     <link rel="icon" href="images/favicon.ico">
 
-    <title>Huracán Irma — Virtual Vizcaya</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.cyan-light_blue.min.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+
+    
 
     <!-- Bootstrap core CSS -->
     <link href="dist/css/bootstrap.min.css" rel="stylesheet">
@@ -24,128 +63,278 @@
     <!-- Custom styles for this template -->
     <link href="assets/css/vizcaya.css" rel="stylesheet">
 
-</head>
+  </head>
+  <body>
+    <div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+      <header class="demo-header mdl-layout__header mdl-color--grey-50">
+        <div class="mdl-layout__header-row">
 
-<body style="overflow: auto;">
+          <a href="index.html">
+            <button class="mdl-button mdl-js-button">Vizcaya Virtual
+            </button>
+          </a>
+         
+          <div class="mdl-layout-spacer"></div>
+          <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
+            <i class="material-icons">more_vert</i>
+          </button>
+          <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
+            <a href="index.html"><li class="mdl-menu__item">INICIO</li></a>
+            <a href="../irma.html"><li class="mdl-menu__item">ENGLISH</li></a>
+          </ul>
 
-    <script src="main.js"></script>
-
-    <div class="container-fluid">
-        
-        <div id="container">
-            <div id="split-container" class="mini-container1">
-                <div class="row">
-                    <nav class="col-md-2 d-none d-md-block bg-light sidebar">
-                        <div class="sidebar-sticky">
-                            <h1>Huracán Irma</h1><hr />
-							<!--Time Lapse Video of Hurricane Irma-->
-                            <p id="sidebar-text">
-                                Este video de la Barcaza muestra los graves daños causados por el Huracán Irma en el 2017. Los elementos en círculos rojos sufrieron daños o fueron lanzados a la bahía de Biscayne por el viento y la marejada. 
-                                <br><br>El proyecto de documentación 3D ayuda a nuestro personal a diseñar obras resilientes. Los fragmentos de la Barcaza recuperados en el 2018 serán restaurados y devueltos a su lugar.
-                            </p>
-                        </div>
-                        <!--sticky footer-->                       
-                        <footer class="footer">
-                            <div align="center">
-                                <div class="home_div"><a href="index.html"><img id="homeicon" src="images/home-solid.svg" title="Home" /></a></div>
-                                <div class="lang_div"><a href="../irma.html">English</a> | <a id="lang_selected"><b>Español</b></a></div>
-                            </div>
-                        </footer>
-                    </nav>
-                </div>
+        </div>
+      </header>
+      <div class="demo-drawer mdl-layout__drawer">       
+        <nav class="demo-navigation mdl-navigation mdl-color--grey-50">
+          <div class="drawer-content" >
+                <h1>Hurricane Irma</h1>
+                <hr>
+                <p id="drawer-content-text">
+                    Este video de la Barcaza muestra los graves daños causados por el Huracán Irma en el 2017. Los elementos en círculos rojos sufrieron daños o fueron lanzados a la bahía de Biscayne por el viento y la marejada. 
+                    <br><br>El proyecto de documentación 3D ayuda a nuestro personal a diseñar obras resilientes. Los fragmentos de la Barcaza recuperados en el 2018 serán restaurados y devueltos a su lugar.
+                </p>               
             </div>
+        </nav>
+      </div>
+      <main class="mdl-layout__content">
 
-            <div id="split-container" class="mini-container2" style="overflow:auto; overflow-x: hidden;">
-                
-                <!--Featured Content-->
-                <div id="main-canvas" class="embed-responsive embed-responsive-16by9">
-                    <video autoplay loop id="main-video">
-                        <source id="source_video" src="https://s3.amazonaws.com/vizcaya/video/Timelapse+Barge+Irma+2017.mp4" type="video/mp4">
-                    </video>
+        <!--Featured Content-->				
+    <div id="main-irma-video" class="embed-responsive embed-responsive-21by9" >
+          <!--
+            <video autoplay muted loop class="embed-responsive-item" id="main-video">
+                <source id="source_video" src="https://s3.amazonaws.com/vizcaya/video/Timelapse+Barge+Irma+2017.mp4" type="video/mp4">
+            </video>
+          -->
+          
+          <iframe id="main-iframe" src="https://player.vimeo.com/video/287112633?autoplay=1&loop=1&title=0&byline=0&portrait=0&muted=1&background=1" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+            
+        </div>
+
+        <div class="video-showcase">
+            <div class="row no-gutters">
+
+                <!--Time Lapse Video of Hurricane Irma-->
+                <div class="col-sm-3">
+                    <div class="embed-responsive embed-responsive-16by9" >
+                      <a class="ainfoDiv" id="ainfoDiv" data-toggle="modal" href="#timelapseModal" onclick="timelapse();">
+                          <img id="info_img" src="build/potree/resources/icons/i.png" />
+                      </a>
+                      <iframe id="time-lapse-iframe" src="https://player.vimeo.com/video/287112633?autoplay=1&loop=1&title=0&byline=0&portrait=0&muted=1&background=1" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                      <!--
+                        <video class="embed-responsive-item" onclick="timelapse();">
+                            <source src="https://s3.amazonaws.com/vizcaya/video/Timelapse+Barge+Irma+2017.mp4" type="video/mp4">
+                        </video>
+                      --> 
+                    </div>
                 </div>
 
-                <div class="video-showcase">
-                    <div class="row no-gutters">
-
-                        <!--Time Lapse Video of Hurricane Irma-->
-                        <div class="col-sm-3">
-                            <div class="embed-responsive embed-responsive-16by9">
-                                <video autoplay loop class="embed-responsive-item" onclick="timelapse();">
-                                    <source src="https://s3.amazonaws.com/vizcaya/video/Timelapse+Barge+Irma+2017.mp4" type="video/mp4">
-                                </video>
-                            </div>
-                        </div>
-
-                        <!--Flyover of the Barge-->
-                        <div class="col-sm-3">
-                            <div class="embed-responsive embed-responsive-16by9">
-                                <video autoplay loop class="embed-responsive-item" onclick="bargeflyover();">
-                                    <source src="https://s3.amazonaws.com/vizcaya/video/barge_ghosting.mp4" type="video/mp4">
-                                </video>
-                            </div>
-                        </div>
-                        
-                        <!--Flyover of the Boat Landing-->
-                        <div class="col-sm-3">
-                            <div align="center" class="embed-responsive embed-responsive-16by9">
-                                <video autoplay loop class="embed-responsive-item" onclick="boatflyover();">
-                                    <source src="https://s3.amazonaws.com/vizcaya/video/DJI_0284_2.mp4" type="video/mp4">
-                                </video>
-                            </div>
-                        </div>
-
-                        <!--2018 Salvage Video-->
-                        <div class="col-sm-3">
-                            <div class="embed-responsive embed-responsive-16by9">
-                                <video autoplay loop class="embed-responsive-item" onclick="salvage();">
-                                    <source src="https://s3.amazonaws.com/vizcaya/video/salvage.mp4" type="video/mp4">
-                                </video>
-                            </div>
-                        </div>
+                <!--Flyover of the Barge-->
+                <div class="col-sm-3">
+                    <div class="embed-responsive embed-responsive-16by9">
+                        <a id="ainfoDiv" data-toggle="modal" href="#bargeflyoverModal" onclick="bargeflyover();">
+                            <img id="info_img" src="build/potree/resources/icons/i.png" />
+                        </a>                       
+                        <iframe id="barge-flyover-iframe" src="https://player.vimeo.com/video/287114431?autoplay=1&loop=1&title=0&byline=0&portrait=0&muted=1&background=1" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                      <!--
+                        <video class="embed-responsive-item" onclick="bargeflyover();">
+                            <source src="https://s3.amazonaws.com/vizcaya/video/barge_ghosting.mp4" type="video/mp4">
+                        </video>
+                      -->
                     </div>
                 </div>
                 
+                <!--Flyover of the Boat Landing-->
+                <div class="col-sm-3">
+                    <div class="embed-responsive embed-responsive-16by9">
+                        <a id="ainfoDiv" data-toggle="modal" href="#boatflyoverModal" onclick="boatflyover();">
+                            <img id="info_img" src="build/potree/resources/icons/i.png" />
+                        </a>                        
+                        <iframe id="boat-flyover-iframe" src="https://player.vimeo.com/video/287114490?autoplay=1&loop=1&title=0&byline=0&portrait=0&muted=1&background=1" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                        <!--
+                        <video class="embed-responsive-item" onclick="boatflyover();">
+                            <source src="https://s3.amazonaws.com/vizcaya/video/DJI_0284_2.mp4" type="video/mp4">
+                        </video>
+                      -->
+                    </div>
+                </div>
+
+                <!--2018 Salvage Video-->
+                <div class="col-sm-3">
+                    <div class="embed-responsive embed-responsive-16by9">
+                        <a id="ainfoDiv" data-toggle="modal" href="#salvageModal" onclick="salvage();">
+                            <img id="info_img" src="build/potree/resources/icons/i.png" />
+                        </a>                        
+                        <iframe id="salvage-slideshow-iframe" src="https://player.vimeo.com/video/287110529?autoplay=1&loop=1&title=0&byline=0&portrait=0&muted=1&background=1" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                      <!--
+                        <video class="embed-responsive-item" onclick="salvage();">
+                            <source src="https://s3.amazonaws.com/vizcaya/video/salvage.mp4" type="video/mp4">
+                        </video>
+                      -->
+                    </div>
+                </div>
             </div>
         </div>
+        
+        <!--Time Lapse Modal-->
+        <div class="modal fade" id="timelapseModal">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                        <h4 class="modal-title">Lapso de Tiempo</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                        <p>
+                            Este video del huracán Irma con lapso de tiempo de la barcaza fue tomada durante el huracán Irma en 2017. Los círculos rojos indican algunos de los elementos de la barcaza que fueron dañados por la tormenta.
+                        </p>
+                    </div>
+
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                        <button type="button" class="btn" data-dismiss="modal">Close</button>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Flyover of the Barge Modal -->
+        <div class="modal fade" id="bargeflyoverModal">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                        <h4 class="modal-title">Daños a la Barcaza</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                        <p>
+                            Este video animado muestra algunos de los daños que sufrió la Barcaza a causa del Huracán Irma. Estos elementos serán restaurados y devueltos a su lugar.
+                        </p>
+                    </div>
+
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                        <button type="button" class="btn" data-dismiss="modal">Close</button>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+        
+        <!--Flyover of the Boat Landing Modal -->
+        <div class="modal fade" id="boatflyoverModal">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                        <h4 class="modal-title">Daños al Muelle</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                        <p>
+                            Este video del Muelle muestra los graves daños causados por el Huracán Irma en el 2017.
+                        </p>
+                    </div>
+
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                        <button type="button" class="btn" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Salvage Modal -->
+        <div class="modal fade" id="salvageModal">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                        <h4 class="modal-title">Operación de Salvamento</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                        <p>
+                            Esta presentación de diapositivas describe la operación de salvamento para rescatar los fragmentos de la Barcaza y el Muelle que fueron lanzados a la bahía de Biscayne por el Huracán Irma.
+                        </p>
+                    </div>
+
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                        <button type="button" class="btn" data-dismiss="modal">Close</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>             
+
+      </main>
     </div>
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-
+    
     <script>window.jQuery || document.write('<script src="assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
     <script src="assets/js/vendor/popper.min.js"></script>
     <script src="dist/js/bootstrap.min.js"></script>
+    <script src="main.js"></script>    
+    
+    <script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+
     <script type="text/javascript">
+        function updateMainIframe(newVideo, newText){
+            document.getElementById('main-iframe').src = newVideo;
+            document.getElementById('drawer-content-text').innerHTML = newText;       
+        }
 
         //Time Lapse Video of Hurricane Irma
         function timelapse() {
-            var newVideo = 'https://player.vimeo.com/external/287112633.hd.mp4?s=a457f7debe5bf909682280d85ae2fba00d55291e&profile_id=174';
-            var newText = "Este video del huracán Irma con lapso de tiempo de la barcaza fue tomada durante el huracán Irma en 2017. Los círculos rojos indican algunos de los elementos de la barcaza que fueron dañados por la tormenta.";
-            updateMainVideo(newVideo, newText);
+            var newVideo = document.getElementById('time-lapse-iframe').src
+            var newText = "This video of the Barge shows the significant damage that resulted from Hurricane Irma in 2017. The elements that are circled in red were damaged or swept into Biscayne Bay by the powerful storm surge and wind. <br><br> The 3D documentation project helps staff design for resiliency. Fragments from the Barge were salvaged in 2018 and, after restoration, will return to their original locations.";
+            updateMainIframe(newVideo, newText);
         }
 
         //Flyover of the Barge
         function bargeflyover() {
-            var newVideo = 'https://player.vimeo.com/external/287114431.hd.mp4?s=2abd18841a79cea31df0d33d447fa799161d0b5f&profile_id=174';
-            var newText = "Este video animado muestra algunos de los daños que sufrió la Barcaza a causa del Huracán Irma. Estos elementos serán restaurados y devueltos a su lugar.";
-            updateMainVideo(newVideo, newText);
+            var newVideo = document.getElementById('barge-flyover-iframe').src
+            var newText = "This animated video of the Barge shows some of the damage from Hurricane Irma. These elements will eventually be restored and returned to their original locations.";
+            updateMainIframe(newVideo, newText);
         }              
 
         //Flyover of the Boat Landing
         function boatflyover() {
-            var newVideo = 'https://player.vimeo.com/external/287114490.hd.mp4?s=360875cdaa74bae61df63a26cf6adec6e5ecd6d9&profile_id=174';
-            var newText = "Este video del Muelle muestra los graves daños causados por el Huracán Irma en el 2017.";
-            updateMainVideo(newVideo, newText);
+            var newVideo = document.getElementById('boat-flyover-iframe').src
+            var newText = "This video of the Boat Landing shows the significant damage that resulted from Hurricane Irma in 2017.";
+            updateMainIframe(newVideo, newText);
         }
 
         //2018 Salvage Video
         function salvage() {
-            var newVideo = 'https://player.vimeo.com/external/287110529.hd.mp4?s=093f1fbc7b052b7177038820f634454b3e56a688&profile_id=174';
-            var newText = "Esta presentación de diapositivas describe la operación de salvamento para rescatar los fragmentos de la Barcaza y el Muelle que fueron lanzados a la bahía de Biscayne por el Huracán Irma.";
-            updateMainVideo(newVideo, newText);
+            var newVideo = document.getElementById('salvage-slideshow-iframe').src
+            var newText = "This slide show depicts the salvage operation to retrieve fragments from the Barge and Boat Landing that were swept into Biscayne Bay during Hurricane Irma.";
+            updateMainIframe(newVideo, newText);
         }  
 
+        
     </script>
-</body>
+    
+  </body>
 </html>

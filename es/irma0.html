@@ -1,0 +1,151 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-41885816-8"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-41885816-8');
+    </script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="images/favicon.ico">
+
+    <title>Huracán Irma — Virtual Vizcaya</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="assets/css/vizcaya.css" rel="stylesheet">
+
+</head>
+
+<body style="overflow: auto;">
+
+    <script src="main.js"></script>
+
+    <div class="container-fluid">
+        
+        <div id="container">
+            <div id="split-container" class="mini-container1">
+                <div class="row">
+                    <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+                        <div class="sidebar-sticky">
+                            <h1>Huracán Irma</h1><hr />
+							<!--Time Lapse Video of Hurricane Irma-->
+                            <p id="sidebar-text">
+                                Este video de la Barcaza muestra los graves daños causados por el Huracán Irma en el 2017. Los elementos en círculos rojos sufrieron daños o fueron lanzados a la bahía de Biscayne por el viento y la marejada. 
+                                <br><br>El proyecto de documentación 3D ayuda a nuestro personal a diseñar obras resilientes. Los fragmentos de la Barcaza recuperados en el 2018 serán restaurados y devueltos a su lugar.
+                            </p>
+                        </div>
+                        <!--sticky footer-->                       
+                        <footer class="footer">
+                            <div align="center">
+                                <div class="home_div"><a href="index.html"><img id="homeicon" src="images/home-solid.svg" title="Home" /></a></div>
+                                <div class="lang_div"><a href="../irma.html">English</a> | <a id="lang_selected"><b>Español</b></a></div>
+                            </div>
+                        </footer>
+                    </nav>
+                </div>
+            </div>
+
+            <div id="split-container" class="mini-container2" style="overflow:auto; overflow-x: hidden;">
+                
+                <!--Featured Content-->
+                <div id="main-canvas" class="embed-responsive embed-responsive-16by9">
+                    <video autoplay loop id="main-video">
+                        <source id="source_video" src="https://s3.amazonaws.com/vizcaya/video/Timelapse+Barge+Irma+2017.mp4" type="video/mp4">
+                    </video>
+                </div>
+
+                <div class="video-showcase">
+                    <div class="row no-gutters">
+
+                        <!--Time Lapse Video of Hurricane Irma-->
+                        <div class="col-sm-3">
+                            <div class="embed-responsive embed-responsive-16by9">
+                                <video autoplay loop class="embed-responsive-item" onclick="timelapse();">
+                                    <source src="https://s3.amazonaws.com/vizcaya/video/Timelapse+Barge+Irma+2017.mp4" type="video/mp4">
+                                </video>
+                            </div>
+                        </div>
+
+                        <!--Flyover of the Barge-->
+                        <div class="col-sm-3">
+                            <div class="embed-responsive embed-responsive-16by9">
+                                <video autoplay loop class="embed-responsive-item" onclick="bargeflyover();">
+                                    <source src="https://s3.amazonaws.com/vizcaya/video/barge_ghosting.mp4" type="video/mp4">
+                                </video>
+                            </div>
+                        </div>
+                        
+                        <!--Flyover of the Boat Landing-->
+                        <div class="col-sm-3">
+                            <div align="center" class="embed-responsive embed-responsive-16by9">
+                                <video autoplay loop class="embed-responsive-item" onclick="boatflyover();">
+                                    <source src="https://s3.amazonaws.com/vizcaya/video/DJI_0284_2.mp4" type="video/mp4">
+                                </video>
+                            </div>
+                        </div>
+
+                        <!--2018 Salvage Video-->
+                        <div class="col-sm-3">
+                            <div class="embed-responsive embed-responsive-16by9">
+                                <video autoplay loop class="embed-responsive-item" onclick="salvage();">
+                                    <source src="https://s3.amazonaws.com/vizcaya/video/salvage.mp4" type="video/mp4">
+                                </video>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+
+    <script>window.jQuery || document.write('<script src="assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+    <script src="assets/js/vendor/popper.min.js"></script>
+    <script src="dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+
+        //Time Lapse Video of Hurricane Irma
+        function timelapse() {
+            var newVideo = 'https://player.vimeo.com/external/287112633.hd.mp4?s=a457f7debe5bf909682280d85ae2fba00d55291e&profile_id=174';
+            var newText = "Este video del huracán Irma con lapso de tiempo de la barcaza fue tomada durante el huracán Irma en 2017. Los círculos rojos indican algunos de los elementos de la barcaza que fueron dañados por la tormenta.";
+            updateMainVideo(newVideo, newText);
+        }
+
+        //Flyover of the Barge
+        function bargeflyover() {
+            var newVideo = 'https://player.vimeo.com/external/287114431.hd.mp4?s=2abd18841a79cea31df0d33d447fa799161d0b5f&profile_id=174';
+            var newText = "Este video animado muestra algunos de los daños que sufrió la Barcaza a causa del Huracán Irma. Estos elementos serán restaurados y devueltos a su lugar.";
+            updateMainVideo(newVideo, newText);
+        }              
+
+        //Flyover of the Boat Landing
+        function boatflyover() {
+            var newVideo = 'https://player.vimeo.com/external/287114490.hd.mp4?s=360875cdaa74bae61df63a26cf6adec6e5ecd6d9&profile_id=174';
+            var newText = "Este video del Muelle muestra los graves daños causados por el Huracán Irma en el 2017.";
+            updateMainVideo(newVideo, newText);
+        }
+
+        //2018 Salvage Video
+        function salvage() {
+            var newVideo = 'https://player.vimeo.com/external/287110529.hd.mp4?s=093f1fbc7b052b7177038820f634454b3e56a688&profile_id=174';
+            var newText = "Esta presentación de diapositivas describe la operación de salvamento para rescatar los fragmentos de la Barcaza y el Muelle que fueron lanzados a la bahía de Biscayne por el Huracán Irma.";
+            updateMainVideo(newVideo, newText);
+        }  
+
+    </script>
+</body>
+</html>

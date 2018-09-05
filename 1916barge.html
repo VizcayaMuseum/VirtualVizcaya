@@ -1,24 +1,59 @@
-﻿<!doctype html>
+<!doctype html>
+<!--
+  Material Design Lite
+  Copyright 2015 Google Inc. All rights reserved.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      https://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License
+-->
 <html lang="en">
-<head>
+  <head>
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-41885816-8"></script>
     <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
 
-        gtag('config', 'UA-41885816-8');
+      gtag('config', 'UA-41885816-8');
     </script>
-
+    
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="images/favicon.ico">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="A front-end template that helps you build fast, modern mobile web apps.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
     <title>1916 Barge — Virtual Vizcaya</title>
+
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="icon" sizes="192x192" href="#">
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Material Design Lite">
+    <link rel="apple-touch-icon-precomposed" href="images/ios-desktop.png">
+
+    <!-- Tile icon for Win8 (144x144 + tile color) -->
+    <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
+    <meta name="msapplication-TileColor" content="#3372DF">
+
+    <link rel="icon" href="images/favicon.ico">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.cyan-light_blue.min.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
 
     <!-- Bootstrap core CSS -->
     <link href="dist/css/bootstrap.min.css" rel="stylesheet">
@@ -26,43 +61,44 @@
     <!-- Custom styles for this template -->
     <link href="assets/css/vizcaya.css" rel="stylesheet">
 
-</head>
-
-<body style="touch-action:none;">
-    <script src="models/build/three.js"></script>
-    <script src="libs/other/OrbitControls.js"></script>
-    <script src="libs/loaders/GLTFLoader.js"></script>
-    <script src="libs/inflate.min.js"></script>
-
-    <div class="container-fluid">
-
-        <div id="container">
-
-            <div id="split-container" class="mini-container1">
-                <div class="row">
-                    <nav class="col-md-2 d-none d-md-block bg-light sidebar">
-                        <div class="sidebar-sticky">
-                            <h1>Examine the 1916 Barge</h1><hr />
-                            <p>
-							This digital recreation depicts the Barge as it might have looked when it was completed in 1916. Using photographs and drawings from Vizcaya’s archives, we created this historic model to show the original detail and surface texture that have been lost over 100 years. 
-							<br><br>This model also offers our conservation professionals clues about the continued loss that may occur into the future so we can plan accordingly.
-                            </p>
-                        </div>
-                        <!--sticky footer-->
-                        <footer class="footer">                            
-                            <div align="center">
-                                <div class="home_div"><a href="index.html"><img id="homeicon" src="images/home-solid.svg" title="Home" /></a></div>
-                                <div class="lang_div"><a id="lang_selected"><b>English</b></a> | <a href="es/1916barge.html?0">Español</a></div>
-                            </div>
-                        </footer>
-                    </nav>
-                </div>
-            </div>
-
-            <div id="split-container" class="mini-container2">                
-                <iframe id="iframe" src="pages/1916barge.html" allowfullscreen></iframe>
-            </div>
+  </head>
+  <body>
+    <div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+      <header class="demo-header mdl-layout__header mdl-color--grey-50">
+        <div class="mdl-layout__header-row">
+          <a href="index.html">
+            <button class="mdl-button mdl-js-button">Virtual Vizcaya
+            </button>
+          </a>        
+          <div class="mdl-layout-spacer"></div>
+          <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
+            <i class="material-icons">more_vert</i>
+          </button>
+          <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
+            <a href="index.html"><li class="mdl-menu__item">HOME</li></a>
+            <a href="es/1916barge.html?0"><li class="mdl-menu__item">ESPAÑOL</li></a>
+          </ul>
         </div>
+      </header>
+      <div class="demo-drawer mdl-layout__drawer">       
+        <nav class="demo-navigation mdl-navigation mdl-color--grey-50" >
+
+            <div class="drawer-content" >
+              <h1>Explore the Barge</h1><hr />
+              <p>
+              The Barge is a breakwater built to protect the house and terraces from waves. It was playfully designed to look like a boat. James Deering commissioned all of the sculptures from American artist Alexander Stirling Calder in 1915.
+              <br /><br />The local limestone that covers the Barge is soft and porous. The salt water and storm waves of Biscayne Bay have significantly eroded the Barge, threatening the stability of its statuary and decorative reliefs. The lower landing steps are submerged due to rising waters.
+              </p>               
+            </div>
+          
+        </nav>
+      </div>
+      
+      <main class="mdl-layout__content">
+        <div class="potree-iframes">
+          <iframe src="pages/1916barge.html" allowfullscreen></iframe>
+        </div>
+      </main>
     </div>
 
     <!-- Bootstrap core JavaScript
@@ -72,6 +108,7 @@
     <script src="assets/js/vendor/popper.min.js"></script>
     <script src="dist/js/bootstrap.min.js"></script>
 
-    </body>
+    <script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
 
+  </body>
 </html>

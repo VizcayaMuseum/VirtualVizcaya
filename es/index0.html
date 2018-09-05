@@ -1,57 +1,36 @@
-<!doctype html>
-<!--
-  Material Design Lite
-  Copyright 2015 Google Inc. All rights reserved.
-
-  Licensed under the Apache License, Version 2.0 (the "License");
-  you may not use this file except in compliance with the License.
-  You may obtain a copy of the License at
-
-      https://www.apache.org/licenses/LICENSE-2.0
-
-  Unless required by applicable law or agreed to in writing, software
-  distributed under the License is distributed on an "AS IS" BASIS,
-  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-  See the License for the specific language governing permissions and
-  limitations under the License
--->
+﻿<!doctype html>
 <html lang="en">
-  <head>
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-41885816-8"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-41885816-8');
+    </script>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="A front-end template that helps you build fast, modern mobile web apps.">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
-    <title>Vizcaya Virtual</title>
-
-    <!-- Add to homescreen for Chrome on Android -->
-    <meta name="mobile-web-app-capable" content="yes">
-    <link rel="icon" sizes="192x192" href="#">
-
-    <!-- Add to homescreen for Safari on iOS -->
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="apple-mobile-web-app-title" content="Material Design Lite">
-    <link rel="apple-touch-icon-precomposed" href="images/ios-desktop.png">
-
-    <!-- Tile icon for Win8 (144x144 + tile color) -->
-    <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
-    <meta name="msapplication-TileColor" content="#3372DF">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
     <link rel="icon" href="images/favicon.ico">
 
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.cyan-light_blue.min.css">
-    <link rel="stylesheet" href="assets/css/styles.css">
+    <title>Vizcaya Virtual</title>
 
     <!-- Bootstrap core CSS -->
     <link href="dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="dist/css/bootstrap.css" rel="stylesheet">
+    <link href="dist/css/bootstrap-grid.css" rel="stylesheet">
+    <link href="dist/css/bootstrap-grid.min.css" rel="stylesheet">
+    <link href="dist/css/bootstrap-reboot.css" rel="stylesheet">
+    <link href="dist/css/bootstrap-reboot.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
     <link href="assets/css/vizcaya.css" rel="stylesheet">
 
     <style>
-    body {
+        body {
             background-color: #fff !important;
         }
 
@@ -69,82 +48,73 @@
             display: flex;
             -ms-flex-wrap: wrap; /* IE10 */
             flex-wrap: wrap;
-            padding: 0 21px;
+            padding: 0 4px;
         }
-
     </style>
-  </head>
-  <body>
-    <div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
-      <header class="demo-header mdl-layout__header mdl-color--grey-50">
-        <div class="mdl-layout__header-row">
-          <a href="index2.html">
-            <button class="mdl-button mdl-js-button">Vizcaya Virtual
-            </button>
-          </a>         
-          <div class="mdl-layout-spacer"></div>
-          <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
-            <i class="material-icons">more_vert</i>
-          </button>
-          <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
-            <a href="index2.html"><li class="mdl-menu__item"><b>INICIO</b></li></a>
-            <a href="../index2.html"><li class="mdl-menu__item">ENGLISH</li></a>
-          </ul>
+
+</head>
+
+<body style="overflow: auto;">
+
+	<script src="main.js"></script>
+
+    <div class="container-fluid">
+        <div class="row">
+            <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+                <div class="sidebar-sticky">
+                    <h1 id="header-div">Virtual<br>Vizcaya</h1> <hr />
+                    <p>
+                        Este programa interactivo proporciona acceso virtual a la Barcaza y la Gruta de la Piscina, dos espacios especiales a los que no se permite la entrada físicamente. El programa también muestra cómo los modelos tridimensionales creados con escáneres 3D nos ayudan a estudiar y conservar Vizcaya. Estas tecnologías son especialmente útiles para el estudio y conservación de la Barcaza y la Gruta de la Piscina, ya que se encuentran expuestas a las tormentas tropicales y la subida del nivel del mar.
+                        <br /><br />Este proyecto se realizó con el apoyo de John S. and James L. Knight Foundation.
+						<br><br><b>Seleccione cualquier cuadro para comenzar su experiencia virtual.</b>
+                    </p>
+
+                </div>
+                <!--sticky footer-->
+                <footer class="footer">
+                    <div align="center">
+                        <div id="langdiv_index"><a href="../index.html"> English </a> | <a id="lang_selected"><b>Español</b></a></div>
+                    </div>
+                </footer>
+            </nav>
         </div>
-      </header>
-      <div class="demo-drawer mdl-layout__drawer">       
-        <nav class="demo-navigation mdl-navigation mdl-color--grey-50" >
-            <header class="drawer-header">
-                <img id="vizcaya_logo" style="padding: 5%;" src="assets/img/VizcayaLogo_NoBackground.png">
-            </header>
-            <hr />
-          <div class="drawer-content" >
-            <p>
-                Este programa interactivo proporciona acceso virtual a la Barcaza y la Gruta de la Piscina, dos espacios especiales a los que no se permite la entrada físicamente. El programa también muestra cómo los modelos tridimensionales creados con escáneres 3D nos ayudan a estudiar y conservar Vizcaya. Estas tecnologías son especialmente útiles para el estudio y conservación de la Barcaza y la Gruta de la Piscina, ya que se encuentran expuestas a las tormentas tropicales y la subida del nivel del mar.
-                <br /><br />Este proyecto se realizó con el apoyo de John S. and James L. Knight Foundation.
-                <br><br><b>Seleccione cualquier cuadro para comenzar su experiencia virtual.</b>
-            </p>
-           
-          </div>
-          
-        </nav>
-      </div>
-      <main class="mdl-layout__content">
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4" id="main">
             <div id="IE_alert" class="alert alert-primary" role="alert" style="display:none; color: #000000; background-color: #7ED6FF; font-size: 0.90em;" >
                     <b><u>MEJORA TU EXPERIENCIA</u></b>
                     <br>Para disfrutar al máximo nuestra pagina web, utilice las última version de navegador web de <i><b>Chrome</b></i>, <i><b>Firefox</b></i>, <i><b>Microsoft Edge</b></i> o <i><b>Safari</b></i>.
                  
             </div>
+
             <!-- Photo Grid -->
             <div class="row">
                 <div class="column">
-                    <div class="tile"><a href="3d-documentation2.html"><img id="tile1" src="images/works/3D_Documentation_Spanish_Optimized_400_NEW.jpg" style="width:100%"></a></div>
-                    <div class="tile"><a href="swimmingpoolgrotto2.html?1"><img id="tile2" src="images/works/Alligator03_400.gif" style="width:100%"></a></div>
+                    <div class="tile"><a href="3d-documentation.html"><img id="tile1" src="images/works/3D_Documentation_Spanish_Optimized_400_NEW.jpg" style="width:100%"></a></div>
+                    <div class="tile"><a href="swimmingpoolgrotto.html?1"><img id="tile2" src="images/works/Alligator03_400.gif" style="width:100%"></a></div>
                     <div class="tile"><a href="../vr/es/index.html"><img id="tile1" src="images/works/VirtualVizcaya_Optimized_400_NEW.jpg" style="width:100%"></a></div>
                     <div class="tile"><a href="barge.html?2"><img id="tile3" src="images/works/Mermaids01_optimized_400.jpg" style="width:100%"></a></div>
                 </div>
                 <div class="column">
-                    <div class="tile"><a href="irma2.html"><img id="tile4" src="images/works/irma_optimized_400.gif" style="width:100%"></a></div>
-                    <div class="tile"><a href="swimmingpoolgrotto2.html?0"><img id="tile5" src="images/works/Grotto_Spanish_Optimized_400.jpg" style="width:100%"></a></div>
+                    <div class="tile"><a href="irma.html"><img id="tile4" src="images/works/irma_optimized_400.gif" style="width:100%"></a></div>
+                    <div class="tile"><a href="swimmingpoolgrotto.html?0"><img id="tile5" src="images/works/Grotto_Spanish_Optimized_400.jpg" style="width:100%"></a></div>
                     <div class="tile"><a href="1916barge.html?1"><img id="tile6" src="images/works/Herm1916_Optimized_400.jpg" style="width:100%"></a></div>
                 </div>
                 <div class="column">
-                    <div class="tile"><a href="barge2.html?1"><img id="tile7" src="images/works/herm_optimized_400.gif" style="width:100%"></a></div>
-                    <div class="tile"><a href="barge2.html?0"><img id="tile8" src="images/works/barge_Spanish_Optimized_400.jpg" style="width:100%"></a></div>
+                    <div class="tile"><a href="barge.html?1"><img id="tile7" src="images/works/herm_optimized_400.gif" style="width:100%"></a></div>
+                    <div class="tile"><a href="barge.html?0"><img id="tile8" src="images/works/barge_Spanish_Optimized_400.jpg" style="width:100%"></a></div>
                     <div class="tile"><a data-toggle="modal" href="#creditsModal"><img id="tile9" src="images/works/OurPartners_Spanish_Optimized_400.jpg" style="width:100%"></a></div>
                 </div>
                 <div class="column">
-                    <div class="tile"><a href="1916barge2.html?0"><img id="tile10" src="images/works/1916Barge_Spanish_Optimized_400.jpg" style="width:100%"></a></div>
+                    <div class="tile"><a href="1916barge.html?0"><img id="tile10" src="images/works/1916Barge_Spanish_Optimized_400.jpg" style="width:100%"></a></div>
                     <div class="tile"><a data-toggle="modal" href="#myVideo"><img id="tile11" src="images/works/videoTile_Optimized_400.jpg" style="width:100%"></a></div>
-                    <div class="tile"><a href="1916barge2.html?2"><img id="tile12" src="images/works/1916mermaids_Optimized_400.jpg" style="width:100%"></a></div>
+                    <div class="tile"><a href="1916barge.html?2"><img id="tile12" src="images/works/1916mermaids_Optimized_400.jpg" style="width:100%"></a></div>
                 </div>
             </div>
             <!-- End Photo Grid -->
-
-      </main>
+        
+        </main>
     </div>
 
-     <!--Credits Modal-->
+    <!--Credits Modal-->
     <div class="modal fade" id="creditsModal">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
@@ -154,8 +124,8 @@
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                     <div class="container-fluid">
 
-                        <div class="row featurette" style="padding-top: 1%;">
-                            <div class="col-md-9 order-md-2">
+                        <div class="row featurette" style="padding: 1%;">
+                            <div class="col-md-9 order-md-1">
                                 <img class="featurette-image img-fluid mx-auto" src="images/KF_logo-stacked.png" alt="Generic placeholder image">
                                 <p class="lead">
                                     <br />
@@ -170,13 +140,13 @@
                         <div class="row featurette">
                             <div class="col-md-3 order-md-1" style="padding-top:2%;">
                                 <img class="featurette-image img-fluid mx-auto" onclick="darumatechLink()" src="images/daruma_logo.png" alt="Generic placeholder image" style="cursor:pointer;">
-                        </div>
+							</div>
                             <div class="col-md-9 order-md-2" style="padding-top:1%;">
                                 <h4 class="headers">Daruma Tech</h4>
                                 <p class="lead">
                                     Daruma Tech es una compañía de tecnología de servicio completo que se especializa en soluciones interactivas multipantalla que incluyen quioscos interactivos, web y desarrollo de aplicaciones móviles. La contribución de Daruma Tech al proyecto Virtual Vizcaya incluyó fotografía con drones, fotogrametría, modelado 3D, edición de video, desarrollo de aplicaciones de Realidad Virtual. Daruma Tech diseñó y desarrolló el quiosco interactivo que integra los materiales proporcionados por los socios del proyecto para crear la experiencia que está viendo hoy.
                                     <a onclick="darumatechLink()" style="cursor:pointer;"><u>Más información</u></a>
-                                </p>               
+                                </p>
                             </div>
                         </div>
 
@@ -184,8 +154,8 @@
 
                         <div class="row featurette">
                             <div class="col-md-3 order-md-1" style="padding-top:2%;">
-                <img class="featurette-image img-fluid mx-auto" onclick="fiuLink()" src="images/fiu_logo.png" alt="Generic placeholder image" style="cursor:pointer;"/>
-              </div>
+								<img class="featurette-image img-fluid mx-auto" onclick="fiuLink()" src="images/fiu_logo.png" alt="Generic placeholder image"style="cursor:pointer;">
+							</div>
                             <div class="col-md-9 order-md-2" style="padding-top:1%;">
                                 <h4 class="headers">Florida International University – Miami Beach Urban Studios</h4>
                                 <p class="lead">Los Estudios Urbanos de Miami Beach (MBUS) es una instalación única de edificios con 16,000sf en el 420 Lincoln Road que alberga un conjunto interdisciplinario de exposiciones innovadoras, clases, laboratorios de investigación y eventos para el Colegio de la Comunicación, Arquitectura + Las Artes (aka “CARTA,” que se compone de los siguientes departamentos: Arquitectura, Arquitectura Paisajista, Arquitectura Interior, Música, Historia del Arte/Arte, Teatro, Periodismo + Medios y Comunicación).  También alberga instituciones afiliadas (Centro de Soluciones para el Nivel de Mar, Amernet Serie de Cuarteto, ARC+, y temporalmente, La Iniciativa del Futuro Urbano de Miami y el Arte Ratcliffe + Incubadora de Diseño). MBUS alberga 3,500sf patrocinado por Knight CARTA Laboratorio Innovador, que con más de 33 impresoras 3D es uno de los laboratorios de impresión 3D más grande de su tipo en los Estados Unidos. El laboratorio está orgulloso por haber sido seleccionado para ser un participante en el Proyecto HP/EDUCAUSE Construyendo el Campus del Futuro.
@@ -199,9 +169,9 @@
                         <div class="row featurette">
                             <div class="col-md-3 order-md-1" style="padding-top:2%;">
                                 <img class="featurette-image img-fluid mx-auto" onclick="ufLink()" src="images/uf_logo.png" alt="Generic placeholder image" style="cursor:pointer;">
-              </div>
+							</div>
                             <div class="col-md-9 order-md-2" style="padding-top:1%;">
-                                <h4 class="headers">The University of Florida, College of Design, Construction & Planning, Envision Heritage Program</h4>
+                                <h4 class="headers">University of Florida, Escuela de Diseño, Construcción y Planificación, Envision Programa de Patrimonio</h4>
                                 <p class="lead">Lanzado por el Programa de Preservación Histórico en 2012, la Universidad de la Florida y el Programa Envision explora cómo las nuevas y emergentes tecnologías digitales pueden utilizarse para documentar, preservar e interpretar el patrimonio de sitios históricos. Los proyectos de investigación utilizan escaneo láser, fotogrametría y proyección de imagen de drones, entre otras tecnologías.
 									<a onclick="ufLink()" style="cursor:pointer;"><u>Más información</u></a>
 								</p>
@@ -217,7 +187,7 @@
             </div>
         </div>
     </div>
-
+    
     <!-- Modal for Video-->
     <div class="modal fade" id="myVideo">
         <div class="modal-dialog modal-lg">
@@ -229,10 +199,9 @@
                 </div>
 
                 <!-- Modal body -->
-                <div class="modal-body">             
-                    <div style="padding:52.73% 0 0 0;position:relative;">
-                        <iframe src="https://player.vimeo.com/video/286195150?autoplay=1&loop=1&title=0&byline=0&portrait=0&muted=1&background=1" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen>
-                        </iframe>
+                <div class="modal-body">
+                    <div class="embed-responsive embed-responsive-16by9">
+                        <iframe src="http://player.vimeo.com/video/286195150?autoplay=1&loop=1&title=0&byline=0&portrait=0&muted=1&background=1" width="640" height="338" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
                     </div>
                 </div>
 
@@ -251,8 +220,6 @@
     <script src="assets/js/vendor/popper.min.js"></script>
     <script src="dist/js/bootstrap.min.js"></script>
 
-    <script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
-    
     <script>
     
     /**
@@ -260,7 +227,7 @@
      * returns version of IE or false, if browser is not Internet Explorer
      */
     
-     function detectIE() {
+        function detectIE() {
         var ua = window.navigator.userAgent;
 
         var msie = ua.indexOf('MSIE ');
@@ -297,5 +264,5 @@
 
     </script>
 
-  </body>
+</body>
 </html>
