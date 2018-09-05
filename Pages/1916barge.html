@@ -305,7 +305,7 @@
 
                 var popup = document.getElementById('mypopup1');
                 var span = document.getElementsByClassName("close")[0];
-                opacityOn();
+                /*opacityOn();*/
 
                 span.onclick = function () {
                     $("#mypopup1").hide();
@@ -313,7 +313,7 @@
                     $('#mypopup1').attr('src', '');
                     var iframe = document.getElementById('iframe1');
                     iframe.src = iframe.src;
-                    opacityOff();
+                    /*opacityOff();*/
                 }
                 window.onclick = function (event) {
                     if (event.target == popup) {
@@ -322,7 +322,7 @@
                         $('#mypopup1').attr('src', '');
                         var iframe = document.getElementById('iframe1');
                         iframe.src = iframe.src;
-                        opacityOff();
+                        /*opacityOff();*/
                     }
                 }
             }
@@ -332,7 +332,7 @@
 
                 var popup = document.getElementById('mypopup2');
                 var span = document.getElementsByClassName("close")[1];
-                opacityOn();
+                /*opacityOn();*/
 
                 span.onclick = function () {
                     $("#mypopup2").hide();
@@ -340,7 +340,7 @@
                     $('#mypopup2').attr('src', '');
                     var iframe = document.getElementById('iframe2');
                     iframe.src = iframe.src;
-                    opacityOff();
+                    /*opacityOff();*/
                 }
                 window.onclick = function (event) {
                     if (event.target == popup) {
@@ -349,13 +349,12 @@
                         $('#mypopup2').attr('src', '');
                         var iframe = document.getElementById('iframe2');
                         iframe.src = iframe.src;
-                        opacityOff();
+                        /*opacityOff();*/
                     }
                 }
             }
 
             {
-
                 {
                     /* Annotation: Opening Transition/Center of Barge
                     *****************************************************/
@@ -602,22 +601,17 @@
 
             var popup = document.getElementById('myMap');
             var span = document.getElementsByClassName("close")[2];
-
-            //Applying opacity to parent page
-            parentWin = window.parent;
-            var sidebar = parentWin.document.getElementById('split-container');
-            sidebar.style.opacity = "0.4";
+            /*opacityOn();*/
+            
 
             span.onclick = function () {
                 $("#myMap").fadeOut();
-                //reset opacity of parent page
-                sidebar.style.opacity = "1";
+                /*opacityOff();*/
             }
             window.onclick = function (event) {
                 if (event.target == popup) {
                     $("#myMap").fadeOut();
-                    //reset opacity of parent page
-                    sidebar.style.opacity = "1";
+                    /*opacityOff();*/
                 }
             }
         }

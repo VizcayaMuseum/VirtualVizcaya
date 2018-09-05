@@ -100,6 +100,8 @@ function changeHotspotName(newName){
 
 /* Update Videos on Irma's Page
 *****************************************************/
+
+
 function updateMainVideo(newVideo, newText) {
     var videoContainer = document.getElementById('main-video');
     var videoSource = document.getElementById('source_video');
@@ -111,6 +113,7 @@ function updateMainVideo(newVideo, newText) {
 
     document.getElementById('sidebar-text').innerHTML = newText;
 }
+
 
 /* Functions to show and hide annotations' descriptions
 *****************************************************/

@@ -6,19 +6,9 @@
     }
 }
 
-
-/*Credits Modal*/
-@media (min-width: 768px) {
-    .modal-xl {
-        width: 90%;
-        max-width: 1200px;
-    }
-}
-
 /*
 *   INDEX.HTML CSS
 */
-
 
 /* Create four equal columns that sits next to each other */
 .column {
@@ -40,7 +30,16 @@
         flex: 50%;
         max-width: 50%;
     }
+    .col-sm-3{
+        -ms-flex: 50%;
+            flex: 50%;
+            max-width: 50%;
+    }
+    .modal-lg{
+        width: 82% !important;
+    }
 }
+
 
 /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
 @media screen and (max-width: 600px) {
@@ -48,6 +47,14 @@
         -ms-flex: 100%;
         flex: 100%;
         max-width: 100%;
+    }
+    .col-sm-3{
+        -ms-flex: 100%;
+        flex: 100%;
+        max-width: 100%;
+    }
+    #main-irma-video{
+        display: none !important;
     }
 }
 
@@ -292,6 +299,23 @@ h1, h2, h3, h4 {
     vertical-align: text-bottom;
 }
 
+.mdl-menu a{
+    text-decoration: none !important;
+}
+
+.modal-backdrop {
+    z-index: 0 !important;
+    }
+
+.mdl-button {
+    font-family: 'Marcellus' !important;
+    font-size: 18px;
+    
+    }
+
+.mdl-menu{
+    font-family: 'Marcellus';
+}
 /*sticky-footer*/
 
 .footer {
@@ -424,6 +448,18 @@ h1, h2, h3, h4 {
     line-height: 27px;
 }
 
+.sidebar-sticky3 {
+    position: relative;
+    top: 0;
+    /*padding-bottom: 0px;*/
+    height: calc(100% - 8px);
+    height: 85%;
+    padding-top: .5rem;
+    overflow-x: none !important;
+    overflow-y: none !important; /*Scrollable contents if viewport is shorter than content. */
+    padding: 5%;
+    line-height: 27px;
+}
 /*@supports ((position: -webkit-sticky) or (position: sticky)) {
   .sidebar-sticky {
     position: -webkit-sticky;
@@ -456,6 +492,16 @@ h1, h2, h3, h4 {
     text-transform: uppercase;
 }
 
+.drawer-content{
+    padding: 5% 8% 8% 8%;
+    overflow-y: auto !important;
+}
+
+.potree-iframes{
+    position: absolute; 
+    height: 100%; 
+    width: 100%;
+}
 /*
  * Content
  */
@@ -522,14 +568,14 @@ a {
 
 /*
  * Scrollbar
- */
+*/
 
 ::-webkit-scrollbar {
-    width: 9px;
+    width: 7px;
 }
 
 ::-webkit-scrollbar-button {
-    width: 8px;
+    width: 6px;
     height: 2px;
 }
 
@@ -549,6 +595,7 @@ a {
     ::-webkit-scrollbar-thumb:hover {
         background: #7d7d7d;
     }
+
 
 /* 
 *POTREE ANNOTATIONS

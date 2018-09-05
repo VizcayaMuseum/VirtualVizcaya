@@ -312,6 +312,10 @@ h1, h2, h3, h4 {
     font-size: 18px;
     
     }
+
+.mdl-menu{
+    font-family: 'Marcellus';
+}
 /*sticky-footer*/
 
 .footer {
