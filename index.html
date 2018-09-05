@@ -107,6 +107,7 @@
       <div class="demo-drawer mdl-layout__drawer">       
         <nav class="demo-navigation mdl-navigation mdl-color--grey-50" >
             <header class="drawer-header">
+                <div id="IE-title">VIRTUAL<br>VIZCAYA</div>
                 <img id="vizcaya_logo" style="padding: 5%;" src="assets/img/VizcayaLogo_NoBackground.png">
             </header>
             <hr />
@@ -304,7 +305,9 @@
 
     if (version <= 11){
         //alert('IE ' + detectIE());
+        document.getElementById('vizcaya_logo').style.display = "none";
         document.getElementById('IE_alert').style.display = "block";
+        document.getElementById('IE-title').style.display = "block";
     }  
 
     </script>

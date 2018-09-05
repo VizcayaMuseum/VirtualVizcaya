@@ -38,6 +38,14 @@
     .modal-lg{
         width: 82% !important;
     }
+
+    .controls .hotspot-controls {
+        right: 35% !important;
+        left: 25% !important;
+    }
+    #barge_icon{
+        display: none !important;
+    }
 }
 
 
@@ -55,6 +63,28 @@
     }
     #main-irma-video{
         display: none !important;
+    }
+    .controls .hotspot-controls{
+        max-width: 300px !important;
+        font-size: 15px !important;
+        left: 10% !important;
+        font-weight: normal !important;
+    }
+    
+    .control_buttons, #barge_icon{
+        display: none !important;
+    }
+    .modal-content .modal-title{
+        font-size: 20px !important;
+    }
+    .modal-content .modal-body{
+        font-size: 15px !important;
+    }
+    .annotation-description {        
+        max-width: 200px !important;      
+    }
+    .annotation-description-content {
+        font-size: 0.70em !important;
     }
 }
 
@@ -495,12 +525,21 @@ h1, h2, h3, h4 {
 .drawer-content{
     padding: 5% 8% 8% 8%;
     overflow-y: auto !important;
+    font-family: 'Marcellus';
 }
 
 .potree-iframes{
     position: absolute; 
     height: 100%; 
     width: 100%;
+}
+
+#IE-title{
+    display: none;
+    font-family: 'Marcellus';
+    font-size: 30px;
+    padding-left: 8%;
+    padding-top: 5%;
 }
 /*
  * Content
@@ -818,8 +857,8 @@ a {
     height: 70px;
     /*width: 40% my change*/
     /*inherited*/
-    font-family: 'Open Sans', sans-serif;
-    font-size: 18px;
+    font-family: 'Marcellus';
+    font-size: 19px;
     font-weight: 900;
     /*temp*/
     transition-property: opacity;
@@ -827,7 +866,6 @@ a {
     transition-timing-function: ease-in-out;
     transition-delay: initial;
     width: 100%; /*changed*/
-    
     align-content: center;
     /*align-items: center;*/
     box-align: center;
@@ -851,7 +889,7 @@ a {
         background: rgba(0,0,0,0.4);		
         border-radius: 25px;
         bottom: 0px;
-        right: 25%;
+        right: 35%;
         left: 35%;
 		/*
         border: solid;

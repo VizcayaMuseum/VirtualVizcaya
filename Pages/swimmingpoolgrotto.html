@@ -221,8 +221,8 @@
                         let aAbout1 = new Potree.Annotation({
                             position: [-30.790, 1.353, -2.003],
                             title: elTitle,
-                            cameraPosition: [-30.289, 2.205, -1.767], /*-28.736, 2.561, -1.752*/
-                            cameraTarget: [-31.354, 1.411, -1.882], /*-31.303, 2.365, -1.465*/
+                            cameraPosition: [-29.085, 2.081, -1.977], /*-30.289, 2.205, -1.767*/
+                            cameraTarget: [-31.339, 1.374, -2.050], /*-31.354, 1.411, -1.882*/
                             description: `AMORINO<hr>This lead sculpture represents a cupid figure, symbolizing love and desire; it was originally a fountain. It has survived flooding from multiple storms. Lead generally resists corrosion and, when exposed, the surface develops a protective, grey patina as seen here.
                                 `});
 
@@ -246,8 +246,8 @@
                         let aAbout2 = new Potree.Annotation({
                             position: [-29.892, 0.542, 0.566],
                             title: elTitle,
-                            cameraPosition: [-27.114, 1.190, -2.820],
-                            cameraTarget: [-31.292, 2.889, 1.065],
+                            cameraPosition: [-26.803, -0.801, -2.231], /*-27.114, 1.190, -2.820*/
+                            cameraTarget: [-31.558, 2.154, 1.100], /*-31.292, 2.889, 1.065*/
                             description: `CEILING MURAL<hr>The sculptural marine fantasy mural is framed with molded plaster shells and coral. Look for sea turtles, seahorses, octopi, alligators and fish. The original colors of the ceiling are faded and difficult to identify.
                                 `});
 
@@ -271,8 +271,8 @@
                         let aAbout3 = new Potree.Annotation({
                             position: [-27.864, 2.535, 0.135],
                             title: elTitle,
-                            cameraPosition: [-28.826, 1.887, -3.110],
-                            cameraTarget: [-28.826, 1.887, 0.219],
+                            cameraPosition: [-28.025, 1.823, -3.110], /*-28.826, 1.887, -3.110*/
+                            cameraTarget: [-28.025, 1.823, 0.219], /*-28.826, 1.887, 0.219*/
                             description: `HUDSON RIVER STURGEON<hr>Originally, nearly all the fish were covered with metallic paint, now buried beneath several preservation attempts. This was intended to mimic the iridescence of fish scales glimmering in the water. Sturgeon are not native to Miami, but rather to artist Robert Winthrop Chanler’s New York home.
                                 `});
 
@@ -294,10 +294,10 @@
                         elTitle.toString = () => "Fountains";
 
                         let aAbout4 = new Potree.Annotation({
-                            position: [-26.413, -0.618, -1.323],
+                            position: [-26.497, -0.402, -2.118],
                             title: elTitle,
-                            cameraPosition: [-27.815, 2.041, -1.450],
-                            cameraTarget: [-25.942, 0.084, -1.567],
+                            cameraPosition: [-28.693, 2.925, -1.563], /*-27.815, 2.041, -1.450*/
+                            cameraTarget: [-26.107, -0.056, -1.734], /*-25.942, 0.084, -1.567*/
                             description: `FOUNTAINS<hr>These coral rock fountains are similar in design to other fountains in Vizcaya’s gardens. Restoration of these fountains can help protect the Swimming Pool Grotto by cooling the temperature of the space and thereby moderating the humidity.
                                 `});
 
@@ -321,8 +321,8 @@
                         let aAbout5 = new Potree.Annotation({
                             position: [-29.326, -2.261, -2.682],
                             title: elTitle,
-                            cameraPosition: [-35.020, 3.368, -1.354],
-                            cameraTarget: [-33.436, 1.582, -2.699],
+                            cameraPosition: [-34.858, 3.295, -1.185], /*-35.020, 3.368, -1.354*/
+                            cameraTarget: [-33.265, 1.704, -2.756], /*-33.436, 1.582, -2.699*/
                             description: `FLOOR<hr>The marble floor is made of rare imported stones, carefully cut and laid in an intricate pattern. Located below sea level, the floor is vulnerable to storm surge.
                                 `});
 
@@ -330,7 +330,7 @@
                     }
 
                     {
-                        /* Annotation: Reptiles
+                        /* Annotation: Alligators
                         *****************************************************/
                         let elTitle = $(`<span>
                                                     <img src="${Potree.resourcePath}/icons/eye-solid.svg"
@@ -339,9 +339,9 @@
                                                         style="filter: invert(1);" />
                                                 </span>`);
                         elTitle.find("img[name=action_set_scene]").click((event) => {
-							changeHotspotName("Reptiles");
+							changeHotspotName("Alligators");
 						});
-                        elTitle.toString = () => "Reptiles";
+                        elTitle.toString = () => "Alligators";
 
                         let aAbout6 = new Potree.Annotation({
                             position: [-32.919, -0.397, -0.508],

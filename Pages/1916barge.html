@@ -184,13 +184,13 @@
 
         viewer.setBackground("gradient"); // ["skybox", "gradient", "black", "white"];
         viewer.loadSettingsFromURL();
-		/*
+		
         viewer.loadGUI(() => {
             viewer.setLanguage('en');
             $("#menu_tools").next().show();
             //viewer.toggleSidebar();
         });
-		*/
+		
         viewer.setDescription(``);
 
         let sceneSG = new Potree.Scene();
@@ -396,10 +396,10 @@
                     elTitle.toString = () => "SUMMER HOUSE";
 
                     let aAbout2 = new Potree.Annotation({
-                        position: [589367.536, 231407.493, 852.372],
+                        position: [589443.523, 231580.944, 815.493],
                         title: elTitle,
-                        cameraPosition: [589607.104, 231616.701, 920.329],
-                        cameraTarget: [589389.183, 231541.292, 877.626],
+                        cameraPosition: [589675.646, 231594.650, 891.575], /*589607.104, 231616.701, 920.329*/
+                        cameraTarget: [589396.457, 231545.124, 830.199], /*589389.183, 231541.292, 877.626*/
                         description: `SUMMER HOUSE <hr>The Summer House was a wood trellis structure that provided shade for guests visiting the Barge. It was lost during the great Miami hurricane of 1926. The Barge was originally landscaped with potted plants, had functioning fountains and electricity.
                             `});
 
@@ -423,8 +423,8 @@
                     let aAbout3 = new Potree.Annotation({
                         position: [589352.418, 231392.350, 795.698],
                         title: elTitle,
-                        cameraPosition: [589210.869, 231208.791, 759.929],
-                        cameraTarget: [589386.200, 231581.351, 810.098],
+                        cameraPosition: [589246.369, 231193.377, 765.574], /*589210.869, 231208.791, 759.929*/
+                        cameraTarget: [589386.200, 231581.351, 810.098], /*589386.200, 231581.351, 810.098*/
                         description: `GROTESQUES<hr>This digital recreation, compared to the 2017 grotesques, demonstrates how dramatically the Barge’s sculptures have changed over time.
                             `});
 
@@ -498,8 +498,8 @@
                     let aAbout6 = new Potree.Annotation({
                         position: [590571.616, 231533.355, 759.504],
                         title: elTitle,
-                        cameraPosition: [590803.366, 231533.632, 891.231], 
-                        cameraTarget: [589464.078, 231591.976, 420.348],
+                        cameraPosition: [590758.669, 231625.968, 814.432], /*590710.354, 231503.486, 769.828*/
+                        cameraTarget: [589481.784, 231192.420, 599.128], /*589483.126, 231733.839, 872.968*/
                         description: `MERMAIDS<hr>The smooth surfaces in this digital recreation are in stark contrast to the visible erosion in the 2017 mermaids.
                             `});
 

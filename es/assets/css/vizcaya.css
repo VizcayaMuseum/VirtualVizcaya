@@ -38,6 +38,14 @@
     .modal-lg{
         width: 82% !important;
     }
+
+    .controls .hotspot-controls {
+        right: 35% !important;
+        left: 25% !important;
+    }
+    #barge_icon{
+        display: none !important;
+    }
 }
 
 
@@ -56,6 +64,19 @@
     #main-irma-video{
         display: none !important;
     }
+    .controls{
+        font-size: 12px !important;
+    }
+    
+    .controls .hotspot-controls {
+        right: 3% !important;
+        left: 1% !important;
+    }
+    .control_buttons, #barge_icon{
+        display: none !important;
+    }
+    
+
 }
 
 /*
@@ -495,12 +516,21 @@ h1, h2, h3, h4 {
 .drawer-content{
     padding: 5% 8% 8% 8%;
     overflow-y: auto !important;
+    font-family: 'Marcellus';
 }
 
 .potree-iframes{
     position: absolute; 
     height: 100%; 
     width: 100%;
+}
+
+#IE-title{
+    display: none;
+    font-family: 'Marcellus';
+    font-size: 30px;
+    padding-left: 8%;
+    padding-top: 5%;
 }
 /*
  * Content
@@ -851,7 +881,7 @@ a {
         background: rgba(0,0,0,0.4);		
         border-radius: 25px;
         bottom: 0px;
-        right: 25%;
+        right: 35%;
         left: 35%;
 		/*
         border: solid;

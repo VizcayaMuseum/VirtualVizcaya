@@ -142,65 +142,7 @@
     </div>
         <script>
 
-            function toggleMap() {
-                $("#myMap").fadeIn();
-
-                var popup = document.getElementById('myMap');
-                var span = document.getElementsByClassName("close")[0];
-                /*opacityOn();*/
-
-                span.onclick = function () {
-                    popup.style.display = "none";
-                    /*opacityOff();*/
-                }
-                window.onclick = function (event) {
-                    if (event.target == popup) {
-                        popup.style.display = "none";
-                        /*opacityOff();*/
-
-
-                        
-                    }
-                }
-            }
-
-            function fingerAnimation() {
-
-                document.getElementById("fingeranimation_grotto").style.display = "block";
-                setTimeout(function () {
-                    document.getElementById("fingeranimation_grotto").style.display = "none";
-                }, 7500);
-
-                window.onclick = function (event) {
-                    $("#fingeranimation_grotto").fadeOut();
-                }
-                window.ontouchstart = function (event) {
-                    $("#fingeranimation_grotto").fadeOut();
-                }
-            }
-            function idleTimer() {
-                var t;
-                //window.onload = resetTimer;
-                window.onmousemove = resetTimer; // catches mouse movements
-                window.onmousedown = resetTimer; // catches mouse movements
-                window.ontouchstart = resetTimer;
-                window.ontouchmove = resetTimer;
-                window.onclick = resetTimer;     // catches mouse clicks
-                window.onscroll = resetTimer;    // catches scrolling
-                window.onkeypress = resetTimer;  //catches keyboard actions
-
-                function logout() {
-                    /*window.top.location.href = '../index.html';*/  //Adapt to actual logout script
-                }
-                function resetTimer() {
-                    clearTimeout(t);
-                    t = setTimeout(logout, 300000);  // time is in milliseconds (1000 is 1 second)/
-
-                }
-            }
-            idleTimer();
             window.viewer = new Potree.Viewer(document.getElementById("potree_render_area"));
-
 
             viewer.setEDLEnabled(false);
             viewer.setFOV(60);
@@ -298,8 +240,8 @@
                         let aAbout2 = new Potree.Annotation({
                             position: [-29.892, 0.542, 0.566],
                             title: elTitle,
-                            cameraPosition: [-27.114, 1.190, -2.820],
-                            cameraTarget: [-31.292, 2.889, 1.065],
+                            cameraPosition: [-26.803, -0.801, -2.231], /*-27.114, 1.190, -2.820*/
+                            cameraTarget: [-31.558, 2.154, 1.100], /*-31.292, 2.889, 1.065*/
                             description: `MURAL DE TECHO<hr>El mural escultural muestra una fantasía marina enmarcada por conchas y corales de yeso. Busque tortugas de mar, caballitos de mar, pulpos, lagartos y peces. Los colores originales del techo son difíciles de identificar ya que se han desteñido.
                         `});
 
@@ -323,8 +265,8 @@
                         let aAbout3 = new Potree.Annotation({
                             position: [-27.864, 2.535, 0.135],
                             title: elTitle,
-                            cameraPosition: [-28.826, 1.887, -3.110],
-                            cameraTarget: [-28.826, 1.887, 0.219],
+                            cameraPosition: [-28.025, 1.823, -3.110], /*-28.826, 1.887, -3.110*/
+                            cameraTarget: [-28.025, 1.823, 0.219], /*-28.826, 1.887, 0.219*/
                             description: `ESTURIÓN DEL RÍO HUDSON<hr>Originalmente, casi todos los peces estaban recubiertos de una pintura metálica que imitaba la iridiscencia de sus escamas brillando en el agua. Desafortunadamente, la pintura metálica fue ocultada tras varios intentos de conservación. El esturión no es nativo de Miami, sino de Nueva York, tierra natal del artista Robert Winthrop Chanler.
                         `});
 
@@ -348,8 +290,8 @@
                         let aAbout4 = new Potree.Annotation({
                             position: [-26.413, -0.618, -1.323],
                             title: elTitle,
-                            cameraPosition: [-27.815, 2.041, -1.450],
-                            cameraTarget: [-25.942, 0.084, -1.567],
+                            cameraPosition: [-28.693, 2.925, -1.563], /*-27.815, 2.041, -1.450*/
+                            cameraTarget: [-26.107, -0.056, -1.734], /*-25.942, 0.084, -1.567*/
                             description: `FUENTES<hr>Estas fuentes de roca coralina son parecidas a las otras fuentes en los jardines de Vizcaya. La restauración de estas fuentes puede ayudar a proteger la Gruta de la Piscina, ya que al bajar la temperatura moderan los altos niveles de humedad en el espacio.
                         `});
 
@@ -373,8 +315,8 @@
                         let aAbout5 = new Potree.Annotation({
                             position: [-29.326, -2.261, -2.682],
                             title: elTitle,
-                            cameraPosition: [-35.020, 3.368, -1.354],
-                            cameraTarget: [-33.436, 1.582, -2.699],
+                            cameraPosition: [-34.858, 3.295, -1.185], /*-35.020, 3.368, -1.354*/
+                            cameraTarget: [-33.265, 1.704, -2.756], /*-33.436, 1.582, -2.699*/
                             description: `PISO<hr>El piso de mármol está hecho de raras piedras importadas, cortadas cuidadosamente y colocadas en un intricado patrón. El piso es vulnerable a las marejadas porque se encuentra bajo el nivel del mar.
                         `});
 
@@ -618,6 +560,42 @@
                 getNewScene('next');
             });
 
+            function toggleMap() {
+                $("#myMap").fadeIn();
+
+                var popup = document.getElementById('myMap');
+                var span = document.getElementsByClassName("close")[0];
+                /*opacityOn();*/
+
+                span.onclick = function () {
+                    popup.style.display = "none";
+                    /*opacityOff();*/
+                }
+                window.onclick = function (event) {
+                    if (event.target == popup) {
+                        popup.style.display = "none";
+                        /*opacityOff();*/
+
+
+                        
+                    }
+                }
+            }
+
+            function fingerAnimation() {
+
+                document.getElementById("fingeranimation_grotto").style.display = "block";
+                setTimeout(function () {
+                    document.getElementById("fingeranimation_grotto").style.display = "none";
+                }, 7500);
+
+                window.onclick = function (event) {
+                    $("#fingeranimation_grotto").fadeOut();
+                }
+                window.ontouchstart = function (event) {
+                    $("#fingeranimation_grotto").fadeOut();
+                }
+            }
         </script>
 
 </body>
