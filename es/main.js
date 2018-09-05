@@ -152,12 +152,12 @@ function hideList() {
 function tutorialPopup() {
 
     $("#nav_panel").fadeIn();
-    opacityOn();
+    /*opacityOn();*/
 
     var navPanel = document.getElementById('nav_panel');
     navPanel.addEventListener('click', function () {
         $("#nav_panel").fadeOut();
-        opacityOff();
+        /*opacityOff();*/
     });
 }
 

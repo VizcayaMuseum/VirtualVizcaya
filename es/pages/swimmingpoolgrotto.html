@@ -147,16 +147,19 @@
 
                 var popup = document.getElementById('myMap');
                 var span = document.getElementsByClassName("close")[0];
-                opacityOn();
+                /*opacityOn();*/
 
                 span.onclick = function () {
                     popup.style.display = "none";
-                    opacityOff();
+                    /*opacityOff();*/
                 }
                 window.onclick = function (event) {
                     if (event.target == popup) {
                         popup.style.display = "none";
-                        opacityOff();
+                        /*opacityOff();*/
+
+
+                        
                     }
                 }
             }

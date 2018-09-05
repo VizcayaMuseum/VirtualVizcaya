@@ -196,7 +196,7 @@
                 $("#mypopup1").fadeIn();
                 var popup = document.getElementById('mypopup1');
                 var span = document.getElementsByClassName("close")[0];
-                opacityOn();
+                /*opacityOn();*/
                 
                 span.onclick = function () {
                     popup.style.display = "none";
@@ -204,7 +204,7 @@
                     $('#mypopup1').attr('src', '');
                     var iframe = document.getElementById('iframe1');
                     iframe.src = iframe.src;
-                    opacityOff();
+                    /*opacityOff();*/
 
                 }
                 window.onclick = function (event) {
@@ -214,7 +214,7 @@
                         $('#mypopup1').attr('src', '');
                         var iframe = document.getElementById('iframe1');
                         iframe.src = iframe.src;
-                        opacityOff();
+                        /*opacityOff();*/
 
                     }
                 }
@@ -224,7 +224,7 @@
                 $("#mypopup2").fadeIn();
                 var popup = document.getElementById('mypopup2');
                 var span = document.getElementsByClassName("close")[1];
-                opacityOn();
+                /*opacityOn();*/
 
                 span.onclick = function () {
                     popup.style.display = "none";
@@ -232,7 +232,7 @@
                     $('#mypopup2').attr('src', '');
                     var iframe = document.getElementById('iframe2');
                     iframe.src = iframe.src;
-                    opacityOff();
+                    /*opacityOff();*/
                 }
                 window.onclick = function (event) {
                     if (event.target == popup) {
@@ -241,7 +241,7 @@
                         $('#mypopup2').attr('src', '');
                         var iframe = document.getElementById('iframe2');
                         iframe.src = iframe.src;
-                        opacityOff();
+                        /*opacityOff();*/
                     }
                 }
             }
@@ -513,16 +513,16 @@
 
             var popup = document.getElementById('myMap');
             var span = document.getElementsByClassName("close")[2];
-            opacityOn();
+            /*opacityOn();*/
 
             span.onclick = function () {
                 popup.style.display = "none";
-                opacityOff();
+                /*opacityOff();*/
             }
             window.onclick = function (event) {
                 if (event.target == popup) {
                     popup.style.display = "none";
-                    opacityOff();
+                    /*opacityOff();*/
                 }
             }
         }
