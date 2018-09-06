@@ -68,19 +68,27 @@ function toggleFullScreen() {
 
 /* Applying Opacity to Parent's Split Container
 *****************************************************/
-/*
+
 function opacityOn() {
     parentWin = window.parent;
-    var sidebar = parentWin.document.getElementById('split-container');
-    sidebar.style.opacity = "0.7";
+    var header = parentWin.document.getElementsByClassName('demo-header')[0];
+    var drawer = parentWin.document.getElementsByClassName('demo-drawer')[0];
+    var button = parentWin.document.getElementsByClassName('mdl-layout__drawer-button')[0];
+    header.style.opacity = "0.8";
+    drawer.style.opacity = "0.8";
+    button.style.display = "none";
 }
 
 function opacityOff() {
     parentWin = window.parent;
-    var sidebar = parentWin.document.getElementById('split-container');
-    sidebar.style.opacity = "1";
+    var header = parentWin.document.getElementsByClassName('demo-header')[0];
+    var drawer = parentWin.document.getElementsByClassName('demo-drawer')[0];
+    var button = parentWin.document.getElementsByClassName('mdl-layout__drawer-button')[0];
+    header.style.opacity = "1";
+    drawer.style.opacity = "1";
+    button.style.display = "inline-block";
 }
-*/
+
 
 /* Link functions for Index: Credits Modal
 *****************************************************/
@@ -151,12 +159,12 @@ function hideList() {
 function tutorialPopup() {
 
     $("#nav_panel").fadeIn();
-    /*opacityOn();*/
+    opacityOn();
 
     var navPanel = document.getElementById('nav_panel');
     navPanel.addEventListener('click', function () {
         $("#nav_panel").fadeOut();
-        /*opacityOff();*/
+        opacityOff();
     });
 }
 

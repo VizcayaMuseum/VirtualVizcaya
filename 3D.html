@@ -113,7 +113,37 @@ body {font-size:16px;}
     .annotation-description-content {
         font-size: 0.70em !important;
     }
-    
+
+    #ainfoDiv {
+    height: 35px;
+    width: 35px;
+    position: absolute;
+    z-index: 4;
+    top: 4%;
+    right: 4%;
+    border-radius: 25px;
+    background-color: #3D9FD6;
+}
+    #info_img {
+    height: 24px;
+    width: 24px;
+    position: absolute;
+    z-index: 4;
+    top: 16%;
+    right: 16%;
+    filter: invert(1);
+}
+
+#infoDiv2 {
+    height: 38px;
+    width: 38px;
+    position: absolute;
+    z-index: 4;
+    top: 4%;
+    right: 1.2%;
+    border-radius: 25px;
+    background-color: #3D9FD6;
+}
 </style>
 <body>
 
@@ -160,64 +190,12 @@ body {font-size:16px;}
 <div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
 
 <!-- !PAGE CONTENT! -->
-<div class="w3-main" style="margin-left:310px;margin-right:10px">
-  
-  <!-- Photo grid (modal) -->
-  <div class="w3-row-padding" style="margin-top:80px" >
-    <div class="w3-quarter">
-      <div class="tile"><a href="3d-documentation.html"><img id="tile1" src="images/works/3DDocumentation_English_Optimized_400_NEW.jpg" style="width:100%"></a></div>                 
-      <div class="tile"><a href="swimmingpoolgrotto.html?1"><img id="tile2" src="images/works/Alligator03_400.gif" style="width:100%"></a></div>
-      <div class="tile"><a href="vr/index.html"><img id="tile1" src="images/works/VirtualVizcaya_Optimized_400_NEW.jpg" style="width:100%"></a></div>
-      <div class="tile"><a href="barge.html?2"><img id="tile3" src="images/works/Mermaids01_optimized_400.jpg" style="width:100%"></a></div>
-    </div>
-    <div class="w3-quarter">
-      <div class="tile"><a href="irma.html"><img id="tile4" src="images/works/irma_optimized_400.gif" style="width:100%"></a></div>
-      <div class="tile"><a href="swimmingpoolgrotto.html?0"><img id="tile5" src="images/works/Grotto_English_Optimized_400.jpg" style="width:100%"></a></div>
-      <div class="tile"><a href="1916barge.html?1"><img id="tile6" src="images/works/Herm1916_Optimized_400.jpg" style="width:100%"></a></div>
-    </div>
-    <div class="w3-quarter">
-      <div class="tile"><a href="barge.html?1"><img id="tile7" src="images/works/herm_optimized_400.gif" style="width:100%"></a></div>
-      <div class="tile"><a href="barge.html?0"><img id="tile8" src="images/works/barge_English_Optimized_400.jpg" style="width:100%"></a></div>
-      <div class="tile"><a data-toggle="modal"><img id="tile9" src="images/works/OurPartners_English_Optimized_400.jpg" style="width:100%"></a></div>
-    </div>
-    <div class="w3-quarter">
-      <div class="tile"><a href="1916barge.html?0"><img id="tile10" src="images/works/1916Barge_English_Optimized_400.jpg" style="width:100%"></a></div>
-      <div class="tile"><a data-toggle="modal" href="#myVideo"><img id="tile11" src="images/works/videoTile_Optimized_400.jpg" style="width:100%"></a></div>
-      <div class="tile"><a href="1916barge.html?2"><img id="tile12" src="images/works/1916mermaids_Optimized_400.jpg" style="width:100%"></a></div>
-    </div>
-  </div>
+<div class="w3-main" style="margin-left:310px;margin-right:10px; ">
 
-  <!-- Photo grid (modal) 
-  <div class="w3-row-padding" style="margin-top:80px" >
-    <div class="w3-quarter">
-      <img src="https://www.w3schools.com/w3images/kitchenconcrete.jpg" style="width:100%" onclick="onClick(this)" alt="Concrete meets bricks">
-      <img src="https://www.w3schools.com/w3images/livingroom.jpg" style="width:100%" onclick="onClick(this)" alt="Light, white and tight scandinavian design">
-      <img src="https://www.w3schools.com/w3images/diningroom.jpg" style="width:100%" onclick="onClick(this)" alt="White walls with designer chairs">
-      <img src="https://www.w3schools.com/w3images/livingroom.jpg" style="width:100%" onclick="onClick(this)" alt="Light, white and tight scandinavian design">
+    <!--Featured Content-->
+    <div id="main-canvas" class="embed-responsive embed-responsive-16by9" style="margin-top:80px;"  >        
+        <iframe src="pages/barge-context.html" allowfullscreen style="height: 300%; width: 100%;"></iframe>
     </div>
-
-    <div class="w3-quarter">
-      <img src="https://www.w3schools.com/w3images/atrium.jpg" style="width:100%" onclick="onClick(this)" alt="Windows for the atrium">
-      <img src="https://www.w3schools.com/w3images/bedroom.jpg" style="width:100%" onclick="onClick(this)" alt="Bedroom and office in one space">
-      <img src="https://www.w3schools.com/w3images/livingroom2.jpg" style="width:100%" onclick="onClick(this)" alt="Scandinavian design">
-      <img src="https://www.w3schools.com/w3images/bedroom.jpg" style="width:100%" onclick="onClick(this)" alt="Bedroom and office in one space">
-    </div>
-
-    <div class="w3-quarter">
-      <img src="https://www.w3schools.com/w3images/kitchenconcrete.jpg" style="width:100%" onclick="onClick(this)" alt="Concrete meets bricks">
-      <img src="https://www.w3schools.com/w3images/livingroom.jpg" style="width:100%" onclick="onClick(this)" alt="Light, white and tight scandinavian design">
-      <img src="https://www.w3schools.com/w3images/livingroom.jpg" style="width:100%" onclick="onClick(this)" alt="Light, white and tight scandinavian design">
-      <img src="https://www.w3schools.com/w3images/diningroom.jpg" style="width:100%" onclick="onClick(this)" alt="White walls with designer chairs">
-    </div>
-
-    <div class="w3-quarter">
-      <img src="https://www.w3schools.com/w3images/atrium.jpg" style="width:100%" onclick="onClick(this)" alt="Windows for the atrium">
-      <img src="https://www.w3schools.com/w3images/bedroom.jpg" style="width:100%" onclick="onClick(this)" alt="Bedroom and office in one space">
-      <img src="https://www.w3schools.com/w3images/livingroom2.jpg" style="width:100%" onclick="onClick(this)" alt="Scandinavian design">
-      <img src="https://www.w3schools.com/w3images/bedroom.jpg" style="width:100%" onclick="onClick(this)" alt="Bedroom and office in one space">
-    </div>
-  </div>
--->
 
 <!-- End page content -->
 </div>

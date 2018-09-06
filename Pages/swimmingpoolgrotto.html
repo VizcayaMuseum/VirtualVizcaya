@@ -133,12 +133,7 @@
                 <span class="close">&times;</span>
                 <div id="popup_container" class="intrinsic-container intrinsic-container-16x9" style="padding-top: 3%;">
                     <div id="iframe3">
-						<div id="grotto_marker_div">
-							<a id="grotto_marker_a" data-toggle="modal" href="#">
-								<img id="grotto_marker_img" src="../assets/img/map_marker.svg" />
-							</a>
-						</div>
-                        <img id="floor_plan" src="../assets/img/vizcaya_map.png" />
+                        <img id="floor_plan" src="../assets/img/vizcayamap_grotto.png" />
                     </div>
                 </div>
             </div>
@@ -593,18 +588,18 @@
                 var popup = document.getElementById('myMap');
                 var span = document.getElementsByClassName("close")[0];
 
-                /*opacityOn();*/
+                opacityOn();
 
                 span.onclick = function () {
                     /*popup.style.display = "none";*/
                     $("#myMap").fadeOut();
-                    /*opacityOff();*/
+                    opacityOff();
                 }
                 window.onclick = function (event) {
                     if (event.target == popup) {
                         $("#myMap").fadeOut();
                         /*popup.style.display = "none";*/
-                        /*opacityOff();*/
+                        opacityOff();
                     }
                 }
             }

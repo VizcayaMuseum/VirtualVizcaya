@@ -64,19 +64,28 @@
     #main-irma-video{
         display: none !important;
     }
-    .controls{
-        font-size: 12px !important;
+    .controls .hotspot-controls{
+        max-width: 300px !important;
+        font-size: 15px !important;
+        left: 10% !important;
+        font-weight: normal !important;
     }
     
-    .controls .hotspot-controls {
-        right: 3% !important;
-        left: 1% !important;
-    }
     .control_buttons, #barge_icon{
         display: none !important;
     }
-    
-
+    .modal-content .modal-title{
+        font-size: 20px !important;
+    }
+    .modal-content .modal-body{
+        font-size: 15px !important;
+    }
+    .annotation-description {        
+        max-width: 200px !important;      
+    }
+    .annotation-description-content {
+        font-size: 0.70em !important;
+    }
 }
 
 /*
@@ -328,6 +337,9 @@ h1, h2, h3, h4 {
     z-index: 0 !important;
     }
 
+.modal-backdrop .show{
+    opacity: 1 !important;
+}
 .mdl-button {
     font-family: 'Marcellus' !important;
     font-size: 18px;
@@ -848,8 +860,8 @@ a {
     height: 70px;
     /*width: 40% my change*/
     /*inherited*/
-    font-family: 'Open Sans', sans-serif;
-    font-size: 18px;
+    font-family: 'Marcellus';
+    font-size: 19px;
     font-weight: 900;
     /*temp*/
     transition-property: opacity;
@@ -857,7 +869,6 @@ a {
     transition-timing-function: ease-in-out;
     transition-delay: initial;
     width: 100%; /*changed*/
-    
     align-content: center;
     /*align-items: center;*/
     box-align: center;
@@ -1180,8 +1191,8 @@ a {
 /*Animation for Finger Instructions*/
 #finger_animation {
     display: none;
-    width: 10%;
-    height: 80%;
+    width: 80px;
+    height: 140px;
     position: relative;
     -webkit-animation-name: example; /* Safari 4.0 - 8.0 */
     -webkit-animation-duration: 8s; /* Safari 4.0 - 8.0 */
@@ -1259,22 +1270,22 @@ a {
 @keyframes example {
     0% {
         left: 50%;
-        top: 50px;
+        top: 50%;
     }
 
     25% {
         left: 35%;
-        top: 50px;
+        top: 50%;
     }
 
     75% {
         left: 50%;
-        top: 50px;
+        top: 50%;
     }
 
     100% {
         left: 35%;
-        top: 50px;
+        top: 50%;
     }
 }
 

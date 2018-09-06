@@ -146,10 +146,7 @@
             <span class="close">&times;</span>
             <div id="popup_container" class="intrinsic-container intrinsic-container-16x9" style="padding-top: 3%;">
                 <div id="iframe3">
-                    <img id="floor_plan" src="../assets/img/vizcaya_map.png" />
-                    <div id="barge_marker_div" style="top: 17%; left: 24%;">
-							<img id="barge_marker_img" src="../assets/img/map_marker.svg" style="top: 17%; left: 24%;"/>
-					</div>
+                    <img id="floor_plan" src="../assets/img/vizcayamap_barge.png" />
                 </div>
             </div>
         </div>
@@ -196,7 +193,7 @@
                 $("#mypopup1").fadeIn();
                 var popup = document.getElementById('mypopup1');
                 var span = document.getElementsByClassName("close")[0];
-                /*opacityOn();*/
+                opacityOn();
                 
                 span.onclick = function () {
                     popup.style.display = "none";
@@ -204,7 +201,7 @@
                     $('#mypopup1').attr('src', '');
                     var iframe = document.getElementById('iframe1');
                     iframe.src = iframe.src;
-                    /*opacityOff();*/
+                    opacityOff();
 
                 }
                 window.onclick = function (event) {
@@ -214,7 +211,7 @@
                         $('#mypopup1').attr('src', '');
                         var iframe = document.getElementById('iframe1');
                         iframe.src = iframe.src;
-                        /*opacityOff();*/
+                        opacityOff();
 
                     }
                 }
@@ -224,7 +221,7 @@
                 $("#mypopup2").fadeIn();
                 var popup = document.getElementById('mypopup2');
                 var span = document.getElementsByClassName("close")[1];
-                /*opacityOn();*/
+                opacityOn();
 
                 span.onclick = function () {
                     popup.style.display = "none";
@@ -232,7 +229,7 @@
                     $('#mypopup2').attr('src', '');
                     var iframe = document.getElementById('iframe2');
                     iframe.src = iframe.src;
-                    /*opacityOff();*/
+                    opacityOff();
                 }
                 window.onclick = function (event) {
                     if (event.target == popup) {
@@ -241,7 +238,7 @@
                         $('#mypopup2').attr('src', '');
                         var iframe = document.getElementById('iframe2');
                         iframe.src = iframe.src;
-                        /*opacityOff();*/
+                        opacityOff();
                     }
                 }
             }
@@ -513,16 +510,16 @@
 
             var popup = document.getElementById('myMap');
             var span = document.getElementsByClassName("close")[2];
-            /*opacityOn();*/
+            opacityOn();
 
             span.onclick = function () {
                 popup.style.display = "none";
-                /*opacityOff();*/
+                opacityOff();
             }
             window.onclick = function (event) {
                 if (event.target == popup) {
                     popup.style.display = "none";
-                    /*opacityOff();*/
+                    opacityOff();
                 }
             }
         }

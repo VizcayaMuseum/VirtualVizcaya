@@ -127,7 +127,7 @@
 
         <!--Control Icons-->
         <img id="barge_icon" onclick="barge1916Button()" src="../images/GIF/1916Barge.gif" title="View Barge" />
-        <img id="map_icon" onclick="toggleMap()" src="../images/map.svg" title="Map" class="control_buttons" />
+        <img id="map_icon" onclick="popupMap()" src="../images/map.svg" title="Map" class="control_buttons" />
         <img id="tutorial_icon" onclick="tutorialPopup()" src="../images/tutorial.svg" title="Tutorial" class="control_buttons" />
         <img id="refresh_icon" onclick="refreshButton()" src="../images/refresh.svg" title="Refresh Page" class="control_buttons" />
         <img id="fullscreen_icon" onclick="toggleFullScreen()" src="../images/fullscreen.svg" title="Fullscreen" class="control_buttons" />
@@ -193,12 +193,7 @@
             <span class="close">&times;</span>
             <div id="popup_container" class="intrinsic-container intrinsic-container-16x9" style="padding-top: 3%;">
                 <div id="iframe3">
-					<div id="barge_marker_div">
-						<a id="barge_marker_a" data-toggle="modal" href="#">
-							<img id="barge_marker_img" src="../assets/img/map_marker.svg" />
-						</a>
-					</div>
-                    <img id="floor_plan" src="../assets/img/vizcaya_map.png" />
+                    <img id="floor_plan" src="../assets/img/vizcayamap_barge.png" />
                 </div>
             </div>
         </div>
@@ -243,12 +238,12 @@
                 material.size = 1;
                 material.pointSizeType = Potree.PointSizeType.ADAPTIVE;
                 material.shape = Potree.PointShape.CIRCLE;               
-
+                
                 function popupHerm() {
                     $("#mypopup1").fadeIn();
                     var popup = document.getElementById('mypopup1');
                     var span = document.getElementsByClassName("close")[0];
-                    /*opacityOn();*/
+                    opacityOn();
 
                     span.onclick = function () {
                         $("#mypopup1").hide();
@@ -256,7 +251,7 @@
                         $('#mypopup1').attr('src', '');
                         var iframe = document.getElementById('iframe1');
                         iframe.src = iframe.src;                    
-                        /*opacityOff();*/
+                        opacityOff();
                     }
                     window.onclick = function (event) {
                         if (event.target == popup) {
@@ -265,7 +260,7 @@
                             $('#mypopup1').attr('src', '');
                             var iframe = document.getElementById('iframe1');
                             iframe.src = iframe.src;
-                            /*opacityOff();*/
+                            opacityOff();
                         }
                     }
                 }
@@ -274,7 +269,7 @@
                     $("#mypopup2").fadeIn();
                     var popup = document.getElementById('mypopup2');
                     var span = document.getElementsByClassName("close")[1];
-                    /*opacityOn();*/
+                    opacityOn();
 
                     span.onclick = function () {
                         $("#mypopup2").hide();
@@ -282,7 +277,7 @@
                         $('#mypopup2').attr('src', '');
                         var iframe = document.getElementById('iframe2');
                         iframe.src = iframe.src;
-                        /*opacityOff();*/
+                        opacityOff();
                     }
                     window.onclick = function (event) {
                         if (event.target == popup) {
@@ -291,7 +286,7 @@
                             $('#mypopup2').attr('src', '');
                             var iframe = document.getElementById('iframe2');
                             iframe.src = iframe.src;
-                            /*opacityOff();*/
+                            opacityOff();
                         }
                     }
                 }
@@ -557,26 +552,28 @@
         function popupMap() {
             var popup = document.getElementById('myMap');
             var span = document.getElementsByClassName("close")[0];
-
-            popup.style.display = "block";
-            /*opacityOn();*/
+            $("#myMap").fadeIn();
+            /*popup.style.display = "block";*/
+            opacityOn();
 
             span.onclick = function () {
-                popup.style.display = "none";
+                $("#myMap").fadeOut();
+                /*popup.style.display = "none";*/
                 //Reloads the Popup
                 $('#myMap').attr('src', '');
                 var iframe = document.getElementById('iframe3');
                 iframe.src = iframe.src;
-                /*opacityOff();*/
+                opacityOff();
             }
             window.onclick = function (event) {
                 if (event.target == popup) {
-                    popup.style.display = "none";
+                    $("#myMap").fadeOut();
+                    /*popup.style.display = "none";*/
                     //Reloads the Popup
                     $('#myMap').attr('src', '');
                     var iframe = document.getElementById('iframe3');
                     iframe.src = iframe.src;
-                    /*opacityOff();*/
+                    opacityOff();
                 }
             }
         }
@@ -586,16 +583,16 @@
 
             var popup = document.getElementById('myMap');
             var span = document.getElementsByClassName("close")[2];
-            /*opacityOn();*/
+            opacityOn();
 
             span.onclick = function () {
                 $("#myMap").fadeOut();
-                /*opacityOff();*/
+                opacityOff();
             }
             window.onclick = function (event) {
                 if (event.target == popup) {
                     $("#myMap").fadeOut();
-                    /*opacityOff();*/
+                    opacityOff();
                 }                
             }
         }
