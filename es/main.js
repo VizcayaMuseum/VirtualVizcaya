@@ -102,6 +102,14 @@ function ufLink(){
 	window.open('https://dcp.ufl.edu/historic-preservation/envision-heritage','_blank');
 }
 
+function vrEng(){
+    window.open('http://virtualvizcaya.org/vr/index.html','_blank');
+}
+
+function vrEsp(){
+    window.open('http://virtualvizcaya.org/vr/es/index.html','_blank');
+}
+
 /* Function to change Touch to HotspotName
 *****************************************************/
 function changeHotspotName(newName){

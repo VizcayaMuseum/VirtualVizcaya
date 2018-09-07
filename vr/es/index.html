@@ -53,11 +53,12 @@
     <style>
 
     body {
-            background-color: #fff !important;
-        }
+      background-color: #fff !important;
+    }
+    
     .mdl-menu{
-    font-family: 'Marcellus';
-}
+      font-family: 'Marcellus';
+    }
     </style>
   </head>
   <body>
@@ -86,26 +87,23 @@
 
       <div class="demo-drawer mdl-layout__drawer">       
         <nav class="demo-navigation mdl-navigation mdl-color--grey-50">
-          <div class="sidebar-sticky2" >
-            <div >
-              <img id="vizcaya_logo" src="../../assets/img/VizcayaLogo_NoBackground.png">
-            </div>
+          <header class="drawer-header">
+                <div id="IE-title">VIRTUAL<br>VIZCAYA</div>
+                <img id="vizcaya_logo" style="padding: 5%;" src="../../assets/img/vizcaya-logo-new.jpg">
+                
+          </header>
+          <div class="drawer-content">
             <hr />
             <p>
               Este programa interactivo proporciona acceso virtual a la Barcaza y la Gruta de la Piscina, dos espacios especiales a los que no se permite la entrada físicamente.
               <br /><br />Este proyecto se realizó con el apoyo de John S. and James L. Knight Foundation. 
-              <br><br><br><br><br>
-              <br><br><br><br><br>
-
+              <br><br><br><br>
             </p>
           </div>
-<!--
-          <footer class="footer2">
-              <div align="center">
-                  <div id="langdiv_index"><a href="../index.html">English</a> | <a id="lang_selected"><b>Español</b></a> </div>
-              </div>
-          </footer>
-          -->
+          <div class="drawer-content-footer" align="center">
+                <div id="langdiv_index"><a href="../index.html"> English </a> | <a id="lang_selected"><b>Español</b></a></div>
+            </div>
+
         </nav>
       </div>
       <main class="mdl-layout__content" style="padding: 2%;">
@@ -122,10 +120,13 @@
         <hr>
         <p>&nbsp;</p>
         <div class="mdl-card on-the-road-again mdl-cell mdl-cell--12-col" style="background-color: #FFFFFF !important;">
-            <H2>Google Poly Tour - 360 Photo Experience para Google Cartón</H2>
+            <H2>Google Poly Tour - 360 Photo Experience para Google Cardboard</H2>
             
             <div class="mdl-color-text--grey-600 mdl-card__supporting-text">
-                Google Poly 3 escenas: Gruta de la piscina, Barcaza 2017 que muestra Irma Damage y 1916 Barge Representación del artista
+            <p>
+              Google Poly ofrece 3 escenas: La Gruta de la Piscina, La Barcaza del 2018 que muestra los daños del Huracán Irma y La Barcaza del 1916 Barge en la representación artística.
+            </p>
+                
             </div>
             <div class="mdl-card__media mdl-color-text--grey-50" style="background-color: #FFFFFF !important;">
               <a href="https://poly.google.com/view/fRlGs85_Uu2"><img src="../img/google_poly.gif" width="70%" height="150%;" alt=""/>
@@ -137,5 +138,50 @@
       </main>
     </div>
     <script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+
+    <script>
+
+      /**
+     * detect IE
+     * returns version of IE or false, if browser is not Internet Explorer
+     */
+    
+     function detectIE() {
+        var ua = window.navigator.userAgent;
+
+        var msie = ua.indexOf('MSIE ');
+        if (msie > 0) {
+            // IE 10 or older => return version number
+            return parseInt(ua.substring(msie + 5, ua.indexOf('.', msie)), 10);
+        }
+
+        var trident = ua.indexOf('Trident/');
+        if (trident > 0) {
+            // IE 11 => return version number
+            var rv = ua.indexOf('rv:');
+            //return rv
+            return parseInt(ua.substring(rv + 3, ua.indexOf('.', rv)), 10);
+        }
+        /*
+        var edge = ua.indexOf('Edge/');
+        if (edge > 0) {
+            // Edge (IE 12+) => return version number
+            return parseInt(ua.substring(edge + 5, ua.indexOf('.', edge)), 10);
+        }
+
+        other browser
+        return false;
+        */
+      }
+
+      var version = detectIE();
+
+      if (version <= 11){
+          //alert('IE ' + detectIE());
+          document.getElementById('vizcaya_logo').style.display = "none";
+          document.getElementById('IE-title').style.display = "block";
+      }  
+
+    </script>
   </body>
 </html>
