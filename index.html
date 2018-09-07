@@ -108,7 +108,8 @@
         <nav class="demo-navigation mdl-navigation mdl-color--grey-50" >
             <header class="drawer-header">
                 <div id="IE-title">VIRTUAL<br>VIZCAYA</div>
-                <img id="vizcaya_logo" style="padding: 5%;" src="assets/img/VizcayaLogo_NoBackground.png">
+                <img id="vizcaya_logo" style="padding: 5%;" src="assets/img/vizcaya-logo-new.jpg">
+                
             </header>
             <hr />
           <div class="drawer-content" >
@@ -116,16 +117,26 @@
               This interactive provides virtual access to Vizcaya’s Barge and Swimming Pool Grotto—two special spaces that cannot be physically entered. It also shows how we are using scanning and 3D modeling to study and preserve Vizcaya. These technologies are especially helpful in understanding and protecting the Barge and Swimming Pool Grotto, which are vulnerable to tropical storms and rising seas.
               <br /><br />This project was made possible by the John S. and James L. Knight Foundation.
               <br><br><b>Select any tile to begin your virtual experience.</b>
+              <hr>
             </p>
-            
+              <p id="browser-alert">
+                
+                To get most out of our website, please use the latest web browser version of <i><b>Chrome</b></i>, <i><b>Firefox</b></i>, <i><b>Microsoft Edge</b></i> or <i><b>Safari</b></i>.</p>
+                </p>
+            <div align="center">
+                <i class="fal fa-home"></i>
+                <div id="langdiv_index" style="font-weight: lighter;"><a id="lang_selected"><b>English</b></a> | <a href="es/index.html">Español</a></div>
+            </div>
           </div>
           
         </nav>
       </div>
       <main class="mdl-layout__content">
-            <div id="IE_alert" class="alert" role="alert" style="display:none; color: #000000; background-color: #7ED6FF; font-size: 0.90em;" >
+            <div id="IE_alert" class="alert" role="alert" style="display:none; color: #000000; background-color: #7ED6FF; font-size: 0.90em; font-family: 'Marcellus';" >
                 <b><u>IMPROVE YOUR EXPERIENCE</u></b>
-                <br>To get most out of our website, please use the latest web browser version of <i><b>Chrome</b></i>, <i><b>Firefox</b></i>, <i><b>Microsoft Edge</b></i> or <i><b>Safari</b></i>.
+                <br>To get most out of our website, please use the latest web browser version of 
+                
+                <i><b>Chrome</b></i>, <i><b>Firefox</b></i>, <i><b>Microsoft Edge</b></i> or <i><b>Safari</b></i>.
 
             </div>
             <!-- Photo Grid -->
@@ -264,6 +275,7 @@
     <script>window.jQuery || document.write('<script src="assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
     <script src="assets/js/vendor/popper.min.js"></script>
     <script src="dist/js/bootstrap.min.js"></script>
+    <script src="main.js"></script>
 
     <script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
     
@@ -309,6 +321,7 @@
         document.getElementById('vizcaya_logo').style.display = "none";
         document.getElementById('IE_alert').style.display = "block";
         document.getElementById('IE-title').style.display = "block";
+        document.getElementById('browser-alert').style.display = "none";
     }  
 
     </script>
