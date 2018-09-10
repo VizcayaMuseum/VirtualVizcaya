@@ -99,14 +99,7 @@
         <img id="refresh_icon" onclick="refreshButton()" src="../images/refresh.svg" title="Refresh Page" class="control_buttons" />
         <img id="fullscreen_icon" onclick="toggleFullScreen()" src="../images/fullscreen.svg" title="Fullscreen" class="control_buttons" />
 
-        <!-- Navigation Instructions -->
-        <div id="nav_panel" class="navPanel">
-            <div class="navPanel-content">
-                <div class="intrinsic-container intrinsic-container-16x9">
-                    <img class="nav_img" src="../images/navigation.png" />
-                </div>
-            </div>
-        </div>
+        
 
         <!--Hotspot Dropup-->
         <div class="controls" id="controls">
@@ -160,7 +153,7 @@
     <div id="myMap" class="popup">
         <div class="popup-content" style="background-color: #ffffff;">
             <span class="close">&times;</span>
-            <div id="popup_container" class="intrinsic-container intrinsic-container-16x9" style="padding-top: 3%;">
+            <div id="popup_container" class="intrinsic-container intrinsic-container-4x3" style="padding-top: 3%;">
                 <div id="iframe3">
                     <img id="floor_plan" src="../assets/img/vizcayamap_barge.png" />
                 </div>
@@ -168,6 +161,15 @@
         </div>
     </div>
 
+    <!-- Navigation Instructions -->
+    <div id="nav_panel" class="navPanel">
+        <div class="navPanel-content">
+            <div class="intrinsic-container intrinsic-container-4x3">
+                <img class="nav_img" src="../images/navigation.png" />
+            </div>
+        </div>
+    </div>
+        
     <script>
 
         window.viewer = new Potree.Viewer(document.getElementById("potree_render_area"));

@@ -46,6 +46,13 @@
     #barge_icon{
         display: none !important;
     }
+
+    .intrinsic-container-16x9 {
+        padding-bottom: 120% !important;
+    }
+    #myMap, #nav_panel{
+        padding-top: 21% !important;
+    }
 }
 
 
@@ -86,6 +93,15 @@
     .annotation-description-content {
         font-size: 0.70em !important;
     }
+
+    #popups_icon, #tutorial_icon2, #refresh_icon2, #fullscreen_icon2{
+        display: none !important;
+    }
+
+    .intrinsic-container-16x9 {
+        padding-bottom: 180% !important;
+    }
+    
 }
 
 /*
@@ -312,8 +328,9 @@ iframe {
 }
 
 body p {
-    font-size: 0.85em;
-    font-family: 'Open Sans';
+    font-size: 0.95em;
+    /*font-family: 'Open Sans';*/
+    font-family: 'Marcellus';
 }
 
 h1, h2, h3, h4 {
@@ -692,7 +709,8 @@ a {
 .annotation-description {
     border-radius: 10px; /*4px*/
     max-width: 250px; /*500px*/
-    font-family: 'Open Sans', sans-serif; /*new*/
+    /*font-family: 'Open Sans', sans-serif; */
+    font-family: 'Marcellus';
 }
 
 .annotation-description-close {
@@ -717,7 +735,7 @@ a {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 4; /* Sit on top */
-    padding-top: 5%; /* Location of the box */
+    padding-top: 2%; /* Location of the box */
     left: 0;
     top: 0;
     width: 100%; /* Full width */
@@ -767,7 +785,7 @@ a {
 
 /* 4x3 Aspect Ratio */
 .intrinsic-container-4x3 {
-    padding-bottom: 75%;
+    padding-bottom: 56.25%;
 }
 
 .intrinsic-container iframe {
@@ -788,7 +806,7 @@ a {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 3; /* Sit on top */
-    padding-top: 5%; /* Location of the box */
+    padding-top: 2%; /* Location of the box */
     left: 0;
     width: 100%; /* Full width */
     height: 100%; /* Full height */
