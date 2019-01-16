@@ -37,8 +37,6 @@
     <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
     <meta name="msapplication-TileColor" content="#3372DF">
 
-    <link rel="icon" href="../img/favicon.ico">
-
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.cyan-light_blue.min.css">
@@ -53,12 +51,12 @@
     <style>
 
     body {
-      background-color: #fff !important;
-    }
-    
+            background-color: #fff !important;
+        }
     .mdl-menu{
       font-family: 'Marcellus';
     }
+    
     </style>
   </head>
   <body>
@@ -66,8 +64,8 @@
       <header class="demo-header mdl-layout__header mdl-color--grey-50">
         <div class="mdl-layout__header-row">
 
-          <a href="../../index.html">
-            <button class="mdl-button mdl-js-button" >Vizcaya Virtual
+          <a href="../index.html">
+            <button class="mdl-button mdl-js-button">Virtual Vizcaya
             </button>
           </a>
          
@@ -76,17 +74,19 @@
             <i class="material-icons">more_vert</i>
           </button>
           <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
-            <a href="../../es/index.html"><li class="mdl-menu__item">INICIO</li></a>
-            <a href="../index.html"><li class="mdl-menu__item">ENGLISH</li></a>
-            
+            <a href="../../index.html"><li class="mdl-menu__item">HOME</li></a>
+            <a href="../index.html"><li class="mdl-menu__item">ENGLISH</li></a>          
           </ul>
 
         </div>
       </header>
 
-
       <div class="demo-drawer mdl-layout__drawer">       
         <nav class="demo-navigation mdl-navigation mdl-color--grey-50">
+          <header class="drawer-header">
+                <div id="IE-title">VIRTUAL<br>VIZCAYA</div>
+                <!--<img id="vizcaya_logo" style="padding: 5%;" src="../assets/img/vizcaya-logo-new.jpg">-->               
+          </header>
           <div class="drawer-content">  
             <h1>Realidad Virtual </h1>
             <hr>         
@@ -99,41 +99,54 @@
                 <div id="langdiv_index"><a href="../index.html"> English </a> | <a id="lang_selected"><b>Español</b></a></div>
             </div>
           </div>
-          
         </nav>
       </div>
       <main class="mdl-layout__content" style="padding: 2%;">
 
-        <div class="mdl-color-text--grey-600 mdl-card__supporting-text">
-          Las siguientes escenas y objetos se pueden ver usando
-          <a href="https://vr.google.com/cardboard/">Google Cardboard </a>y otras plataformas de RV:
-          <p>
-              <br><u>Usuarios de iOS:</u> Utilice <b> Safari Browser </b> antes de pasar a Google Poly Tour.
-              <br><u>Usuarios de Android: </u> utilice <b> Chrome Browser </b> antes de pasar a Google Poly Tour.
-          </p>
-        </div>
-        <hr>
-        <p>&nbsp;</p>
-        <div class="mdl-card on-the-road-again mdl-cell mdl-cell--12-col" style="background-color: #FFFFFF !important;">
-            <H2>Google Poly Tour - 360 Photo Experience para Google Cardboard</H2>
-            
-            <div class="mdl-color-text--grey-600 mdl-card__supporting-text">
-            <p>
-              Google Poly ofrece 3 escenas: La Gruta de la Piscina, La Barcaza del 2018 que muestra los daños del Huracán Irma y La Barcaza del 1916 Barge en la representación artística.
-            </p>
-                
+        <section class="section--center mdl-grid">
+            <header class="section__play-btn mdl-cell mdl-cell--3-col-desktop mdl-cell--2-col-tablet mdl-cell--4-col-phone">
+              <img class="featurette-image img-fluid mx-auto" src="../img/google-cardboard.png" id="cardboard-img" style="padding: 10%;" >
+            </header>
+            <div class="mdl-card mdl-cell mdl-cell--9-col-desktop mdl-cell--6-col-tablet mdl-cell--4-col-phone">
+              <div class="mdl-card__supporting-text" style="font-color: #424242">
+                <h6 style="font-family: 'Marcellus'">Las siguientes escenas y objetos se pueden ver usando
+                  <a href="https://vr.google.com/intl/es_es/cardboard/"><u>Google Cardboard</u></a> o otras plataformas de RV:</h6>
+                  <p class="lead" style="font-size: 0.95em; font-family: 'Marcellus'">
+                    <br><u>Usuarios de iOS:</u> Utilice <b> Safari Browser </b> en su dispositivo móvil antes de pasar a Google Poly Tour.
+                    <br><u>Usuarios de Android: </u> utilice <b> Chrome Browser </b> en su dispositivo móvil antes de pasar a Google Poly Tour.
+                  <p>
+              </div>
             </div>
-            <div class="mdl-card__media mdl-color-text--grey-50" style="background-color: #FFFFFF !important;">
-              <a href="https://poly.google.com/view/fRlGs85_Uu2"><img src="../img/google_poly.gif" width="70%" height="150%;" alt=""/>
-              </a> 
             
-            </div>            
-        </div>
+          </section>
+          <hr>
+          <section class="section--center mdl-grid">
+
+            <div class="mdl-card mdl-cell mdl-cell--9-col-desktop mdl-cell--6-col-tablet mdl-cell--4-col-phone">
+              
+              <div class="mdl-card__supporting-text" style="font-color: #424242">
+                <h1>Google Poly Tour - 360 Photo Experience para Google Cardboard</h1>
+                  <br>
+                  <h4 class="headers">Google Poly ofrece 3 escenas:</h4>
+                  <p class="lead" >
+                      <ul class="lead" style="font-size: 0.95em; font-family: 'Marcellus'">
+                        <li>La Gruta de la Piscina</li>
+                        <li>La Barcaza del 2018 que muestra los daños del Huracán Irma</li>
+                        <li>La Barcaza del 1916 Barge en la representación artística</li>
+                      </ul>
+                  <p class="lead" style="font-size: 0.95em; font-family: 'Marcellus'">Haga clic en la imagen a continuación para ser redirigido a la experiencia de realidad virtual.</p>
+                  </p>
+              </div>
+              <a href="https://poly.google.com/view/7rnGNfW9nhg">
+                <img class="featurette-image img-fluid mx-auto" src="../img/google_poly.gif" style="padding: 2%; height: 120%; width: 100%" />             
+              </a>
+            </div>
+            
+          </section>
 
       </main>
     </div>
     <script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
-
     <script>
 
       /**
