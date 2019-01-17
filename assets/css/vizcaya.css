@@ -349,6 +349,10 @@ body p {
     font-family: 'Marcellus';
 }
 
+#popups_sidebar-sticky p{
+    font-size: 0.95em;
+}
+
 h1, h2, h3, h4 {
     font-family: 'Marcellus';
     font-size: 1.5em;
@@ -1021,6 +1025,7 @@ a {
 .js-scrollable {
     margin-top: 0px;
     margin-bottom: 0px;
+    list-style-type: none;
 }
 
 
